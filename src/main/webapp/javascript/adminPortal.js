@@ -7,9 +7,9 @@ $(function() {
 			url : "getAllCommentsTwo"
 		}).done(
 				function(response) {
-					console.log(response);
-					for (var i = 0; i < response.length; i++) {
-						var currentComment = response[i];
+					console.log(response.content);
+					for (var i = 0; i < response.content.length; i++) {
+						var currentComment = response.content[i];
 						renderComment(currentComment.id,
 								currentComment.commenterName,
 								currentComment.commenterEmail,

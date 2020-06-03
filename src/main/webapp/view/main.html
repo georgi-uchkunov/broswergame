@@ -86,6 +86,11 @@
 						<h4 class="card-title">Info card title</h4>
 						<p class="card-text">Some quick example text to build on the
 							card title and make up the bulk of the card's content.</p>
+							<ul class="list-group comments-list">
+
+
+
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -218,6 +223,35 @@
 
 		</div>
 	</div>
+	<!-- ENTRY TEMPLATE -->
+	<ul class="list-group bg-secondary d-none"
+		id="comment-template-news">
+		<li class="list-group-item bg-secondary"
+			id="list-group-template-comment">
+
+			<div class="card">
+				<div
+					class="card-header text-white bg-primary d-flex justify-content-center">News</div>
+				<div class="card-body bg-secondary">
+					<div class="row d-flex justify-content-center">
+
+						<label>Title: </label>
+						<p class="newsTitle ml-3"></p>
+					</div>
+					<div class="row">
+						<label>Image:</label>
+						<p class="newsImage ml-3"></p>
+					</div>
+					<div class="row">
+						<label>News Text:</label>
+						<p class="newsText ml-3"></p>
+					</div>
+
+				</div>
+			</div>
+
+		</li>
+	</ul>
 
 	<!-- Container (The Classes Section) -->
 	<div id="classes" class="container text-center">
@@ -594,5 +628,6 @@
 		crossorigin="anonymous"></script>
 		<script src="../../javascript/loginJS.js"></script>
 		<script src="../../javascript/commentUpload.js"></script>
+		<script src="../../javascript/newsUpdate.js"></script>
 
 </body>
