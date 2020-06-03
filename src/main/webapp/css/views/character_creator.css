@@ -1,0 +1,30 @@
+body {
+	background-image: url("../../images/Background Two.jpg");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-attachment: fixed;
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	color: white;
+	/* background-image: url("../../images/rune-background.webp") */
+}
+
+.modal-content {
+	background-color: primary;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	color: white;
+	/* background-image: url("../../images/rune-background.webp") */
+}
+
+.list-group-item {
+	background-color: primary;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	color: white;
+	/* background-image: url("../../images/rune-background.webp") */
+}

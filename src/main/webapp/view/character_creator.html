@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>BROWSERGAME</title>
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link
+	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
+	rel="stylesheet"> -->
+<link rel="stylesheet" href="css\theme\_bootswatch.scss">
+<link rel="stylesheet" href="css\theme\_variables.scss">
+<link rel="stylesheet" href="css\theme\bootstrap.css">
+<link rel="stylesheet" href="css\theme\bootstrap.min.css">
+<link rel="stylesheet" href="css\views\character_creator.css">
+
+
+
+</head>
+
+<body>
+
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
+
+		<div class="container">
+
+
+			<a class="navbar-brand" href="/profile"> <i class="fa fa-d-and-d"></i>
+				Browsergame
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active mr-1"><a class="nav-link"
+						href="/character_creator"> <i class="fa fa-id-badge"></i>Character
+							Creator
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link"
+						href="/shop"> <i class="fa fa-shopping-cart"></i>Shop
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="#">
+							<i class="fa fa-facebook-f"></i> Facebook <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="#">
+							<i class="fa fa-reddit"></i> Reddit
+					</a></li>
+					</li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="#">
+							<i class="fa fa-twitch"></i>Twitch
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link"
+						href="/profile"> <i class="fa fa-user"></i>Profile
+					</a></li>
+				</ul>
+
+
+			</div>
+
+
+		</div>
+
+	</nav>
+
+	<div class="container">
+		<div class="row mt-5 d-flex justify-content-center">
+			<div
+				class="card-header w-75 text-white d-flex justify-content-center bg-primary">Character
+				Creator</div>
+			<div class="card w-75">
+				<div class="card-body bg-secondary">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="row">
+								<div class="form-group">
+									<label for="character-name">Character name:</label> <input
+										type="text" class="form-control" id="character-name"
+										placeholder="My name is" val="">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="row">
+								<div class="col">
+									<label for="character-str">Strength:</label> <select
+										id="select-str" class="custom-select">
+										<option selected>Choose...</option>
+										<!-- 	<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option> -->
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+									</select>
+								</div>
+								<div class="col">
+									<label for="character-agi">Agility</label> <select
+										id="select-agi" class="custom-select">
+										<option selected>Choose...</option>
+										<!-- <option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option> -->
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+									</select>
+								</div>
+								<div class="col">
+									<label for="character-for">Fortitude:</label> <select
+										id="select-for" class="custom-select">
+										<option selected>Choose...</option>
+										<!-- <option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option> -->
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+									</select>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col">
+									<label for="character-int">Intelligence:</label> <select
+										id="select-int" class="custom-select">
+										<option selected>Choose...</option>
+										<!-- 	<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option> -->
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+									</select>
+								</div>
+								<div class="col">
+									<label for="character-mag">Magic:</label> <select
+										id="select-mag" class="custom-select">
+										<option selected>Choose...</option>
+										<!-- <option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option> -->
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+									</select>
+								</div>
+								<div class="col">
+									<label for="character-lck">Luck:</label> <select
+										id="select-lck" class="custom-select">
+										<option selected>Choose...</option>
+										<!-- <option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="11">10</option>
+										<option value="10">11</option>
+										<option value="12">12</option> -->
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-2">
+
+						<div class="col-md-6">
+							<label for="character-race">Race:</label> <select
+								id="select-race" class="custom-select">
+								<option selected>I am a</option>
+								<option value="Dwarf">Dwarf</option>
+								<option value="Elf">Elf</option>
+								<option value="Human">Human</option>
+								<option value="Orc">Orc</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<label for="character-class">Class:</label> <select
+								id="select-class" class="custom-select">
+								<option selected>I am a</option>
+								<option value="Fighter">Fighter</option>
+								<option value="Mage">Mage</option>
+								<option value="Thief">Thief</option>
+								<option value="Healer">Healer</option>
+								<option value="Tank">Tank</option>
+							</select>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="card-footer w-75 d-flex justify-content-end bg-primary">
+				<button id="create" type="button" class="btn btn-success">Create</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container mt-3">
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-4">
+				<div class="card">
+					<div
+						class="card-header text-white d-flex justify-content-center bg-primary">Class
+						filter</div>
+					<div class="card-body bg-secondary">
+						<div class="row d-flex justify-content-center">
+							<label class="checkbox-inline text-white mr-4" id="fighter"><input
+								type="checkbox" value="Fighter"> Fighter</label> <label
+								class="checkbox-inline text-white" id="mage"><input
+								type="checkbox" value="Mage"> Mage</label>
+
+						</div>
+						<div class="row d-flex justify-content-center">
+							<label class="checkbox-inline text-white mr-4" id="thief"><input
+								type="checkbox" value="Thief"> Thief</label> <label
+								class="checkbox-inline text-white mr-4" id="healer"><input
+								type="checkbox" value="Healer"> Healer</label> <label
+								class="checkbox-inline text-white mr-4" id="tank"><input
+								type="checkbox" value="Tank"> Tank</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-4">
+				<div class="card">
+					<div
+						class="card-header text-white d-flex justify-content-center bg-primary">Race
+						filter</div>
+					<div class="card-body bg-secondary">
+						<div class="row d-flex justify-content-center">
+							<label class="checkbox-inline text-white mr-3" id="dwarf"><input
+								type="checkbox" value="Dwarf"> Dwarf</label> <label
+								class="checkbox-inline text-white mr-3" id="elf"><input
+								type="checkbox" value="Elf"> Elf</label>
+
+						</div>
+						<div class="row d-flex justify-content-center">
+							<label class="checkbox-inline text-white mr-3" id="human"><input
+								type="checkbox" value="Human"> Human</label> <label
+								class="checkbox-inline text-white mr-3" id="oorc"><input
+								type="checkbox" value="Orc"> Orc</label>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-3 mb-3">
+		<div class="row d-flex justify-content-center">
+			<div
+				class="card-header w-75 text-white d-flex justify-content-center bg-primary">Character
+				Vault</div>
+			<div class="card w-75" id="card-template">
+				<div class="card-body bg-secondary" id="template-body">
+					<ul class="list-group comments-list">
+
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ENTRY TEMPLATE -->
+	<ul class="list-group bg-secondary d-none"
+		id="comment-template-character">
+		<li class="list-group-item bg-secondary"
+			id="list-group-template-character">
+
+			<div class="card">
+				<div
+					class="card-header text-white bg-primary d-flex justify-content-center">Hero</div>
+				<div class="card-body bg-secondary">
+					<div class="row d-flex justify-content-center">
+
+						<label>Character name: </label>
+						<!-- <p class="name"></p> -->
+						<h5>
+							<span class="badge badge-pill badge-primary ml-2 name"> </span>
+						</h5>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Race: </label>
+							<!-- <p class="race"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary race"> </span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>Class </label>
+							<!-- <p class="characterClass"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary characterClass">
+								</span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>Level: </label>
+							<!-- <p class="level"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary level"> </span>
+							</h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>STR: </label>
+							<!-- <p class="strength"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary strength"> </span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>AGI: </label>
+							<!-- <p class="agility"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary agility"> </span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>FOR: </label>
+							<!-- <p class="fortitude"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary fortitude"> </span>
+							</h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>INT: </label>
+							<!-- <p class="intelligence"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary intelligence">
+								</span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>MAG: </label>
+							<!-- <p class="magic"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary magic"> </span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>LCK: </label>
+							<!-- <p class="luck"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary luck"> </span>
+							</h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Swordfighting: </label>
+							<!-- <p class="swordfighting"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary swordfighting">
+								</span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>Acrobatics: </label>
+							<!-- <p class="acrobatics"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary acrobatics">
+								</span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>Defense: </label>
+							<!-- <p class="defense"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary defense"> </span>
+							</h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Investigation: </label>
+							<!-- <p class="investigation"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary investigation">
+								</span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>Spellcasting: </label>
+							<!-- <p class="spellcasting"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary spellcasting">
+								</span>
+							</h5>
+						</div>
+						<div class="col-md-4">
+							<label>Gambit: </label>
+							<!-- <p class="gambit"></p> -->
+							<h5>
+								<span class="badge badge-pill badge-primary gambit"> </span>
+							</h5>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="card-footer bg-primary d-flex justify-content-end">
+				<button data-toggle="modal" data-target="#confirmDeleteModal"
+					type="button" class="btn btn-danger btn-sm remove-character">Delete</button>
+			</div>
+			</div>
+
+		</li>
+	</ul>
+
+	<div class="modal fade" id="confirmDeleteModal" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-primary">
+					<h5 class="modal-title text-white">Delete character</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body bg-secondary text-white">Are you sure
+					you want to delete your character?</div>
+				<div class="modal-footer bg-primary">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">No</button>
+					<button id="confirm-delete" type="button" class="btn btn-danger">Yes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Footer -->
+	<footer class="text-center">
+		<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a><br> <br>
+		<p>This amateur attempt at a browser game site is made by GU and
+			IL</p>
+	</footer>
+
+
+
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="../../javascript/characterCreator.js"></script>
+	<script src="../../javascript/selectorControl.js"></script>
+</body>

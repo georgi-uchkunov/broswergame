@@ -1,0 +1,57 @@
+body {
+  background-image: url("../../images/Characters Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* #fighter-container {
+  background-image: url("../../images/Characters Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#mage-container {
+  background-image: url("../../images/Characters Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#thief-container {
+  background-image: url("../../images/Characters Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#healer-container {
+  background-image: url("../../images/Characters Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#tank-container {
+  background-image: url("../../images/Characters Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+} */
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	/* background-image:
+		url("../../images/Old Blue Stone.jpg") */
+}
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	/* background-image:
+		url("../../images/Old Blue Stone.jpg") */
+}

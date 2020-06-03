@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>BROWSERGAME</title>
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link
+	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
+	rel="stylesheet"> -->
+<link rel="stylesheet" href="css\theme\_bootswatch.scss">
+<link rel="stylesheet" href="css\theme\_variables.scss">
+<link rel="stylesheet" href="css\theme\bootstrap.css">
+<link rel="stylesheet" href="css\theme\bootstrap.min.css">
+<link rel="stylesheet" href="css\views\main.css">
+
+
+
+</head>
+
+<body>
+
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
+
+		<div class="container">
+
+
+			<a class="navbar-brand" href="#"> <i class="fa fa-d-and-d"></i>
+				Browsergame
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="/classes"> <i class="fa fa-dragon"></i> Classes
+					</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/races">
+							<i class="fa fa-fulcrum"></i>Races
+					</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#">
+							<i class="fa fa-facebook-f"></i> Facebook <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#">
+							<i class="fa fa-reddit"></i> Reddit
+					</a></li>
+					</li>
+					<li class="nav-item active"><a class="nav-link" href="#">
+							<i class="fa fa-twitch"></i>Twitch
+					</a></li>
+					<li class="nav-item active">
+						<button type="button" class="btn btn-primary text-white"
+							data-toggle="modal" data-target="#loginModal">
+							<i class="fa fa-user"></i>Login
+						</button>
+					</li>
+				</ul>
+
+
+			</div>
+
+
+		</div>
+
+	</nav>
+
+	<div class="container">
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-8 mt-3">
+				<div class="card text-white bg-primary mb-3">
+					<div class="card-header d-flex justify-content-center">Latest
+						News</div>
+					<div class="card-body">
+						<h4 class="card-title">Info card title</h4>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mt-3">
+				<div class="card text-white bg-primary mb-3">
+					<div class="card-body d-flex justify-content-center">
+						<div class="row d-flex justify-content-center">
+							<h4 class="card-title">
+								PLAY NOW FOR <abbr title="...pay to win">FREE</abbr>
+							</h4>
+							</row>
+							<div class="row d-flex justify-content-center">
+								<button type="button" class="btn btn-primary btn-lg"
+									data-toggle="modal" data-target="#registerModal">Begin
+									your adventure</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- LOGIN MODAL -->
+			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+				aria-labelledby="loginModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content bg-primary" id="modal-content-login">
+						<div class="modal-header bg-primary">
+							<h5 class="modal-title text-white" id="loginModalLabel"></h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-primary">
+							<!-- LOGIN FORM -->
+							<form>
+								<div class="form-group text-white">
+									<label for="email">Email</label>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text bg-success"> <i
+												class="fa fa-envelope"></i>
+											</span>
+										</div>
+										<input type="email" class="form-control" id="email"
+											placeholder="Input e-mail">
+									</div>
+								</div>
+								<div class="form-group text-white">
+									<label for="password">Password</label>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text bg-success"> <i
+												class="fa fa-key"></i>
+											</span>
+										</div>
+										<input type="password" class="form-control" id="password"
+											placeholder="Input password">
+									</div>
+								</div>
+								<div class="bg-primary d-flex justify-content-between">
+									<button id="login-button" type="button" class="btn btn-success">Login</button>
+									<button type="button" class="btn btn-warning text-white"
+										data-toggle="modal" data-target="#registerModal">Register</button>
+								</div>
+							</form>
+							<!--LOGIN FORM ENDS HERE  -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- REGISTER MODAL STARTS HERE -->
+			<div class="modal fade" id="registerModal" tabindex="-1"
+				role="dialog" aria-labelledby="registerModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog bg-primary" role="document">
+					<div class="modal-content bg-primary">
+						<div class="modal-header text-white bg-primary">
+							<h5 class="modal-title">Register</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-primary">
+							<form id="register-form" action="register" method="POST">
+								<div class="form-group text-white">
+									<label for="registerEmail">Email</label> <input name="email"
+										type="email" class="form-control" id="registerEmail"
+										placeholder="Input email">
+								</div>
+								<div class="form-group text-white">
+									<label for="registerUsername">Username</label> <input
+										name="username" type="text" class="form-control"
+										id="registerUsername" placeholder="Input username">
+								</div>
+								<div class="form-group text-white">
+									<label for="registerAddress">Address</label> <input
+										name="address" type="text" class="form-control"
+										id="registerAddress" placeholder="Input address">
+								</div>
+								<div class="form-group text-white">
+									<label for="registeringameName">In-game name</label> <input
+										name="ingameName" type="text" class="form-control"
+										id="registeringameName" placeholder="Input in-game name">
+								</div>
+								<div class="form-group text-white">
+									<label for="registerPassword">Password</label> <input
+										name="password" type="password" class="form-control"
+										id="registerPassword" placeholder="Input password">
+								</div>
+								<div class="form-group text-white">
+									<label for="repeatPassword">Repeat password</label> <input
+										type="password" class="form-control" id="repeatPassword"
+										placeholder="Repeat password">
+								</div>
+							</form>
+
+						</div>
+						<div class="modal-footer bg-primary">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+							<button id="confirm-register" type="button"
+								class="btn btn-success">Done</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- REGISTER MODAL ENDS HERE -->
+
+		</div>
+	</div>
+
+	<!-- Container (The Classes Section) -->
+	<div id="classes" class="container text-center">
+		<h3>THE CLASSES</h3>
+		<p>
+			<em>Choose your hero</em>
+		</p>
+		<p>We have created a fictional browser game website. Lorem ipsum
+			dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+			incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+			officia deserunt mollit anim id est laborum consectetur adipiscing
+			elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<p class="text-center">
+					<strong>Fighter</strong>
+				</p>
+				<br> <a href="#demo" data-toggle="collapse"> <img
+					src="../images/Fighter_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo" class="collapse">
+					<p>Hits hard</p>
+					<p>Main stat is STR...duh</p>
+					<p>Keep it simple, bro.</p>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<p class="text-center">
+					<strong>Mage</strong>
+				</p>
+				<br> <a href="#demo2" data-toggle="collapse"> <img
+					src="../images/Mage_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo2" class="collapse">
+					<p>Pew-pew!</p>
+					<p>"Earth, wind and fire heed my call!"</p>
+					<p>Watch that mana meter...just kidding we don't have those.</p>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<p class="text-center">
+					<strong>Thief</strong>
+				</p>
+				<br> <a href="#demo3" data-toggle="collapse"> <img
+					src="../images/Slayer_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo3" class="collapse">
+					<p>Sneaky-sneaky</p>
+					<p>Stabbity-stabbity</p>
+					<p>Bonus gold gain and stuff</p>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-sm-6">
+				<p class="text-center">
+					<strong>Healer</strong>
+				</p>
+				<br> <a href="#demo4" data-toggle="collapse"> <img
+					src="../images/Controller_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo4" class="collapse">
+					<p>Ambulance driver</p>
+					<p>Has a 911 tattoo</p>
+					<p>Sells Health Potions on the side</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<p class="text-center">
+					<strong>Tank</strong>
+				</p>
+				<br> <a href="#demo5" data-toggle="collapse"> <img
+					src="../images/Tank_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo5" class="collapse">
+					<p>"They call me Mr. Panzer!"</p>
+					<p>Can take a hit, but has feelings, too.</p>
+					<p>More armor than man</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="card">
+			<div
+				class="card-header bg-primary text-white d-flex justify-content-center">
+				Take your pick</div>
+			<div class="card-body">
+				<div class="card-body">
+					<div id="carouselExampleIndicators" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselExampleIndicators" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img class="d-block w-100" src="" alt="Fighter"
+									id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Fighter</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Mage" id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Mage</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Thief"
+									id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Thief</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Healer"
+									id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Healer</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Tank" id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Tank</h5>
+								</div>
+							</div>
+
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleIndicators"
+							role="button" data-slide="prev"> <span
+							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+							class="sr-only">Previous</span>
+						</a> <a class="carousel-control-next"
+							href="#carouselExampleIndicators" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Container (The Classes Section) -->
+	<div id="races" class="container text-center">
+		<h3>THE RACES</h3>
+		<p>
+			<em>Choose your nature</em>
+		</p>
+		<p>We have created a fictional browser game website. Lorem ipsum
+			dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+			incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+			officia deserunt mollit anim id est laborum consectetur adipiscing
+			elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				<p class="text-center">
+					<strong>Human</strong>
+				</p>
+				<br> <a href="#demo" data-toggle="collapse"> <img
+					src="../images/Fighter_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo" class="collapse">
+					<p>Plain as day</p>
+					<p>Rounded stats</p>
+					<p>Cardboard taste</p>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<p class="text-center">
+					<strong>Elf</strong>
+				</p>
+				<br> <a href="#demo3" data-toggle="collapse"> <img
+					src="../images/Slayer_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo3" class="collapse">
+					<p>Fancy and stuff</p>
+					<p>Could be ancient</p>
+					<p>Magic in the blood</p>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-sm-6">
+				<p class="text-center">
+					<strong>Dwarf</strong>
+				</p>
+				<br> <a href="#demo4" data-toggle="collapse"> <img
+					src="../images/Controller_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo4" class="collapse">
+					<p>Short, but strong</p>
+					<p>Likes gold and digging</p>
+					<p>Pretty sure you know what a dwarf is</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<p class="text-center">
+					<strong>Orc</strong>
+				</p>
+				<br> <a href="#demo5" data-toggle="collapse"> <img
+					src="../images/Tank_icon.png" class="img-circle person"
+					alt="Random Name" width="80" height="80">
+				</a>
+				<div id="demo5" class="collapse">
+					<p>Green team</p>
+					<p>Bench presses humans and elves.</p>
+					<p>Tends to scream loudly</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="card">
+			<div
+				class="card-header bg-primary text-white d-flex justify-content-center">
+				Choose your favorite</div>
+			<div class="card-body">
+				<div class="card-body">
+					<div id="carouselExampleIndicators" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselExampleIndicators" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img class="d-block w-100" src="" alt="Human"
+									id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Human</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Elf" id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Elf</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Dwarf"
+									id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Dwarf</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="" alt="Orc" id="carousel-image">
+								<div class="carousel-caption d-none d-md-block text-white">
+									<h5>Orc</h5>
+								</div>
+							</div>
+
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleIndicators"
+							role="button" data-slide="prev"> <span
+							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+							class="sr-only">Previous</span>
+						</a> <a class="carousel-control-next"
+							href="#carouselExampleIndicators" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Container (Contact Section) -->
+	<div id="contact" class="container mt-5">
+		<h3 class="text-center">Contact</h3>
+		<p class="text-center">
+			<em>We love our fans!</em>
+		</p>
+
+		<div class="row">
+			<div class="col-md-4">
+				<p>Fan? Drop a note.</p>
+				<p>
+					<span class="glyphicon glyphicon-map-marker"></span>Plovdiv, BG
+				</p>
+				<p>
+					<span class="glyphicon glyphicon-phone"></span>Phone: +00
+					1515151515
+				</p>
+				<p>
+					<span class="glyphicon glyphicon-envelope"></span>Email:
+					mail@mail.com
+				</p>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<input class="form-control" id="commenterName" name="name"
+							placeholder="Name" type="text" required>
+					</div>
+					<div class="col-sm-6 form-group">
+						<input class="form-control" id="commenterEmail" name="email"
+							placeholder="Email" type="email" required>
+					</div>
+				</div>
+				<textarea class="form-control" id="commenterComment" name="comments"
+					placeholder="Comment" rows="5"></textarea>
+				<br>
+				<div class="row">
+					<div class="col-md-12 form-group d-flex justify-content-end">
+						<button id="submitComment" type="button"
+								class="btn btn-primary">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="text-center">
+		<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a><br> <br>
+		<p>This amateur attempt at a browser game site is made by GU and
+			IL</p>
+	</footer>
+
+
+
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+		<script src="../../javascript/loginJS.js"></script>
+		<script src="../../javascript/commentUpload.js"></script>
+
+</body>

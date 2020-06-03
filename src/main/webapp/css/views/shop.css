@@ -1,0 +1,106 @@
+body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background-image: url("../../images/Shop Background.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: fixed;
+}
+
+#main-container {
+	padding: 100px;
+	display: flex;
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
+
+/* SEARCH BUTTON */
+#search {
+	position: relative;
+	background-color: #4CAF50;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#search:after {
+	content: "";
+	background: #90EE90;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px !important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
+}
+
+#search:active:after {
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+	transition: 0s
+}
+
+/* SHOP SPECIFIC CSS BELOW  */
+.carousel-inner {
+	width: 560px;
+	height: 340px;
+}
+
+#carousel-image {
+	width: 560px;
+	height: 340px;
+}
+
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media ( max-width : 600px) {
+	.carousel-caption {
+		display: none;
+	}
+}
+
+
+.product-title{
+	text-transform: uppercase;
+}
+
+#list-group-template-shop{
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+#list-group-template-shop{
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}

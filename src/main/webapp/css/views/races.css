@@ -1,0 +1,50 @@
+body {
+  background-image: url("../../images/Background Six.jpg");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-attachment: fixed;
+}
+
+/* #human-container {
+  background-image: url("https://www.mobygames.com/images/promo/original/1478525986-3718676837.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#elf-container {
+  background-image: url("https://wallpaperaccess.com/full/726566.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#dwarf-container {
+  background-image: url("https://i.pinimg.com/originals/d8/83/c0/d883c0de7bddb395db66e308a6946ffe.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#orc-container {
+  background-image: url("https://i.pinimg.com/originals/d8/83/c0/d883c0de7bddb395db66e308a6946ffe.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+ */
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	/* background-image:
+		url("../../images/Old Blue Stone.jpg") */
+}
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
