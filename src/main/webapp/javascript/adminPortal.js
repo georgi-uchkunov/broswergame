@@ -79,7 +79,7 @@ $(function() {
 		console.log(id);
 		$.ajax({
 			method : "POST",
-			url : "deleteMyComment",
+			url : "deleteComment",
 			data : {
 				id : id
 			}
