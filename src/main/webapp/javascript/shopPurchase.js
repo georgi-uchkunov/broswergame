@@ -5,6 +5,7 @@ $(function() {
 
 		var title = $('#sea-dragon-title').text();
 		var price = $('#sea-dragon-price').text();
+		
 
 		postPurchase(title, price);
 

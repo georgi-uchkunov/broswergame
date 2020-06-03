@@ -1,0 +1,23 @@
+body {
+  background-image: url("../../images/Background Five.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
