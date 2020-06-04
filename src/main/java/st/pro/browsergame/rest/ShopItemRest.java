@@ -31,7 +31,7 @@ public class ShopItemRest {
 
 	
 	private ShopItemRepository shopItemRepo;
-;
+
 
 	@Autowired
 	public ShopItemRest(ShopItemRepository shopItemRepo) {

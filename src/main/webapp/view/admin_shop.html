@@ -96,14 +96,11 @@
 									placeholder="Product Price" type="text" required>
 							</div>
 							<div class="card-footer">
-
 								<div class="row form-group d-flex justify-content-end">
 									<button id="createShopItem" type="button"
 										class="btn btn-primary">Create item</button>
 								</div>
-
 							</div>
-
 						</div>
 					</div>
 
@@ -128,18 +125,23 @@
 
 							<div class="card m-1" style="height: 300px; width: 200px">
 								<div class="card-body">
-									<img class="shop-item-image" id="shop-item-image"
-										style="height: 150px; width: 150px; display: block;" src=""
-										alt="Card image"> <label for="title"> The
-										product: </label>
-									<p class="shop-item-title"></p>
-
-									<label for="price"> Price: </label>
-									<p class="shop-item-price"></p>
+									<div class="row">
+										<img class="shop-item-image" id="shop-item-image"
+											style="height: 150px; width: 150px; display: block;" src=""
+											alt="Card image">
+									</div>
+									<div class="row">
+										<label for="title"> The product: </label>
+										<p class="shop-item-title"></p>
+									</div>
+									<div class="row">
+										<label for="price"> Price: </label>
+										<p class="shop-item-price"></p>
+									</div>
 								</div>
 								<div class="card-footer bg-primary d-flex justify-content-end">
 									<button data-toggle="modal" data-target="#confirmDeleteModal"
-										type="button" class="btn btn-danger btn-sm remove--shop-item">Delete</button>
+										type="button" class="btn btn-danger btn-sm remove-shop-item">Delete</button>
 								</div>
 
 							</div>
@@ -153,14 +155,14 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header bg-primary">
-									<h5 class="modal-title text-white">Delete comment</h5>
+									<h5 class="modal-title text-white">Delete shop item</h5>
 									<button type="button" class="close" data-dismiss="modal"
 										aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body bg-secondary text-white">Are you
-									sure you want to delete this comment?</div>
+									sure you want to delete this shop item?</div>
 								<div class="modal-footer bg-primary">
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">No</button>
@@ -173,9 +175,64 @@
 
 				</div>
 
-				<div class="col"></div>
+			</div>
+			<div class="col">
+				<div
+					class="card-header w-75 bg-info text-white d-flex justify-content-center">
+					User Purchases</div>
+				<div class="card w-75" id="card-template">
+					<div class="card-body bg-info" id="template-body">
+						<ul class="list-group comments-list">
 
 
+
+						</ul>
+					</div>
+				</div>
+
+				<ul class="list-group d-none" id="comment-template-shop">
+					<li class="list-group-item" id="list-group-template-shop">
+						<div class="row text-white d-flex justify-content-center">
+							<div class="col-md-3">
+								<img class="img-responsive" width=50 height=50
+									src="https://static.thenounproject.com/png/16757-200.png">
+							</div>
+							<div class="col-md-6">
+								<p class="purchase-title"></p>
+								<p class="purchase-price"></p>
+
+							</div>
+							<div class="col-md-3">
+								<button data-toggle="modal"
+									data-target="#confirmDeleteModalUserChoice" type="button"
+									class="btn btn-danger btn-sm remove-item">Cancel</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+
+				<div class="modal fade" id="confirmDeleteModalUserChoice"
+					tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title text-white">Cancel client order</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body text-white">Are you sure you want to
+								delete this client order?</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">No</button>
+								<button id="confirm-delete-order" type="button" class="btn btn-danger">Yes</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>

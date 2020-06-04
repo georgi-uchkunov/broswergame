@@ -5,7 +5,6 @@ $(function() {
 
 		var title = $('#sea-dragon-title').text();
 		var price = $('#sea-dragon-price').text();
-		
 
 		postPurchase(title, price);
 
@@ -19,7 +18,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-three").on("click", function() {
 
 		var title = $('#hammerholm-title').text();
@@ -28,7 +27,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-four").on("click", function() {
 
 		var title = $('#crimson-title').text();
@@ -37,7 +36,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-five").on("click", function() {
 
 		var title = $('#road-title').text();
@@ -46,7 +45,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-six").on("click", function() {
 
 		var title = $('#waterfall-title').text();
@@ -55,7 +54,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-seven").on("click", function() {
 
 		var title = $('#ground-title').text();
@@ -64,7 +63,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-eight").on("click", function() {
 
 		var title = $('#grove-title').text();
@@ -73,7 +72,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-nine").on("click", function() {
 
 		var title = $('#river-title').text();
@@ -82,7 +81,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-ten").on("click", function() {
 
 		var title = $('#jungle-title').text();
@@ -91,7 +90,7 @@ $(function() {
 		postPurchase(title, price);
 
 	})
-	
+
 	$("#buy-eleven").on("click", function() {
 
 		var title = $('#jungle-title-second').text();
@@ -182,6 +181,42 @@ $(function() {
 
 	}
 
+	// LOAD ALL SHOP ITEMS
+	getShopItems = function() {
+		$.ajax({
+			method : "GET",
+			url : "getAllShopItems"
+		}).done(
+				function(response) {
+					console.log(response.content);
+					for (var i = 0; i < response.content.length; i++) {
+						var currentShopItem = response.content[i];
+						renderShopProduct(currentShopItem.id,
+								currentShopItem.image, currentShopItem.title,
+								currentShopItem.price);
+
+					}
+
+				}).fail(function(response) {
+		})
+	}
+
+	// LOAD PURCHASE TEMPLATE
+	var renderShopProduct = function(id, image, title, price) {
+
+		var $template = $('#template-shop').html();
+		$template = $($template);
+
+		$template.find('.remove-item').attr('id', id);
+		$template.find('.product-image').attr('src', image);
+		$template.find('.product-title').text(title);
+		$template.find('.product-price').text(price);
+
+		var $commentsList = $(".shop-list");
+		$commentsList.append($template);
+	}
+
 	getUserPurchases();
+	getShopItems();
 
 })

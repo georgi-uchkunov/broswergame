@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import st.pro.browsergame.models.Comment;
 import st.pro.browsergame.models.Purchase;
 import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.PurchaseRepository;
@@ -82,5 +85,10 @@ public class PurchaseManagerRest {
 
 		return ResponseEntity.ok(purchase);
 	}
+	
+	@GetMapping("/getAllUserPurchases")
+    public Page<Purchase> getAllUserPurchases(Pageable pageable) {
+        return purRepo.findAll(pageable);
+    }
 
 }

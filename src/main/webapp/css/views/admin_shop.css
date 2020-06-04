@@ -21,3 +21,16 @@ body {
 	background-image:
 		url("../../images/Old Blue Stone.jpg")
 }
+
+#list-group-template-shop{
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+#list-group-template-shop{
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
