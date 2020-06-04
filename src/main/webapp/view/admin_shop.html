@@ -78,21 +78,21 @@
 				<div class="row">
 
 					<div class="card text-white bg-primary mb-3"
-						style="height: 350px; width: 250px">
+						style="height: 380px; width: 250px">
 						<div class="card-header">Add new Product</div>
 						<div class="card-body">
 							<div class="row form-group">
 
-								<input class="form-control" id="itemImage" name="Image"
+								<input class="form-control mb-3" id="itemImage" name="Image"
 									placeholder="Image url" type="text" required>
 							</div>
 							<div class="row form-group">
 
-								<input class="form-control" id="itemTitle" name="title"
+								<input class="form-control mb-3" id="itemTitle" name="title"
 									placeholder="Product Title" type="text" required>
 							</div>
 							<div class="row form-group">
-								<input class="form-control" id="itemPrice" name="itemPrice"
+								<input class="form-control mb-3" id="itemPrice" name="itemPrice"
 									placeholder="Product Price" type="text" required>
 							</div>
 							<div class="card-footer">
@@ -103,14 +103,13 @@
 							</div>
 						</div>
 					</div>
-
-
-
-
 				</div>
+			</div>
 
+			<div class="col">
 				<div class="row">
 					<div class="card" style="width: 250px" id="card-template">
+						<div class="card-header bg-primary">Added Products</div>
 						<div class="card-body bg-secondary" id="template-body">
 							<ul class="list-group items-list">
 
@@ -120,23 +119,22 @@
 						</div>
 					</div>
 					<ul class="list-group bg-secondary d-none" id="shop-item-template">
-						<li class="list-group-shop-item bg-secondary"
+						<li class="list-group-shop-item bg-secondary mb-3"
 							id="list-group-template-shop-item">
-
-							<div class="card m-1" style="height: 300px; width: 200px">
+							<div class="card" style="height: 300px; width: 200px">
 								<div class="card-body">
-									<div class="row">
+									<div class="row d-flex justify-content-center">
 										<img class="shop-item-image" id="shop-item-image"
 											style="height: 150px; width: 150px; display: block;" src=""
 											alt="Card image">
 									</div>
-									<div class="row">
-										<label for="title"> The product: </label>
-										<p class="shop-item-title"></p>
+									<div class="row d-flex justify-content-center">
+										<label for="title"> Name: </label>
+										<p class="shop-item-title ml-2"></p>
 									</div>
-									<div class="row">
+									<div class="row d-flex justify-content-center">
 										<label for="price"> Price: </label>
-										<p class="shop-item-price"></p>
+										<p class="shop-item-price ml-2"></p>
 									</div>
 								</div>
 								<div class="card-footer bg-primary d-flex justify-content-end">
@@ -174,14 +172,13 @@
 					</div>
 
 				</div>
-
 			</div>
 			<div class="col">
 				<div
-					class="card-header w-75 bg-info text-white d-flex justify-content-center">
+					class="card-header bg-primary text-white d-flex justify-content-center">
 					User Purchases</div>
-				<div class="card w-75" id="card-template">
-					<div class="card-body bg-info" id="template-body">
+				<div class="card" id="card-template">
+					<div class="card-body bg-info" id="template-body-purchases">
 						<ul class="list-group comments-list">
 
 
@@ -228,7 +225,8 @@
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary"
 									data-dismiss="modal">No</button>
-								<button id="confirm-delete-order" type="button" class="btn btn-danger">Yes</button>
+								<button id="confirm-delete-order" type="button"
+									class="btn btn-danger">Yes</button>
 							</div>
 						</div>
 					</div>

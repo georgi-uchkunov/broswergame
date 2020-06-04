@@ -100,6 +100,7 @@ $(function() {
 						var currentPurchase = response.content[i];
 						renderPurchase(currentPurchase.id,
 								currentPurchase.title, currentPurchase.price);
+						console.log(response.content);
 
 					}
 
@@ -120,7 +121,7 @@ $(function() {
 		var $commentsList = $(".comments-list");
 		$commentsList.append($template);
 	}
-	
+
 	// CANCEL PURCHASE BUTTON
 	$(document).on('click', '.remove-item', function() {
 		$selectedPurchase = $(this).closest('.list-group-item');

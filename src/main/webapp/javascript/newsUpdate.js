@@ -29,7 +29,7 @@ $(function() {
 		$template = $($template);
 
 		$template.find('.newsTitle').text(newsTitle);
-		$template.find('.newsImage').text(newsImage);
+		$template.find('.newsImage').attr('src', newsImage);
 		$template.find('.newsText').text(newsText);
 
 		var $commentsList = $(".comments-list");

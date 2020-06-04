@@ -79,14 +79,11 @@
 	<div class="container">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-8 mt-3">
-				<div class="card text-white bg-primary mb-3">
+				<div class="card text-white bg-primary mb-3 w-75">
 					<div class="card-header d-flex justify-content-center">Latest
 						News</div>
-					<div class="card-body">
-						<h4 class="card-title">Info card title</h4>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-							<ul class="list-group comments-list">
+					<div class="card-body" id="news-card">
+						<ul class="list-group comments-list">
 
 
 
@@ -224,32 +221,29 @@
 		</div>
 	</div>
 	<!-- ENTRY TEMPLATE -->
-	<ul class="list-group bg-secondary d-none"
-		id="comment-template-news">
+	<ul class="list-group bg-secondary d-none" id="comment-template-news">
 		<li class="list-group-item bg-secondary"
 			id="list-group-template-comment">
 
 			<div class="card">
-				<div
-					class="card-header text-white bg-primary d-flex justify-content-center">News</div>
 				<div class="card-body bg-secondary">
 					<div class="row d-flex justify-content-center">
-
-						<label>Title: </label>
-						<p class="newsTitle ml-3"></p>
+						<div class="col">
+							<img class="newsImage"
+								style="height: 120px; width: 120px; display: block;" src=""
+								alt="News Image">
+						</div>
+						<div class="col">
+							<h3>
+								<p class="newsTitle ml-3"></p>
+							</h3>
+						</div>
 					</div>
-					<div class="row">
-						<label>Image:</label>
-						<p class="newsImage ml-3"></p>
-					</div>
-					<div class="row">
-						<label>News Text:</label>
+					<div class="row mt-3">
 						<p class="newsText ml-3"></p>
 					</div>
-
 				</div>
 			</div>
-
 		</li>
 	</ul>
 
@@ -594,8 +588,7 @@
 				<br>
 				<div class="row">
 					<div class="col-md-12 form-group d-flex justify-content-end">
-						<button id="submitComment" type="button"
-								class="btn btn-primary">Send</button>
+						<button id="submitComment" type="button" class="btn btn-primary">Send</button>
 					</div>
 				</div>
 			</div>
@@ -626,8 +619,8 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-		<script src="../../javascript/loginJS.js"></script>
-		<script src="../../javascript/commentUpload.js"></script>
-		<script src="../../javascript/newsUpdate.js"></script>
+	<script src="../../javascript/loginJS.js"></script>
+	<script src="../../javascript/commentUpload.js"></script>
+	<script src="../../javascript/newsUpdate.js"></script>
 
 </body>

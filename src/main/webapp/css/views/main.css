@@ -14,10 +14,38 @@ body {
 		url("../../images/Old Blue Stone.jpg")
 }
 
+#news-card{
+	overflow-y: scroll;
+	height: 550px;
+	overflow-x: hidden;
+}
+
+#news-card::-webkit-scrollbar {
+width: 20px;
+}
+
+#news-card::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey;
+}
+
+#news-card::-webkit-scrollbar-thumb {
+background:rgb(9, 174, 224);
+}
+
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
+
+#list-group-template-comment{
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
 	background-image:
 		url("../../images/Old Blue Stone.jpg")
 }
