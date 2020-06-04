@@ -72,114 +72,116 @@
 
 	<div class="container">
 		<div class="container mt-3 mb-3">
-			<div class="row d-flex justify-content-center">
-				<div
-					class="card-header w-75 text-white d-flex justify-content-center bg-primary">User
-					Comments</div>
-				<div class="card w-75" id="card-template">
-					<div class="card-body bg-secondary" id="template-body">
-						<ul class="list-group comments-list">
-
-
-
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- ENTRY TEMPLATE -->
-	<ul class="list-group bg-secondary d-none"
-		id="comment-template-comment">
-		<li class="list-group-item bg-secondary"
-			id="list-group-template-comment">
-
-			<div class="card">
-				<div
-					class="card-header text-white bg-primary d-flex justify-content-center">Comment</div>
-				<div class="card-body bg-secondary">
+			<div class="row">
+				<div class="col">
 					<div class="row d-flex justify-content-center">
+						<div
+							class="card-header w-75 text-white d-flex justify-content-center bg-primary">User
+							Comments</div>
+						<div class="card w-75" id="card-template">
+							<div class="card-body bg-secondary" id="template-body">
+								<ul class="list-group comments-list">
 
-						<label>Commenter name: </label>
-						<p class="commenter-name ml-3"></p>
+
+
+								</ul>
+							</div>
+						</div>
 					</div>
-					<div class="row">
-						<label>Email:</label>
-						<p class="commenter-email ml-3"></p>
-					</div>
-					<div class="row">
-						<label>Comment:</label>
-						<p class="commenter-comment ml-3"></p>
-					</div>
+					<!-- ENTRY TEMPLATE -->
+					<ul class="list-group bg-secondary d-none"
+						id="comment-template-comment">
+						<li class="list-group-item bg-secondary"
+							id="list-group-template-comment">
 
-				</div>
-				<div class="card-footer bg-primary d-flex justify-content-end">
-					<button data-toggle="modal" data-target="#confirmDeleteModal"
-						type="button" class="btn btn-danger btn-sm remove-comment">Delete</button>
-				</div>
-			</div>
+							<div class="card">
+								<div
+									class="card-header text-white bg-primary d-flex justify-content-center">Comment</div>
+								<div class="card-body bg-secondary">
+									<div class="row d-flex justify-content-center">
 
-		</li>
-	</ul>
+										<label>Commenter name: </label>
+										<p class="commenter-name ml-3"></p>
+									</div>
+									<div class="row">
+										<label>Email:</label>
+										<p class="commenter-email ml-3"></p>
+									</div>
+									<div class="row">
+										<label>Comment:</label>
+										<p class="commenter-comment ml-3"></p>
+									</div>
 
-	<div class="modal fade" id="confirmDeleteModal" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header bg-primary">
-					<h5 class="modal-title text-white">Delete comment</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body bg-secondary text-white">Are you sure
-					you want to delete this comment?</div>
-				<div class="modal-footer bg-primary">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">No</button>
-					<button id="confirm-delete" type="button" class="btn btn-danger">Yes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="container mt-3 mb-3">
-			<div class="row d-flex justify-content-center">
-				<div
-					class="card-header w-75 text-white d-flex justify-content-center bg-primary">News
-					Update</div>
-				<div class="card w-75" id="card-template">
-					<div class="card-body bg-secondary" id="template-body">
-						<div class="row">
-							<div class="row">
-								<div class="col-sm-6 form-group">
-									<input class="form-control" id="newsTitle" name="title"
-										placeholder="Title" type="text" required>
 								</div>
-								<div class="col-sm-6 form-group">
-									<input class="form-control" id="newsImage" name="image"
-										placeholder="Image" type="text" required>
+								<div class="card-footer bg-primary d-flex justify-content-end">
+									<button data-toggle="modal" data-target="#confirmDeleteModal"
+										type="button" class="btn btn-danger btn-sm remove-comment">Delete</button>
 								</div>
 							</div>
-							<textarea class="form-control" id="newsText" name="text"
-								placeholder="News Text" rows="5"></textarea>
-							<br>
-							<div class="row mt-3">
-								<div class="col-md-12 form-group d-flex justify-content-end">
-									<button id="submitNews" type="button" class="btn btn-primary">Send</button>
+
+						</li>
+					</ul>
+
+					<div class="modal fade" id="confirmDeleteModal" tabindex="-1"
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header bg-primary">
+									<h5 class="modal-title text-white">Delete comment</h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body bg-secondary text-white">Are you
+									sure you want to delete this comment?</div>
+								<div class="modal-footer bg-primary">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">No</button>
+									<button id="confirm-delete" type="button"
+										class="btn btn-danger">Yes</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col">
+					<div class="row d-flex justify-content-center">
+						<div
+							class="card-header w-75 text-white d-flex justify-content-center bg-primary">News
+							Update</div>
+						<div class="card w-75" id="card-template">
+							<div class="card-body bg-secondary" id="template-body">
+								<div class="row">
+									<div class="row">
+										<div class="col-sm-6 form-group">
+											<input class="form-control" id="newsTitle" name="title"
+												placeholder="Title" type="text" required>
+										</div>
+										<div class="col-sm-6 form-group">
+											<input class="form-control" id="newsImage" name="image"
+												placeholder="Image" type="text" required>
+										</div>
+									</div>
+									<textarea class="form-control" id="newsText" name="text"
+										placeholder="News Text" rows="5"></textarea>
+									<br>
+									<div class="row mt-3">
+										<div class="col-md-12 form-group d-flex justify-content-end">
+											<button id="submitNews" type="button" class="btn btn-primary">Send</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
-
-
 
 
 	<!-- Footer -->

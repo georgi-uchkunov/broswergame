@@ -34,7 +34,6 @@ public class PurchaseManagerRest {
 	}
 	
 	
-	//CHANGE THE MAPPING
 	@PostMapping("/cancelMyPurchase")
 	public ResponseEntity<String> cancelPurchase
 						(@RequestParam(name = "id") int id,

@@ -180,6 +180,15 @@ $(function() {
 		})
 
 	}
+	
+	$("#buy-item").on("click", function() {
+
+		var title = $('.product-title').text();
+		var price = $('.product-price').text();
+
+		postPurchase(title, price);
+
+	})
 
 	// LOAD ALL SHOP ITEMS
 	getShopItems = function() {
