@@ -13,6 +13,30 @@ body {
 	background-attachment: fixed;
 }
 
+#shop-list{
+	display: grid;
+	grid-template-columns: 250px 250px 250px 250px;
+	grid-gap: 20px;
+}
+
+#template-body {
+	overflow-y: scroll;
+	height: 383px;
+	overflow-x: hidden;
+}
+
+#template-body::-webkit-scrollbar {
+	width: 20px;
+}
+
+#template-body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+}
+
+#template-body::-webkit-scrollbar-thumb {
+	background: rgb(9, 174, 224);
+}
+
 #main-container {
 	padding: 100px;
 	display: flex;
@@ -22,16 +46,14 @@ body {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
-	background-image:
-		url("../../images/Old Blue Stone.jpg")
+	background-image: url("../../images/Old Blue Stone.jpg")
 }
 
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
-	background-image:
-		url("../../images/Old Blue Stone.jpg")
+	background-image: url("../../images/Old Blue Stone.jpg")
 }
 
 /* SEARCH BUTTON */
@@ -79,7 +101,6 @@ body {
 	height: 340px;
 }
 
-
 /* Hide the carousel text when the screen is less than 600 pixels wide */
 @media ( max-width : 600px) {
 	.carousel-caption {
@@ -87,12 +108,11 @@ body {
 	}
 }
 
-
-.product-title{
+.product-title {
 	text-transform: uppercase;
 }
 
-#list-group-template-shop{
+#list-group-template-shop {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
@@ -100,7 +120,6 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-#list-group-template-shop{
-	background-image:
-		url("../../images/Old Blue Stone.jpg")
+#list-group-template-shop {
+	background-image: url("../../images/Old Blue Stone.jpg")
 }

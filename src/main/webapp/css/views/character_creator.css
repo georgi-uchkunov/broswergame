@@ -10,7 +10,26 @@ body {
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	color: white;
-	/* background-image: url("../../images/rune-background.webp") */
+	background-image:
+		url("../../images/Old Blue Stone.jpg");
+}
+
+#template-body::-webkit-scrollbar {
+width: 20px;
+}
+
+#template-body::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey;
+}
+
+#template-body::-webkit-scrollbar-thumb {
+background:rgb(9, 174, 224);
+}
+
+#template-body{
+	overflow-y: scroll;
+	height: 560px;
+	overflow-x: hidden;
 }
 
 .modal-content {
@@ -18,7 +37,8 @@ body {
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	color: white;
-	/* background-image: url("../../images/rune-background.webp") */
+	background-image:
+		url("../../images/Old Blue Stone.jpg");
 }
 
 .list-group-item {
@@ -26,5 +46,6 @@ body {
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	color: white;
-	/* background-image: url("../../images/rune-background.webp") */
+	background-image:
+		url("../../images/Old Blue Stone.jpg");
 }
