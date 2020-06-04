@@ -41,7 +41,7 @@ public class ShopItemRest {
 	@PostMapping(value = "/createItem")
 	public ShopItem shopItem(@RequestParam(name = "title") String title, @RequestParam(name = "price") String price,
 			@RequestParam(name = "image") String image) {
-		final ShopItem newShopItem = new ShopItem(price, price, image);
+		final ShopItem newShopItem = new ShopItem(title, price, image);
 		return shopItemRepo.saveAndFlush(newShopItem);
 	}
 	

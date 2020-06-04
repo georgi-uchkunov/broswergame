@@ -48,7 +48,7 @@ $(function() {
 		$template = $($template);
 
 		$template.find('.remove-shop-item').attr('id', id);
-		$template.find('.shop-item-image').val(image);
+		$template.find('.shop-item-image').attr('src', image);
 		$template.find('.shop-item-title').text(title);
 		$template.find('.shop-item-price').text(price);
 
