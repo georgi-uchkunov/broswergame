@@ -43,8 +43,12 @@ public class UserLoginRest {
 			HttpSession session) {
 		final User currentUser = repository
 							.findByEmailAndPassword(email, password);
+		String usernameCheck = "admin";
 		if (null != currentUser) {
 			session.setAttribute("currentUser", currentUser);
+				if(currentUser.getUsername().equalsIgnoreCase(usernameCheck)) {
+					return "admin_portal.html";
+				}
 		}
 		return "profile.html";
 	}

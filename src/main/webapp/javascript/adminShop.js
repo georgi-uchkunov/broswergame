@@ -40,6 +40,19 @@ $(function() {
 				}).fail(function(response) {
 		})
 	}
+	
+	var loadAdminData = function(){
+        $.ajax({
+            method: "GET",
+            url: "getCurrentUser"
+        })
+        .done(function(response) {
+           if(response.email != "admin@admin.com"){
+        	   window.location = "/";
+        	   return;
+           }
+        });
+    }
 
 	// LOAD ITEM TEMPLATE
 	var renderShopItem = function(id, image, title, price) {
@@ -154,4 +167,6 @@ $(function() {
 
 	getShopItems();
 	getAllUserPurchases();
+	
+	loadAdminData();
 })

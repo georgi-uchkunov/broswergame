@@ -57,6 +57,19 @@ $(function() {
 			window.location = "/admin_portal";
 		});
 	})
+	
+	var loadAdminData = function(){
+        $.ajax({
+            method: "GET",
+            url: "getCurrentUser"
+        })
+        .done(function(response) {
+           if(response.email != "admin@admin.com"){
+        	   window.location = "/";
+        	   return;
+           }
+        });
+    }
 
 	// DELETE CHARACTER BUTTON
 	$(document).on('click', '.remove-comment', function() {
@@ -94,4 +107,6 @@ $(function() {
 	}
 
 	getUserComments();
+	
+	loadAdminData();
 })
