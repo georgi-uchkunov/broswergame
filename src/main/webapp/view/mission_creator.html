@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>BROWSERGAME</title>
+
+
+<!-- <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
+<!-- <link
+	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
+	rel="stylesheet"> -->
+<link rel="stylesheet" href="css\theme\_bootswatch.scss">
+<link rel="stylesheet" href="css\theme\_variables.scss">
+<link rel="stylesheet" href="css\theme\bootstrap.css">
+<link rel="stylesheet" href="css\theme\bootstrap.min.css">
+<link rel="stylesheet" href="css\views\mission_creator.css">
+
+
+
+</head>
+
+<body>
+
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
+
+		<div class="container">
+
+
+			<a class="navbar-brand" href="/profile"> <i class="fa fa-d-and-d"></i>
+				Browsergame
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active mr-1"><a class="nav-link"
+						href="/admin_portal"> <i class="fa fa-user-shield"></i>Admin
+							Portal
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="#">
+							<i class="fa fa-facebook-f"></i> Facebook <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="#">
+							<i class="fa fa-reddit"></i> Reddit
+					</a></li>
+					</li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="#">
+							<i class="fa fa-twitch"></i>Twitch
+					</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link"
+						href="/profile"> <i class="fa fa-user"></i>Profile
+					</a></li>
+				</ul>
+
+
+			</div>
+
+
+		</div>
+
+	</nav>
+
+	<div class="container mt-5">
+		<div class="row d-flex justify-content-center">
+			<h3>QUEST BUILDER</h3>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header d-flex justify-content-center"></div>
+				<div class="card-body">
+
+					<div class="row d-flex justify-content-center">
+						<div class="col form-group">
+							<label for="title"><i class="fa fa-pen-nib mr-3"></i>Select
+								Title</label> <input class="form-control mb-3" id="title" name="title"
+								placeholder="Mission Title" type="text" required> <small
+								id="titleHelp" class="form-text text-white">Make sure it
+								is memorable!</small>
+						</div>
+						<div class="col form-group">
+							<label for="image"><i class="fa fa-images mr-3"></i>Select
+								Image</label> <input class="form-control mb-3" id="image" name="Image"
+								placeholder="Image url" type="text" required> <small
+								id="imageHelp" class="form-text text-white">Let's get an
+								eye-catching one!</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-sun mr-3"></i>Select
+								Difficulty</label> <select class="form-control" id="difficulty">
+								<option value="Easy">Easy</option>
+								<option value="Medium">Medium</option>
+								<option value="Hard">Hard</option>
+							</select> <small id="difficultyHelp" class="form-text text-white">Pick
+								cost and reward based on difficulty later.</small>
+						</div>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<label for="description"><i class="fa fa-edit mr-3"></i>Description</label>
+						<textarea class="form-control" id="description" name="text"
+							placeholder="Describe the mission here! Make it sounds exciting! Use words like adventure, dangerous, brave, dragon, knight! The exclamation mark is your friend. Or maybe make it sound like ye olde timey advert for a monster hunter or a caravan guardian."
+							rows="5"></textarea>
+						<br>
+					</div>
+					<div class="row mt-3">
+						<div class="col">
+							<label for="exampleSelect1"><i class="fa fa-dice mr-3"></i>Select
+								main stat</label> <select class="custom-select" id="statOne">
+								<option selected>Choose...</option>
+								<option value="strength">STR</option>
+								<option value="agility">AGI</option>
+								<option value="fortitude">FOR</option>
+								<option value="intelligence">INT</option>
+								<option value="magic">MAG</option>
+								<option value="luck">LCK</option>
+							</select> <small id="statOneHelp" class="form-text text-white">Pick
+								the first key stat for the mission.</small>
+						</div>
+						<div class="col">
+							<label for="exampleSelect1"><i class="fa fa-dice mr-3"></i>Select
+								main stat</label> <select class="custom-select" id="statTwo">
+								<option selected>Choose...</option>
+								<option value="strength">STR</option>
+								<option value="agility">AGI</option>
+								<option value="fortitude">FOR</option>
+								<option value="intelligence">INT</option>
+								<option value="magic">MAG</option>
+								<option value="luck">LCK</option>
+							</select> <small id="statTwoHelp" class="form-text text-white">Pick
+								the second key stat for the mission.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-star mr-3"></i>Select
+								main skill</label> <select class="custom-select" id="skillOne">
+								<option selected>Choose...</option>
+								<option value="swordfighting">Swordfighting</option>
+								<option value="acrobatics">Acrobatics</option>
+								<option value="defense">Defense</option>
+								<option value="investigation">Investigation</option>
+								<option value="spellcasting">Spellcasting</option>
+								<option value="gambit">Gambit</option>
+							</select> <small id="skillOneHelp" class="form-text text-white">Pick
+								the first key skill for the mission.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-star mr-3"></i>Select
+								main skill</label> <select class="custom-select" id="skillTwo">
+								<option selected>Choose...</option>
+								<option value="swordfighting">Swordfighting</option>
+								<option value="acrobatics">Acrobatics</option>
+								<option value="defense">Defense</option>
+								<option value="investigation">Investigation</option>
+								<option value="spellcasting">Spellcasting</option>
+								<option value="gambit">Gambit</option>
+							</select> <small id="skillTwoHelp" class="form-text text-white">Pick
+								the second key skill for the mission.</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-clock mr-3"></i>Select
+								mission time</label> <select class="custom-select" id="missionTime">
+								<option selected>The hero will need...</option>
+								<option value="300">5 mins</option>
+								<option value="900">15 mins</option>
+								<option value="1800">30 mins</option>
+								<option value="3600">1 hour</option>
+								<option value="5200">2 hours</option>
+							</select> <small id="missionTimeHelp" class="form-text text-white">Think
+								about how long should the mission last.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-gem mr-3"></i>Choose
+								cost</label> <select class="custom-select" id="crystalCost">
+								<option selected>The price will be...</option>
+								<option value="5">5 crystals</option>
+								<option value="10">10 crystals</option>
+								<option value="30">30 crystals</option>
+								<option value="60">60 crystals</option>
+								<option value="100">100 crystals</option>
+							</select> <small id="crystalCostHelp" class="form-text text-white">Long
+								missions and big rewards require a lot of crystals.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-coins mr-3"></i>What
+								is the reward?</label> <select class="custom-select" id="rewardGold">
+								<option selected>The reward is...</option>
+								<option value="25">25 gold</option>
+								<option value="50">50 gold</option>
+								<option value="150">150 gold</option>
+								<option value="300">300 gold</option>
+								<option value="500">500 gold</option>
+							</select> <small id="rewardGoldHelp" class="form-text text-white">Long
+								missions and a high crystal cost mean a big reward.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i
+								class="fa fa-superpowers mr-3"></i></label>What will the guild win?<select
+								class="custom-select" id="rewardGuildPoints">
+								<option selected>The guild will win...</option>
+								<option value="5">5 guild points</option>
+								<option value="10">10 guild points</option>
+								<option value="30">30 guild points</option>
+								<option value="60">60 guild points</option>
+								<option value="100">100 guild points</option>
+							</select> <small id="rewardGuildPointsHelp" class="form-text text-white">Long
+								missions and a high crystal cost win a lot of reputation.</small>
+						</div>
+					</div>
+
+
+					<div class="card-footer">
+						<div class="row form-group d-flex justify-content-end">
+							<button id="createMission" type="button" class="btn btn-primary">Create
+								Mission</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container text-center mt-3">
+		<h3>QUEST CATALOGUE</h3>
+		<br>
+		
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="list-group mission-list" id="mission-list">
+
+					</ul>
+					<ul class="list-group d-none" id="template-mission">
+						<li class="list-group-item" id="list-group-template-mission">
+							<div class="card">
+								<div class="card-body text-white">
+									<div class="row d-flex justify-content-center">
+										<h5 class="mission-title" id="mission-title"></h5>
+									</div>
+									<div class="row">
+										<img class="img-fluid mission-image" id="img-mission" src=""
+											alt="...">
+									</div>
+									<div class="row mt-3 d-flex justify-content-center">
+										<label for="difficulty"><i class="fa fa-sun mr-2"></i>Difficulty:</label>
+										<p class="mission-difficulty ml-2" id="mission-difficulty"></p>
+									</div>
+									<div class="row">
+										<div class="col d-flex justify-content-center">
+											<i class="fa fa-gem mr-3"></i>
+											<p class="mission-crystal-cost" id="mission-crystal-cost">
+
+											</p>
+										</div>
+										<div class="col d-flex justify-content-center">
+											<i class="fa fa-coins mr-3"></i>
+											<p class="mission-gold-reward" id="mission-gold-reward">
+
+											</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col d-flex justify-content-center">
+											<i class="fa fa-superpowers mr-3"></i>
+											<p class="mission-guild-points-reward"
+												id="mission-guild-points-reward"></p>
+										</div>
+										<div class="col d-flex justify-content-center">
+											<i class="fa fa-clock mr-3"></i>
+											<p class="mission-time" id="mission-time"></p>
+										</div>
+									</div>
+									<div class="row d-flex justify-content-center">
+										<label for="description"><i class="fa fa-edit mr-2"></i>Description:</label>
+									</div>
+									<div class="row d-flex justify-content-center">
+										<p class="mission-description" id="mission-description"></p>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<i class="fa fa-dice mr-3"></i>
+											<p class="mission-stat-one" id="mission-stat-one"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-dice mr-3"></i>
+											<p class="mission-stat-two" id="mission-stat-two"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-star mr-3"></i>
+											<p class="mission-skill-one" id="mission-skill-one"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-star mr-3"></i>
+											<p class="mission-skill-two" id="mission-skill-two"></p>
+										</div>
+									</div>
+								</div>
+								<div class="card-footer bg-primary text-white">
+									<button data-toggle="modal"
+										data-target="#confirmDeleteMissionModal" type="button"
+										class="btn btn-danger btn-sm remove-mission">Cancel</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="modal fade" id="confirmDeleteMissionModal" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-white">Delete Mission</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body text-white">Are you sure you want to
+						delete this mission?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">No</button>
+						<button id="confirm-delete-mission" type="button"
+							class="btn btn-danger">Yes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer -->
+		<footer class="text-center">
+			<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</a><br> <br>
+			<p>This amateur attempt at a browser game site is made by GU and
+				IL</p>
+		</footer>
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="../javascript/missionCreator.js"></script>
+</body>

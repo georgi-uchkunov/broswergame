@@ -1,0 +1,69 @@
+body {
+  background-image: url("../../images/Background Five.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+#mission-list{
+	display: grid;
+	grid-template-columns: 250px 250px 250px 250px;
+	grid-gap: 20px;
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
+
+
+.mission-stat-one:first-letter{
+	text-transform: capitalize;
+}
+
+.mission-stat-two:first-letter{
+	text-transform: capitalize;
+}
+
+.mission-skill-one:first-letter{
+	text-transform: capitalize;
+}
+
+.mission-skill-two:first-letter{
+	text-transform: capitalize;
+}
+
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}
+
+#list-group-template-mission{
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+	height: 100px;
+}
+
+#list-group-template-mission{
+	background-image:
+		url("../../images/Old Blue Stone.jpg")
+}

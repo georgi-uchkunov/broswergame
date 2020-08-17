@@ -51,6 +51,9 @@ public class User implements Serializable {
 	private String password;
 	private String address;
 	private String ingameName;
+	private Short gold = 0;
+	private Short crystal = 30;
+	private Short guildPoints = 0;
 
 	/*
 	 * @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade =
@@ -86,7 +89,7 @@ public class User implements Serializable {
 
 	}
 
-	public User(int id, String email, String username, String password, String address, String ingameName, Set<Role> roles) {
+	public User(int id, String email, String username, String password, String address, String ingameName, Short gold, Short crystal, Short guildPoints, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -95,8 +98,35 @@ public class User implements Serializable {
 		this.address = address;
 		this.ingameName = ingameName;
 		this.roles = roles;
+		this.gold = gold;
+		this.crystal = crystal;
+		this.guildPoints = guildPoints;
 	}
 	
+	public Short getGold() {
+		return gold;
+	}
+
+	public void setGold(Short gold) {
+		this.gold = gold;
+	}
+
+	public Short getCrystal() {
+		return crystal;
+	}
+
+	public void setCrystal(Short crystal) {
+		this.crystal = crystal;
+	}
+
+	public Short getGuildPoints() {
+		return guildPoints;
+	}
+
+	public void setGuildPoints(Short guildPoints) {
+		this.guildPoints = guildPoints;
+	}
+
 	public List<Purchase> getPurchases() {
 		if (null == purchases) {
 			purchases = new ArrayList<>();

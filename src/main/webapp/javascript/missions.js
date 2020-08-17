@@ -1,56 +1,25 @@
 $(function() {
 
 	// LOAD ALL USER CHARACTERS
-	getUserCharacters = function() {
+	getUserCharactersInDropdownMenu = function() {
 		$.ajax({
 			method : "GET",
 			url : "getMyCharacters"
-		}).done(
-				function(response) {
-					console.log(response);
-					for (var i = 0; i < response.length; i++) {
-						var currentCharacter = response[i];
-						loadCharacter(currentCharacter.id,
-								currentCharacter.name, currentCharacter.race,
-								currentCharacter.characterClass,
-								currentCharacter.level,
-								currentCharacter.strength,
-								currentCharacter.agility,
-								currentCharacter.fortitude,
-								currentCharacter.intelligence,
-								currentCharacter.magic, currentCharacter.luck,
-								currentCharacter.swordfighting,
-								currentCharacter.acrobatics,
-								currentCharacter.defense,
-								currentCharacter.investigation,
-								currentCharacter.spellcasting,
-								currentCharacter.gambit);
-					}
+		}).done(function(response) {
+			console.log(response);
+			var select = document.getElementById("exampleSelect1");
+			for (var i = 0; i < response.length; i++) {
+				var opt = response[i].name;
+				var el = document.createElement("option");
+				el.textContent = opt;
+				el.value = opt;
+				select.appendChild(el);
+			}
 
-				}).fail(function(response) {
+		}).fail(function(response) {
 			console.log(response);
 		})
 	}
 
-	// LOAD CHARACTER TEMPLATE
-	var loadCharacter = function(id, name, race, characterClass, level,
-			strength, agility, fortitude, intelligence, magic, luck,
-			swordfighting, acrobatics, defense, investigation, spellcasting,
-			gambit) {
-
-		console.log(id, name, race, characterClass, level, strength, agility,
-				fortitude, intelligence, magic, luck, swordfighting,
-				acrobatics, defense, defense, spellcasting, gambit);
-
-		var $template = $('#exampleSelect1').html();
-		$template = $($template);
-
-		$template.find('#option-one').val(name);
-		characterName = $('#option-one').val();
-		console.log(characterName);
-		
-	}
-
-
-	getUserCharacters();
+	getUserCharactersInDropdownMenu();
 })
