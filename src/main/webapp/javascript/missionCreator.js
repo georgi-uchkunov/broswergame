@@ -79,19 +79,18 @@ $(function() {
 		$template.find('.mission-skill-two').text(skillTwo);
 		
 
-		var $missionList = $('.mission-list');
+		var $missionList = $('#mission-list');
 		$missionList.append($template);
 	}
 	
 	$(document).on('click', '.remove-mission', function() {
-		$selectedMission = $(this).closest('.list-group-mission');
+		$selectedMission = $(this).closest('.list-group-item');
 	})
 	
 	$('#confirm-delete-mission').on("click", function() {
 
-		var missionId = $selectedMission.find('.list-group-mission').attr('id');
-		console.log(missionId);
-		//deleteMissionById(missionId);
+		var missionId = $selectedMission.find('.remove-mission').attr('id');
+		deleteMissionById(missionId);
 	})
 	
 	deleteMissionById = function(id) {

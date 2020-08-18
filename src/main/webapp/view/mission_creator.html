@@ -243,14 +243,87 @@
 		<br>
 
 		<div class="row">
-			<div class="col-md-3">
-				<ul class="list-group mission-list" id="mission-list">
 
-				</ul>
-				<ul class="list-group d-none" id="template-mission">
-					<li class="list-group-item" id="list-group-template-mission">
-						<div class="card">
-							<div class="card-body text-white">
+			<ul class="list-group-mission" id="mission-list">
+
+			</ul>
+			<ul class="list-group d-none" id="template-mission">
+				<li class="list-group-item mt-3" id="list-group-template-mission">
+					<div class="card">
+						<div class="card-body text-white">
+							<div class="row d-flex justify-content-center">
+								<h5 class="mission-title" id="mission-title"></h5>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<img class="img-fluid mission-image" id="img-mission" src=""
+										alt="...">
+								</div>
+								<div class="col">
+
+									<div class="row" id="stats-row">
+										<div class="col">
+											<i class="fa fa-dice mr-3"></i>
+											<p class="mission-stat-one" id="mission-stat-one"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-dice mr-3"></i>
+											<p class="mission-stat-two" id="mission-stat-two"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-star mr-3"></i>
+											<p class="mission-skill-one" id="mission-skill-one"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-star mr-3"></i>
+											<p class="mission-skill-two" id="mission-skill-two"></p>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col">
+											<i class="fa fa-clock mr-3"></i>
+											<p class="mission-time" id="mission-time"></p>
+										</div>
+										<div class="col">
+											<i class="fa fa-gem mr-3"></i>
+											<p class="mission-crystal-cost" id="mission-crystal-cost">
+										</div>
+										<div class="col">
+											<i class="fa fa-coins mr-3"></i>
+											<p class="mission-gold-reward" id="mission-gold-reward"></p>
+										</div>
+										<div class="col">
+											<i class="fas fa-medal mr-3"></i>
+											<p class="mission-guild-points-reward"
+												id="mission-guild-points-reward"></p>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="row d-flex justify-content-center mt-3">
+								<label for="description"><i class="fa fa-edit mr-2"></i>Description:</label>
+							</div>
+							<div class="row d-flex justify-content-center">
+								<p class="mission-description" id="mission-description"></p>
+							</div>
+
+
+						</div>
+
+						<div class="card-footer bg-primary text-white">
+							<button data-toggle="modal"
+								data-target="#confirmDeleteMissionModal" type="button"
+								class="btn btn-danger btn-sm remove-mission">Delete mission</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+
+		<!--  -->
+		<!-- <div class="card-body text-white">
 								<div class="row d-flex justify-content-center">
 									<h5 class="mission-title" id="mission-title"></h5>
 								</div>
@@ -311,16 +384,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="card-footer bg-primary text-white">
-								<button data-toggle="modal"
-									data-target="#confirmDeleteMissionModal" type="button"
-									class="btn btn-danger btn-sm remove-mission">Cancel</button>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
+		 -->
+
+		<!--  -->
 
 
 		<div class="modal fade" id="confirmDeleteMissionModal" tabindex="-1"
@@ -345,6 +411,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container mt-3">
 		<!-- Footer -->
 		<footer class="text-center">
 			<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
