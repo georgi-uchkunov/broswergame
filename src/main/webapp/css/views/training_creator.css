@@ -1,0 +1,58 @@
+*,*::before,*::after{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("../../images/Background Five.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
+}
+
+body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+#training-list {
+	display: grid;
+	grid-template-columns: 600px 600px;
+	grid-gap: 20px;
+}
+
+.training-skill:first-letter {
+	text-transform: capitalize;
+}
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image: url("../../images/Old Blue Stone.jpg")
+}
+
+#list-group-template-training {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+	
+}
+
+#list-group-template-training {
+	background-image: url("../../images/Old Blue Stone.jpg")
+}
