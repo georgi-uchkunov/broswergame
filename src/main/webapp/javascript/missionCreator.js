@@ -71,13 +71,28 @@ $(function() {
 		$template.find('.mission-crystal-cost').text(crystalCost);
 		$template.find('.mission-gold-reward').text(rewardGold);
 		$template.find('.mission-guild-points-reward').text(rewardGuildPoints);
-		$template.find('.mission-time').text(missionTime);
+		//$template.find('.mission-time').text(missionTime);
 		$template.find('.mission-description').text(description);
 		$template.find('.mission-stat-one').text(statOne);
 		$template.find('.mission-stat-two').text(statTwo);
 		$template.find('.mission-skill-one').text(skillOne);
 		$template.find('.mission-skill-two').text(skillTwo);
 		
+		if(missionTime == 300){
+			$template.find('.mission-time').text('5 min');
+		}
+		if(missionTime == 900){
+			$template.find('.mission-time').text('15 min');
+		}
+		if(missionTime == 1800){
+			$template.find('.mission-time').text('30 min');
+		}
+		if(missionTime == 3600){
+			$template.find('.mission-time').text('1 hour');
+		}
+		if(missionTime == 5200){
+			$template.find('.mission-time').text('2 hours');
+		}
 
 		var $missionList = $('#mission-list');
 		$missionList.append($template);

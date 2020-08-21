@@ -1,35 +1,5 @@
 $(function() {
 	
-	$("#create-training").on("click", function() {
-
-		var title = $("#title").val();
-		var trainingImage = $("#trainingImage").val();
-		var trainingDifficulty = $("#trainingDifficulty").val();
-		var description = $("#description").val();
-		var trainingTime = $("#trainingTime").val();
-		var trainingSkill = $("#trainingSkill").val();
-		var trainingCost = $("#trainingCost").val();
-
-		$.ajax({
-			method : "POST",
-			url : "createTraining",
-			data : {
-				
-				title : title,
-				trainingImage : trainingImage,
-				trainingDifficulty : trainingDifficulty,
-				description : description,
-				trainingTime : trainingTime,
-				trainingSkill : trainingSkill,
-				trainingCost : trainingCost
-				
-			}
-		}).done(function(response) {
-			
-			window.location = "/training_creator";
-		});
-	})
-	
 	getTrainings = function() {
 		$.ajax({
 			method : "GET",
@@ -55,7 +25,7 @@ $(function() {
 		var $template = $('#template-training').html();
 		$template = $($template);
 
-		$template.find('.remove-training').attr('id', id);
+		$template.find('.start-training').attr('id', id);
 		$template.find('.training-title').text(title);
 		$template.find('.training-image').attr('src', trainingImage);
 		$template.find('.training-difficulty').text(trainingDifficulty);
@@ -79,55 +49,32 @@ $(function() {
 		if(trainingTime == 5200){
 			$template.find('.training-time').text('2 hours');
 		}
-		
 
 		var $trainingList = $('#training-list');
 		$trainingList.append($template);
 	}
 	
-	$(document).on('click', '.remove-training' , function() {
-		$selectedTraining = $(this).closest('.list-group-item');
-	})
-	
-	$("#confirm-delete-training").on("click", function() {
-
-		var trainingId = $selectedTraining.find('.remove-training').attr('id');
-		deleteTrainingById(trainingId);
-	})
-	
-	deleteTrainingById = function(id) {
-
-		console.log(id);
+	getUserCharactersInDropdownMenu = function() {
 		$.ajax({
-			method : "POST",
-			url : "deleteTraining",
-			data : {
-				id : id
-			}
+			method : "GET",
+			url : "getMyCharacters"
 		}).done(function(response) {
-			$selectedTraining.remove();
-			$("#confirmDeleteTrainingModal").modal('hide');
+			console.log(response);
+			var select = document.getElementById("exampleSelect1");
+			for (var i = 0; i < response.length; i++) {
+				var opt = response[i].name;
+				var el = document.createElement("option");
+				el.textContent = opt;
+				el.value = opt;
+				select.appendChild(el);
+			}
 
 		}).fail(function(response) {
 			console.log(response);
 		})
-
 	}
 
 	
-	var loadAdminData = function(){
-        $.ajax({
-            method: "GET",
-            url: "getCurrentUser"
-        })
-        .done(function(response) {
-           if(response.email != "admin@admin.com"){
-        	   window.location = "/";
-        	   return;
-           }
-        });
-    }
-
 	getTrainings();
-	loadAdminData();
+	getUserCharactersInDropdownMenu();
 })
