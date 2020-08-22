@@ -132,6 +132,37 @@ $(function() {
 		$template.find('.investigation').text(investigation);
 		$template.find('.spellcasting').text(spellcasting);
 		$template.find('.gambit').text(gambit);
+		
+		$template.find('.img-template-race').attr('title', race);
+		$template.find('.img-template-class').attr('title', characterClass);
+		
+		if(race == "Human"){
+			$template.find('.img-template-race').attr('src', '../../images/human_icon.png');
+		}
+		if(race == "Elf"){
+			$template.find('.img-template-race').attr('src', '../../images/elf_logo.png');
+		}
+		if(race == "Dwarf"){
+			$template.find('.img-template-race').attr('src', '../../images/dwarf_logo.png');
+		}
+		if(race == "Orc"){
+			$template.find('.img-template-race').attr('src', '../../images/orc_logo.png');
+		}
+		if(characterClass == "Thief"){
+			$template.find('.img-template-class').attr('src', '../../images/thief_logo.png');
+		}
+		if(characterClass == "Mage"){
+			$template.find('.img-template-class').attr('src', '../../images/mage_logo.png');
+		}
+		if(characterClass == "Tank"){
+			$template.find('.img-template-class').attr('src', '../../images/tank_logo.png');
+		}
+		if(characterClass == "Fighter"){
+			$template.find('.img-template-class').attr('src', '../../images/fighter_logo.png');
+		}
+		if(characterClass == "Healer"){
+			$template.find('.img-template-class').attr('src', '../../images/healer_logo.png');
+		}
 
 		var $commentsList = $(".comments-list");
 		$commentsList.append($template);

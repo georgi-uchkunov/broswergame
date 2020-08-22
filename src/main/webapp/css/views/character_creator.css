@@ -32,6 +32,14 @@ background:rgb(9, 174, 224);
 	overflow-x: hidden;
 }
 
+#hero-card{
+	padding-left: 5em;
+}
+
+#logo-row{
+	padding-left: 5em;
+}
+
 .modal-content {
 	background-color: primary;
 	text: #FAFAFA;
