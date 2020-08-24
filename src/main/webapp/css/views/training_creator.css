@@ -1,4 +1,4 @@
-*,*::before,*::after{
+*, *::before, *::after {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -27,6 +27,21 @@ body {
 	background-image: url("../../images/Old Blue Stone.jpg");
 }
 
+.edit-modal {
+	width: 90%;
+	max-width: 1200px;
+}
+
+.first-row{
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+.last-row{
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
 #training-list {
 	display: grid;
 	grid-template-columns: 600px 600px;
@@ -37,10 +52,15 @@ body {
 	text-transform: capitalize;
 }
 
-#info-row{
+#info-row {
 	display: grid;
 	grid-template-columns: 150px 150px;
 	grid-gap: 20px;
+}
+
+#editDescription{
+	width: 90%;
+	
 }
 
 .modal-content {
@@ -56,7 +76,6 @@ body {
 	toggleBorder: #6B8096;
 	gradient: linear-gradient(#091236, #1E215D);
 	font-family: 'Roboto', sans-serif;
-	
 }
 
 #list-group-template-training {

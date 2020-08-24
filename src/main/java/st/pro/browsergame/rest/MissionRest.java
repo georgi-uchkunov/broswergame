@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import st.pro.browsergame.models.Mission;
+import st.pro.browsergame.models.Training;
 import st.pro.browsergame.repos.MissionRepository;
 
 
@@ -54,6 +55,12 @@ public class MissionRest {
     public Page<Mission> getAllMissions(Pageable pageable) {
         return missionRepo.findAll(pageable);
     }
+	
+	@PostMapping(value = "/updateMission")
+	public Mission updateMission(Mission missionForUpdate) {
+
+		return missionRepo.saveAndFlush(missionForUpdate);
+	}
 	
 	@PostMapping("/deleteMission")
 	public ResponseEntity<String> deleteMission(@RequestParam(name = "id") int id, HttpSession session) {

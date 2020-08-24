@@ -13,10 +13,12 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Model representing the Character created by the player and their inherent statistics and abilities
+ * Model representing the Character created by the player and their inherent
+ * statistics and abilities
+ * 
  * @author GU
  */
-@JsonIgnoreProperties({"owner"})
+@JsonIgnoreProperties({ "owner" })
 @Entity
 public class Character implements Serializable {
 
@@ -82,6 +84,20 @@ public class Character implements Serializable {
 	 */
 	private char gambit;
 
+	/**
+	 * Required for Training
+	 */
+	private int swordfightingProgress = 0;
+	private int acrobaticsProgress = 0;
+	private int defenseProgress = 0;
+	private int investigationProgress = 0;
+	private int spellcastingProgress = 0;
+
+	/**
+	 * Key if hero can go on a mission or training or is already busy
+	 */
+	private boolean isBusy = false;
+
 	// SPECIAL SKILLS HERE WHEN THEY ARE READY
 
 	public Character() {
@@ -89,8 +105,8 @@ public class Character implements Serializable {
 	}
 
 	public Character(String name, String race, String characterClass, int level, int strength, int agility,
-			int fortitude, int intelligence, int magic, int luck, char swordfighting, char acrobatics,
-			char defense, char investigation, char spellcasting, char gambit) {
+			int fortitude, int intelligence, int magic, int luck, char swordfighting, char acrobatics, char defense,
+			char investigation, char spellcasting, char gambit) {
 		super();
 		this.name = name;
 		this.race = race;
@@ -252,6 +268,54 @@ public class Character implements Serializable {
 
 	public void setGambit(char gambit) {
 		this.gambit = gambit;
+	}
+
+	public int getSwordfightingProgress() {
+		return swordfightingProgress;
+	}
+
+	public void setSwordfightingProgress(int swordfightingProgress) {
+		this.swordfightingProgress = swordfightingProgress;
+	}
+
+	public int getAcrobaticsProgress() {
+		return acrobaticsProgress;
+	}
+
+	public void setAcrobaticsProgress(int acrobaticsProgress) {
+		this.acrobaticsProgress = acrobaticsProgress;
+	}
+
+	public int getDefenseProgress() {
+		return defenseProgress;
+	}
+
+	public void setDefenseProgress(int defenseProgress) {
+		this.defenseProgress = defenseProgress;
+	}
+
+	public int getInvestigationProgress() {
+		return investigationProgress;
+	}
+
+	public void setInvestigationProgress(int investigationProgress) {
+		this.investigationProgress = investigationProgress;
+	}
+
+	public int getSpellcastingProgress() {
+		return spellcastingProgress;
+	}
+
+	public void setSpellcastingProgress(int spellcastingProgress) {
+		this.spellcastingProgress = spellcastingProgress;
+	}
+
+	public boolean isBusy() {
+		return isBusy;
+	}
+
+	public void setBusy(boolean isBusy) {
+		this.isBusy = isBusy;
 	}
 
 }

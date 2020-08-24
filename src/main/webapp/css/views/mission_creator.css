@@ -32,6 +32,21 @@ body {
 	grid-gap: 20px;
 }
 
+.edit-modal {
+	width: 90%;
+	max-width: 1200px;
+}
+
+#editDescription{
+	width: 90%;
+	
+}
+
+.first-row{
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
 .card-body {
 	background-color: #363537;
 	text: #FAFAFA;

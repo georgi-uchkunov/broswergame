@@ -52,8 +52,7 @@
 						href="/missions"> <i class="fa fa-id-badge mr-2"></i>Missions
 					</a></li>
 					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/character_creator"> <i class="fa fa-id-badge mr-2"></i>Character
-							Creator
+						href="/character_creator"> <i class="fa fa-id-badge mr-2"></i>Characters
 					</a></li>
 					<li class="nav-item active mr-1"><a class="nav-link"
 						href="/shop"> <i class="fa fa-shopping-cart mr-2"></i>Shop
@@ -73,7 +72,7 @@
 						href="/profile"> <i class="fa fa-user mr-2"></i>Profile
 					</a></li>
 					<li class="nav-item active"><a class="nav-link" href=#><i
-							class="fa fa-superpowers"></i> </a></li>
+							class="fas fa-medal mr-1"></i> </a></li>
 					<li class="nav-item active mr-1"><a class="nav-link"
 						id="guildPoints" href=#> </a></li>
 					<li class="nav-item active"><a class="nav-link" href=#> <i
@@ -179,7 +178,49 @@
 						<div class="modal-footer bg-primary">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">No</button>
-							<button id="confirm-training" type="button" class="btn btn-success">Yes</button>
+							<button id="confirm-training" type="button"
+								class="btn btn-success">Yes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="modal fade" id="goldNotificationModal" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">Not enough
+							gold to begin this training.</div>
+						<div class="modal-footer bg-primary">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Understood</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="heroNotificationModal" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">This hero
+							cannot begin training until they are free.</div>
+						<div class="modal-footer bg-primary">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Understood</button>
 						</div>
 					</div>
 				</div>

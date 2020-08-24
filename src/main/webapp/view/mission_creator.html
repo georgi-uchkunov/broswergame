@@ -17,6 +17,8 @@
 <!-- <link
 	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
 	rel="stylesheet"> -->
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="css\theme\_bootswatch.scss">
 <link rel="stylesheet" href="css\theme\_variables.scss">
 <link rel="stylesheet" href="css\theme\bootstrap.css">
@@ -126,7 +128,7 @@
 					<div class="row mt-3">
 						<div class="col">
 							<label for="exampleSelect1"><i class="fa fa-dice mr-3"></i>Select
-								main stat</label> <select class="custom-select" id="statOne">
+								main stat</label> <select class="custom-select special" id="statOne">
 								<option selected>Choose...</option>
 								<option value="strength">STR</option>
 								<option value="agility">AGI</option>
@@ -139,7 +141,7 @@
 						</div>
 						<div class="col">
 							<label for="exampleSelect1"><i class="fa fa-dice mr-3"></i>Select
-								main stat</label> <select class="custom-select" id="statTwo">
+								main stat</label> <select class="custom-select special" id="statTwo">
 								<option selected>Choose...</option>
 								<option value="strength">STR</option>
 								<option value="agility">AGI</option>
@@ -152,7 +154,7 @@
 						</div>
 						<div class="col form-group">
 							<label for="exampleSelect1"><i class="fa fa-star mr-3"></i>Select
-								main skill</label> <select class="custom-select" id="skillOne">
+								main skill</label> <select class="custom-select special" id="skillOne">
 								<option selected>Choose...</option>
 								<option value="swordfighting">Swordfighting</option>
 								<option value="acrobatics">Acrobatics</option>
@@ -165,7 +167,7 @@
 						</div>
 						<div class="col form-group">
 							<label for="exampleSelect1"><i class="fa fa-star mr-3"></i>Select
-								main skill</label> <select class="custom-select" id="skillTwo">
+								main skill</label> <select class="custom-select special" id="skillTwo">
 								<option selected>Choose...</option>
 								<option value="swordfighting">Swordfighting</option>
 								<option value="acrobatics">Acrobatics</option>
@@ -306,6 +308,10 @@
 								</div>
 							</div>
 							<div class="row d-flex justify-content-center mt-3">
+								<label for="difficulty"><i class="fa fa-sun mr-2"></i>Difficulty:</label>
+								<p class="mission-difficulty ml-2" id="mission-difficulty"></p>
+							</div>
+							<div class="row d-flex justify-content-center">
 								<label for="description"><i class="fa fa-edit mr-2"></i>Description:</label>
 							</div>
 							<div class="row d-flex justify-content-center">
@@ -316,6 +322,8 @@
 						</div>
 
 						<div class="card-footer bg-primary text-white">
+							<button data-toggle="modal" data-target="#confirmEditModal"
+								type="button" class="btn btn-success btn-sm mr-3 edit-mission">Edit</button>
 							<button data-toggle="modal"
 								data-target="#confirmDeleteMissionModal" type="button"
 								class="btn btn-danger btn-sm remove-mission">Delete
@@ -324,6 +332,161 @@
 					</div>
 				</li>
 			</ul>
+
+		</div>
+
+		<div class="modal draggable fade" id="confirmEditModal" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog edit-modal" id="editModalTemplate"
+				role="document">
+				<div class="modal-content edit-modal-content">
+					<div class="modal-header"></div>
+					<div class="row d-flex justify-content-center first-row">
+						<div class="col form-group">
+							<label for="title"><i class="fa fa-pen-nib mr-3"></i>Select
+								Title</label> <input class="form-control mb-3" id="editTitle"
+								name="editTitle" placeholder="Mission Title" type="text"
+								required> <small id="titleHelp"
+								class="form-text text-white">Make sure it is memorable!</small>
+						</div>
+						<div class="col form-group">
+							<label for="image"><i class="fa fa-images mr-3"></i>Select
+								Image</label> <input class="form-control mb-3" id="editImage"
+								name="editImage" placeholder="Image url" type="text" required>
+							<small id="imageHelp" class="form-text text-white">Let's
+								get an eye-catching one!</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-sun mr-3"></i>Select
+								Difficulty</label> <select class="form-control" id="editDifficulty">
+								<option value="Easy">Easy</option>
+								<option value="Medium">Medium</option>
+								<option value="Hard">Hard</option>
+							</select> <small id="difficultyHelp" class="form-text text-white">Pick
+								cost and reward based on difficulty later.</small>
+						</div>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<label for="description"><i class="fa fa-edit mr-3"></i>Description</label>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<textarea class="form-control" id="editDescription"
+							name="editDescription"
+							placeholder="Describe the mission here! Make it sounds exciting! Use words like adventure, dangerous, brave, dragon, knight! The exclamation mark is your friend. Or maybe make it sound like ye olde timey advert for a monster hunter or a caravan guardian."
+							rows="5"></textarea>
+						<br>
+					</div>
+					<div class="row mt-3 first-row">
+						<div class="col">
+							<label for="exampleSelect1"><i class="fa fa-dice mr-3"></i>Select
+								main stat</label> <select class="custom-select special" id="editStatOne">
+								<option selected>Choose...</option>
+								<option value="strength">STR</option>
+								<option value="agility">AGI</option>
+								<option value="fortitude">FOR</option>
+								<option value="intelligence">INT</option>
+								<option value="magic">MAG</option>
+								<option value="luck">LCK</option>
+							</select> <small id="statOneHelp" class="form-text text-white">Pick
+								the first key stat for the mission.</small>
+						</div>
+						<div class="col">
+							<label for="exampleSelect1"><i class="fa fa-dice mr-3"></i>Select
+								main stat</label> <select class="custom-select special" id="editStatTwo">
+								<option selected>Choose...</option>
+								<option value="strength">STR</option>
+								<option value="agility">AGI</option>
+								<option value="fortitude">FOR</option>
+								<option value="intelligence">INT</option>
+								<option value="magic">MAG</option>
+								<option value="luck">LCK</option>
+							</select> <small id="statTwoHelp" class="form-text text-white">Pick
+								the second key stat for the mission.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-star mr-3"></i>Select
+								main skill</label> <select class="custom-select special" id="editSkillOne">
+								<option selected>Choose...</option>
+								<option value="swordfighting">Swordfighting</option>
+								<option value="acrobatics">Acrobatics</option>
+								<option value="defense">Defense</option>
+								<option value="investigation">Investigation</option>
+								<option value="spellcasting">Spellcasting</option>
+								<option value="gambit">Gambit</option>
+							</select> <small id="skillOneHelp" class="form-text text-white">Pick
+								the first key skill for the mission.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-star mr-3"></i>Select
+								main skill</label> <select class="custom-select special" id="editSkillTwo">
+								<option selected>Choose...</option>
+								<option value="swordfighting">Swordfighting</option>
+								<option value="acrobatics">Acrobatics</option>
+								<option value="defense">Defense</option>
+								<option value="investigation">Investigation</option>
+								<option value="spellcasting">Spellcasting</option>
+								<option value="gambit">Gambit</option>
+							</select> <small id="skillTwoHelp" class="form-text text-white">Pick
+								the second key skill for the mission.</small>
+						</div>
+					</div>
+					<div class="row first-row">
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-clock mr-3"></i>Select
+								mission time</label> <select class="custom-select" id="editMissionTime">
+								<option selected>The hero will need...</option>
+								<option value="300">5 mins</option>
+								<option value="900">15 mins</option>
+								<option value="1800">30 mins</option>
+								<option value="3600">1 hour</option>
+								<option value="5200">2 hours</option>
+							</select> <small id="missionTimeHelp" class="form-text text-white">Think
+								about how long should the mission last.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-gem mr-3"></i>Choose
+								cost</label> <select class="custom-select" id="editCrystalCost">
+								<option selected>The price will be...</option>
+								<option value="5">5 crystals</option>
+								<option value="10">10 crystals</option>
+								<option value="30">30 crystals</option>
+								<option value="60">60 crystals</option>
+								<option value="100">100 crystals</option>
+							</select> <small id="crystalCostHelp" class="form-text text-white">Long
+								missions and big rewards require a lot of crystals.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fa fa-coins mr-3"></i>What
+								is the reward?</label> <select class="custom-select" id="editRewardGold">
+								<option selected>The reward is...</option>
+								<option value="25">25 gold</option>
+								<option value="50">50 gold</option>
+								<option value="150">150 gold</option>
+								<option value="300">300 gold</option>
+								<option value="500">500 gold</option>
+							</select> <small id="rewardGoldHelp" class="form-text text-white">Long
+								missions and a high crystal cost mean a big reward.</small>
+						</div>
+						<div class="col form-group">
+							<label for="exampleSelect1"><i class="fas fa-medal mr-3"></i></label>What
+							will the guild win?<select class="custom-select"
+								id="editRewardGuildPoints">
+								<option selected>The guild will win...</option>
+								<option value="5">5 guild points</option>
+								<option value="10">10 guild points</option>
+								<option value="30">30 guild points</option>
+								<option value="60">60 guild points</option>
+								<option value="100">100 guild points</option>
+							</select> <small id="rewardGuildPointsHelp" class="form-text text-white">Long
+								missions and a high crystal cost win a lot of reputation.</small>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="update-mission" type="button" class="btn btn-success">Update
+							Mission</button>
+					</div>
+				</div>
+			</div>
 
 		</div>
 
@@ -350,29 +513,32 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container mt-3">
-		<!-- Footer -->
-		<footer class="text-center">
-			<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
-				<span class="glyphicon glyphicon-chevron-up"></span>
-			</a><br> <br>
-			<p>This amateur attempt at a browser game site is made by GU and
-				IL</p>
-		</footer>
-	</div>
+		
+		<div class="container mt-3">
+			<!-- Footer -->
+			<footer class="text-center">
+				<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
+					<span class="glyphicon glyphicon-chevron-up"></span>
+				</a><br> <br>
+				<p>This amateur attempt at a browser game site is made by GU and
+					IL</p>
+			</footer>
+		</div>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
 		<script src="../javascript/selectorControl.js"></script>
-	<script src="../javascript/missionCreator.js"></script>
+		<script src="../javascript/missionCreator.js"></script>
+		<script src="../javascript/updateMission.js"></script>
 </body>

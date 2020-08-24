@@ -51,6 +51,20 @@ public class Training implements Serializable {
 		this.trainingImage = trainingImage;
 
 	}
+	
+	public Training(int id, String title, int trainingTime, String trainingSkill, String trainingDifficulty, int trainingCost,
+			String description, String trainingImage) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.trainingTime = trainingTime;
+		this.trainingSkill = trainingSkill;
+		this.trainingDifficulty = trainingDifficulty;
+		this.trainingCost = trainingCost;
+		this.description = description;
+		this.trainingImage = trainingImage;
+
+	}
 
 	public int getId() {
 		return id;

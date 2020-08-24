@@ -56,8 +56,10 @@ $(function() {
 		$template = $($template);
 
 		$template.find('.remove-training').attr('id', id);
+		$template.find('.edit-training').attr('id', id);
 		$template.find('.training-title').text(title);
 		$template.find('.training-image').attr('src', trainingImage);
+		$template.find('.training-image').val(trainingImage);
 		$template.find('.training-difficulty').text(trainingDifficulty);
 		$template.find('.training-gold-cost').text(trainingCost);
 		//$template.find('.training-time').text(trainingTime);
@@ -84,6 +86,14 @@ $(function() {
 		var $trainingList = $('#training-list');
 		$trainingList.append($template);
 	}
+	
+	$('.modal.draggable>.modal-dialog').draggable({
+	    cursor: 'move',
+	    handle: '.modal-header'
+	});
+	
+	$('.modal.draggable>.modal-dialog>.modal-content>.modal-header').css('cursor', 'move');
+	
 	
 	$(document).on('click', '.remove-training' , function() {
 		$selectedTraining = $(this).closest('.list-group-item');

@@ -65,8 +65,10 @@ $(function() {
 		$template = $($template);
 
 		$template.find('.remove-mission').attr('id', id);
+		$template.find('.edit-mission').attr('id', id);
 		$template.find('.mission-title').text(title);
 		$template.find('.mission-image').attr('src', image);
+		$template.find('.mission-image').val(image);
 		$template.find('.mission-difficulty').text(difficulty);
 		$template.find('.mission-crystal-cost').text(crystalCost);
 		$template.find('.mission-gold-reward').text(rewardGold);
@@ -97,6 +99,13 @@ $(function() {
 		var $missionList = $('#mission-list');
 		$missionList.append($template);
 	}
+	
+	$('.modal.draggable>.modal-dialog').draggable({
+	    cursor: 'move',
+	    handle: '.modal-header'
+	});
+	
+	$('.modal.draggable>.modal-dialog>.modal-content>.modal-header').css('cursor', 'move');
 	
 	$(document).on('click', '.remove-mission', function() {
 		$selectedMission = $(this).closest('.list-group-item');
