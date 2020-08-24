@@ -1,0 +1,82 @@
+*,*::before,*::after{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("../../images/Background Five.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
+}
+
+body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+#user-list {
+	display: grid;
+	grid-template-columns: 600px 600px;
+	grid-gap: 20px;
+}
+
+.first-row{
+	padding-left: 5em;
+}
+
+#editUserImage{
+	padding-left: 5em;
+}
+
+.information-col{
+	padding-right: 5em;
+}
+
+.last-row{
+	padding-right: 5em;
+	padding-left: 5em;
+}
+
+.edit-modal {
+	width: 90%;
+	max-width: 1200px;
+}
+
+#editDescription{
+	width: 90%;
+	
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+
+.modal-content {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	background-image: url("../../images/Old Blue Stone.jpg")
+}
+
+#list-group-template-user {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+	
+}
+
+#list-group-template-user {
+	background-image: url("../../images/Old Blue Stone.jpg")
+}

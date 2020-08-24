@@ -59,7 +59,7 @@ $(function() {
 		var gold = responseGold - currentTrainingCost;
 		$.ajax({
 			method : "POST",
-			url : "updateUser",
+			url : "updateUserGold"
 			data : {
 				id : id,
 				gold : gold
