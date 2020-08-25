@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import st.pro.browsergame.models.Character;
+import st.pro.browsergame.models.News;
 import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.CharacterRepository;
 import st.pro.browsergame.repos.UserRepository;
@@ -36,8 +39,7 @@ public class CharacterCreatorRest {
 			@RequestParam(name = "level") int level, @RequestParam(name = "strength") int strength,
 			@RequestParam(name = "agility") int agility, @RequestParam(name = "fortitude") int fortitude,
 			@RequestParam(name = "intelligence") int intelligence, @RequestParam(name = "magic") int magic,
-			@RequestParam(name = "luck") int luck,
-			@RequestParam(name = "swordfighting") char swordfighting,
+			@RequestParam(name = "luck") int luck, @RequestParam(name = "swordfighting") char swordfighting,
 			@RequestParam(name = "acrobatics") char acrobatics, @RequestParam(name = "defense") char defense,
 			@RequestParam(name = "investigation") char investigation,
 			@RequestParam(name = "spellcasting") char spellcasting, @RequestParam(name = "gambit") char gambit,
@@ -55,7 +57,7 @@ public class CharacterCreatorRest {
 
 		return ResponseEntity.ok(character);
 	}
-	
+
 	@GetMapping("/getMyCharacters")
 	public ResponseEntity<List<Character>> getAllCharacters(HttpSession session) {
 		final List<Character> characters = new ArrayList<>();
@@ -67,7 +69,13 @@ public class CharacterCreatorRest {
 		}
 		return ResponseEntity.ok(characters);
 	}
-	
+
+	@GetMapping("/getAllCharacters")
+	public Page<Character> getAllCharacters(Pageable pageable) {
+
+		return charRepo.findAll(pageable);
+	}
+
 	@PostMapping("/deleteMyCharacter")
 	public ResponseEntity<String> deleteCharacter(@RequestParam(name = "id") int id, HttpSession session) {
 		final User user = (User) session.getAttribute("currentUser");
@@ -80,7 +88,7 @@ public class CharacterCreatorRest {
 		if (null != characterForDelete) {
 			characters.remove(characterForDelete);
 			session.setAttribute("currentUser", userRepo.save(user));
-			//charRepo.delete(characterForDelete);
+			// charRepo.delete(characterForDelete);
 			charRepo.deleteById(characterForDelete.getId());
 		}
 		return ResponseEntity.ok().body("Character with id: " + id + " has been deleted");

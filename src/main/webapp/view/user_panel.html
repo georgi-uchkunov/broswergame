@@ -90,6 +90,19 @@
 
 	</nav>
 
+	<div class="container chart-container mt-5">
+		<div class="row">
+			<div class="col chart-col"
+				style="position: relative; height: 20vh; width: 40vw">
+				<canvas id="classChart"></canvas>
+			</div>
+			<div class="col chart-col"
+				style="position: relative; height: 20vh; width: 40vw">
+				<canvas id="raceChart"></canvas>
+			</div>
+		</div>
+	</div>
+
 	<div class="container mt-5">
 		<div class="row">
 
@@ -166,7 +179,9 @@
 							</div>
 							<div class="col information-col">
 								<div class="row">
-									<i class="fa fa-user-shield mr-2" title="Username"></i>
+									<label for="username"><i class="fa fa-user-shield mr-2"
+										title="Username"></i>Username</label>
+
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editUsername"
@@ -174,7 +189,8 @@
 										required>
 								</div>
 								<div class="row">
-									<i class="fa fa-user mr-2" title="Ingame Name"></i>
+									<label for="ingameName"><i class="fa fa-user mr-2"
+										title="Ingame Name"></i>Ingame name</label>
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editInGameName"
@@ -182,14 +198,16 @@
 										required>
 								</div>
 								<div class="row">
-									<i class="fa fa-at" title="E-mail"></i>
+									<label for="email"><i class="fa fa-at mr-2"
+										title="E-mail"></i>E-mail</label>
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editEmail"
 										name="editEmail" placeholder="E-mail" type="email" required>
 								</div>
 								<div class="row">
-									<i class="fa fa-map-marker-alt" title="Address"></i>
+									<label for="address"><i
+										class="fa fa-map-marker-alt mr-2" title="Address"></i>Address</label>
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editAddress"
@@ -200,7 +218,8 @@
 						<div class="row mt-3 last-row">
 							<div class="col information-col">
 								<div class="row">
-									<i class="fa fa-coins mr-2" title="Gold"></i>
+									<label for="gold"><i class="fa fa-coins mr-2"
+										title="Gold"></i>Gold</label>
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editGold" name="editGold"
@@ -209,7 +228,8 @@
 							</div>
 							<div class="col information-col">
 								<div class="row">
-									<i class="fa fa-gem mr-2" title="Crystals"></i>
+									<label for="crystals"><i class="fa fa-gem mr-2"
+										title="Crystals"></i>Crystals</label>
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editCrystal"
@@ -218,7 +238,8 @@
 							</div>
 							<div class="col information-col">
 								<div class="row">
-									<i class="fa fa-star mr-2" title="Guild Points"></i>
+									<label for="guildPoints"><i class="fa fa-star mr-2"
+										title="Guild Points"></i>Guild Points</label>
 								</div>
 								<div class="row mt-2">
 									<input class="form-control mb-3" id="editGuildPoints"
@@ -283,6 +304,10 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+		integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+		crossorigin="anonymous"></script>
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -293,4 +318,5 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 	<script src="../javascript/userPanel.js"></script>
+	<script src="../javascript/infographics.js"></script>
 </body>

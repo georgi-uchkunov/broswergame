@@ -53,6 +53,10 @@ body {
 	
 }
 
+.chart-container{
+	padding-bottom: 15em;
+}
+
 .card-body {
 	background-color: #363537;
 	text: #FAFAFA;
