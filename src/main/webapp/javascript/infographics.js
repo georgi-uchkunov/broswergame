@@ -8,7 +8,6 @@ $(function() {
 				})
 				.done(
 						function(response) {
-							console.log(response.content);
 							var mageCounter = 0;
 							var thiefCounter = 0;
 							var healerCounter = 0;
@@ -34,8 +33,11 @@ $(function() {
 
 							var classCounter = [ mageCounter, thiefCounter,
 									healerCounter, fighterCounter, tankCounter ];
-							console.log(classCounter);
 							createClassChart(classCounter);
+							findMostPopularClass(mageCounter, thiefCounter,
+									healerCounter, fighterCounter, tankCounter);
+							findLeastPopularClass(mageCounter, thiefCounter,
+									healerCounter, fighterCounter, tankCounter);
 
 						}).fail(function(response) {
 				})
@@ -47,7 +49,6 @@ $(function() {
 			url : "getAllCharacters"
 		}).done(
 				function(response) {
-					console.log(response.content);
 					var humanCounter = 0;
 					var elfCounter = 0;
 					var dwarfCounter = 0;
@@ -70,8 +71,11 @@ $(function() {
 
 					var raceCounter = [ humanCounter, elfCounter, dwarfCounter,
 							orcCounter ];
-					console.log(raceCounter);
 					createRaceChart(raceCounter);
+					findMostPopularRace(humanCounter, elfCounter, dwarfCounter,
+							orcCounter);
+					findLeastPopularRace(humanCounter, elfCounter,
+							dwarfCounter, orcCounter);
 
 				}).fail(function(response) {
 		})
@@ -165,6 +169,135 @@ $(function() {
 				}
 			}
 		});
+	}
+
+	findMostPopularClass = function(mageCounter, thiefCounter, healerCounter,
+			fighterCounter, tankCounter) {
+
+		var mostPopular = Math.max(mageCounter, thiefCounter, healerCounter,
+				fighterCounter, tankCounter);
+		var position = [ mageCounter, thiefCounter, healerCounter,
+				fighterCounter, tankCounter ].indexOf(mostPopular);
+
+		switch (position) {
+		case 0:
+			$('.img-popular-class').attr('src', '../../images/mage_logo.png');
+			$('.most-popular-class').text("Mage");
+			break;
+		case 1:
+			$('.img-popular-class').attr('src', '../../images/thief_logo.png');
+			$('.most-popular-class').text("Thief");
+			break;
+		case 2:
+			$('.img-popular-class').attr('src', '../../images/healer_logo.png');
+			$('.most-popular-class').text('Healer');
+			break;
+		case 3:
+			$('.img-popular-class')
+					.attr('src', '../../images/fighter_logo.png');
+			$('.most-popular-class').text('Fighter');
+			break;
+		case 4:
+			$('.img-popular-class').attr('src', '../../images/tank_logo.png');
+			$('.most-popular-class').text('Tank');
+			break;
+
+		}
+
+	}
+
+	findMostPopularRace = function(humanCounter, elfCounter, dwarfCounter,
+			orcCounter) {
+
+		var mostPopular = Math.max(humanCounter, elfCounter, dwarfCounter,
+				orcCounter);
+		var position = [ humanCounter, elfCounter, dwarfCounter, orcCounter ]
+				.indexOf(mostPopular);
+
+		switch (position) {
+		case 0:
+			$('.img-popular-race').attr('src', '../../images/human_logo.png');
+			$('.most-popular-race').text('Human');
+			break;
+		case 1:
+			$('.img-popular-race').attr('src', '../../images/elf_logo.png');
+			$('.most-popular-race').text('Elf');
+			break;
+		case 2:
+			$('.img-popular-race').attr('src', '../../images/dwarf_logo.png');
+			$('.most-popular-race').text('Dwarf');
+			break;
+		case 3:
+			$('.img-popular-race').attr('src', '../../images/orc_logo.png');
+			$('.most-popular-race').text('Orc');
+			break;
+
+		}
+
+	}
+
+	findLeastPopularClass = function(mageCounter, thiefCounter, healerCounter,
+			fighterCounter, tankCounter) {
+
+		var leastPopular = Math.min(mageCounter, thiefCounter, healerCounter,
+				fighterCounter, tankCounter);
+		var position = [ mageCounter, thiefCounter, healerCounter,
+				fighterCounter, tankCounter ].indexOf(leastPopular);
+
+		switch (position) {
+		case 0:
+			$('.img-least-class').attr('src', '../../images/mage_logo.png');
+			$('.least-popular-class').text("Mage");
+			break;
+		case 1:
+			$('.img-least-class').attr('src', '../../images/thief_logo.png');
+			$('.least-popular-class').text("Thief");
+			break;
+		case 2:
+			$('.img-least-class').attr('src', '../../images/healer_logo.png');
+			$('.least-popular-class').text('Healer');
+			break;
+		case 3:
+			$('.img-least-class').attr('src', '../../images/fighter_logo.png');
+			$('.least-popular-class').text('Fighter');
+			break;
+		case 4:
+			$('.img-least-class').attr('src', '../../images/tank_logo.png');
+			$('.least-popular-class').text('Tank');
+			break;
+
+		}
+
+	}
+
+	findLeastPopularRace = function(humanCounter, elfCounter, dwarfCounter,
+			orcCounter) {
+
+		var mostPopular = Math.min(humanCounter, elfCounter, dwarfCounter,
+				orcCounter);
+		var position = [ humanCounter, elfCounter, dwarfCounter, orcCounter ]
+				.indexOf(mostPopular);
+
+		switch (position) {
+		case 0:
+			$('.img-least-race').attr('src', '../../images/human_logo.png');
+			$('.least-popular-race').text('Human');
+			break;
+		case 1:
+			$('.img-least-race').attr('src', '../../images/elf_logo.png');
+			$('.least-popular-race').text('Elf');
+			break;
+		case 2:
+			$('.img-least-race').attr('src', '../../images/dwarf_logo.png');
+			$('.least-popular-race').text('Dwarf');
+			break;
+		case 3:
+			$('.img-least-race').attr('src', '../../images/orc_logo.png');
+			$('.least-popular-race').text('Orc');
+			break;
+
+		}
+
 	}
 
 	getAllCharacters();

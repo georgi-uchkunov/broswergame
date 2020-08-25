@@ -20,16 +20,6 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-#user-list {
-	display: grid;
-	grid-template-columns: 600px 600px;
-	grid-gap: 20px;
-}
-
-.first-row {
-	padding-left: 5em;
-}
-
 .second-row {
 	padding-top: 5em;
 }
@@ -49,20 +39,6 @@ body {
 
 .information-col {
 	padding-right: 5em;
-}
-
-.last-row {
-	padding-right: 5em;
-	padding-left: 5em;
-}
-
-.edit-modal {
-	width: 90%;
-	max-width: 1200px;
-}
-
-#editDescription {
-	width: 90%;
 }
 
 .chart-container {
