@@ -92,6 +92,7 @@ public class Character implements Serializable {
 	private int defenseProgress = 0;
 	private int investigationProgress = 0;
 	private int spellcastingProgress = 0;
+	private int gambitProgress = 0;
 
 	/**
 	 * Key if hero can go on a mission or training or is already busy
@@ -308,6 +309,14 @@ public class Character implements Serializable {
 
 	public void setSpellcastingProgress(int spellcastingProgress) {
 		this.spellcastingProgress = spellcastingProgress;
+	}
+
+	public int getGambitProgress() {
+		return gambitProgress;
+	}
+
+	public void setGambitProgress(int gambitProgress) {
+		this.gambitProgress = gambitProgress;
 	}
 
 	public boolean isBusy() {

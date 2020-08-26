@@ -2,6 +2,7 @@ package st.pro.browsergame.rest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import st.pro.browsergame.models.Character;
 import st.pro.browsergame.models.News;
+import st.pro.browsergame.models.Training;
 import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.CharacterRepository;
 import st.pro.browsergame.repos.UserRepository;
@@ -74,6 +76,31 @@ public class CharacterCreatorRest {
 	public Page<Character> getAllCharacters(Pageable pageable) {
 
 		return charRepo.findAll(pageable);
+	}
+
+	@GetMapping("/getSelectedCharacterById")
+	public Character getAllUsers(@RequestParam(name = "id") int id) {
+		List<Character> characters = charRepo.findAll();
+		for (int i = 0; i < characters.size(); i++) {
+			Character currentCharacter = characters.get(i);
+			if (currentCharacter.getId() == id) {
+				return currentCharacter;
+			}
+
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/switchCharacterStatus")
+	public Character switchCharacterStatus(@RequestParam(name = "id") int id) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate.setBusy(!realCharacterForUpdate.isBusy());
+			return charRepo.saveAndFlush(realCharacterForUpdate);
+		}
+		return null;
+
 	}
 
 	@PostMapping("/deleteMyCharacter")

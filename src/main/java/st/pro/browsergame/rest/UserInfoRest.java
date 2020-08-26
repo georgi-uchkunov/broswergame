@@ -58,7 +58,7 @@ public class UserInfoRest {
 		Optional<User> userForUpdate = userRepo.findById(id);
 		if (userForUpdate.isPresent()) {
 			User realUserForUpdate = userForUpdate.get();
-			realUserForUpdate.setGold((short) (realUserForUpdate.getGold() - gold));
+			realUserForUpdate.setGold(gold);
 			return userRepo.saveAndFlush(realUserForUpdate);
 		}
 		return null;

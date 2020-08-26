@@ -1,5 +1,5 @@
 $(function() {
-	
+
 	getTrainings = function() {
 		$.ajax({
 			method : "GET",
@@ -9,8 +9,13 @@ $(function() {
 					console.log(response.content);
 					for (var i = 0; i < response.content.length; i++) {
 						var currentTraining = response.content[i];
-						renderTraining(currentTraining.id, currentTraining.title, currentTraining.trainingImage, 
-								currentTraining.trainingDifficulty, currentTraining.description, currentTraining.trainingTime, currentTraining.trainingSkill,
+						renderTraining(currentTraining.id,
+								currentTraining.title,
+								currentTraining.trainingImage,
+								currentTraining.trainingDifficulty,
+								currentTraining.description,
+								currentTraining.trainingTime,
+								currentTraining.trainingSkill,
 								currentTraining.trainingCost);
 
 					}
@@ -18,9 +23,9 @@ $(function() {
 				}).fail(function(response) {
 		})
 	}
-	
-	var renderTraining = function(id, title, trainingImage, trainingDifficulty, description, trainingTime,
-			trainingSkill, trainingCost) {
+
+	var renderTraining = function(id, title, trainingImage, trainingDifficulty,
+			description, trainingTime, trainingSkill, trainingCost) {
 
 		var $template = $('#template-training').html();
 		$template = $($template);
@@ -33,27 +38,27 @@ $(function() {
 		// $template.find('.training-time').text(trainingTime);
 		$template.find('.training-description').text(description);
 		$template.find('.training-skill').text(trainingSkill);
-		
-		if(trainingTime == 300){
+
+		if (trainingTime == 300) {
 			$template.find('.training-time').text('5 min');
 		}
-		if(trainingTime == 900){
+		if (trainingTime == 900) {
 			$template.find('.training-time').text('15 min');
 		}
-		if(trainingTime == 1800){
+		if (trainingTime == 1800) {
 			$template.find('.training-time').text('30 min');
 		}
-		if(trainingTime == 3600){
+		if (trainingTime == 3600) {
 			$template.find('.training-time').text('1 hour');
 		}
-		if(trainingTime == 5200){
+		if (trainingTime == 5200) {
 			$template.find('.training-time').text('2 hours');
 		}
 
 		var $trainingList = $('#training-list');
 		$trainingList.append($template);
 	}
-	
+
 	getUserCharactersInDropdownMenu = function() {
 		$.ajax({
 			method : "GET",
@@ -63,9 +68,12 @@ $(function() {
 			var select = document.getElementById("exampleSelect1");
 			for (var i = 0; i < response.length; i++) {
 				var opt = response[i].name;
+				var id = response[i].id;
 				var el = document.createElement("option");
 				el.textContent = opt;
-				el.value = opt;
+				el.value = id;
+				el.id = id;
+				console.log(id);
 				select.appendChild(el);
 			}
 
@@ -74,7 +82,6 @@ $(function() {
 		})
 	}
 
-	
 	getTrainings();
 	getUserCharactersInDropdownMenu();
 })

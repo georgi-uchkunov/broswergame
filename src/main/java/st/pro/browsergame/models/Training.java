@@ -12,8 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 /**
  * @author Pc
  *
@@ -33,10 +31,10 @@ public class Training implements Serializable {
 	private String description;
 	private String trainingImage;
 	private LocalDateTime trainingStartTime;
-	
+	private int timesChosen = 0;
 
 	public Training() {
-		
+
 	}
 
 	public Training(String title, int trainingTime, String trainingSkill, String trainingDifficulty, int trainingCost,
@@ -51,9 +49,9 @@ public class Training implements Serializable {
 		this.trainingImage = trainingImage;
 
 	}
-	
-	public Training(int id, String title, int trainingTime, String trainingSkill, String trainingDifficulty, int trainingCost,
-			String description, String trainingImage) {
+
+	public Training(int id, String title, int trainingTime, String trainingSkill, String trainingDifficulty,
+			int trainingCost, String description, String trainingImage) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -136,6 +134,14 @@ public class Training implements Serializable {
 
 	public void setTrainingDifficulty(String trainingDifficulty) {
 		this.trainingDifficulty = trainingDifficulty;
-	}	
-	
+	}
+
+	public int getTimesChosen() {
+		return timesChosen;
+	}
+
+	public void setTimesChosen(int timesChosen) {
+		this.timesChosen = timesChosen;
+	}
+
 }

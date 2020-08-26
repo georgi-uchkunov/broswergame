@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import st.pro.browsergame.models.Character;
 import st.pro.browsergame.models.Training;
 import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.TrainingRepository;
@@ -54,16 +55,40 @@ public class TrainingRest {
 		return trainingRepo.findAll(pageable);
 	}
 
-
 	@GetMapping(value = "/getTrainingById/{id}")
 	public Training selectedTraining(@PathVariable int id) {
 		return trainingRepo.findById(id).orElseThrow(null);
+	}
+
+	@GetMapping("/getSelectedTrainingById")
+	public Training getSelectedTrainingById(@RequestParam(name = "id") int id) {
+		List<Training> trainings = trainingRepo.findAll();
+		for (int i = 0; i < trainings.size(); i++) {
+			Training currentTraining = trainings.get(i);
+			if (currentTraining.getId() == id) {
+				return currentTraining;
+			}
+
+		}
+		return null;
 	}
 
 	@PostMapping(value = "/updateTraining")
 	public Training updateTraining(Training trainingForUpdate) {
 
 		return trainingRepo.saveAndFlush(trainingForUpdate);
+	}
+
+	@PostMapping(value = "/updateTrainingTimesChosen")
+	public Training updateTrainingTimesChosen(@RequestParam(name = "id") int id) {
+		Optional<Training> trainingForUpdate = trainingRepo.findById(id);
+		if (trainingForUpdate.isPresent()) {
+			Training realTrainingForUpdate = trainingForUpdate.get();
+			realTrainingForUpdate.setTimesChosen((realTrainingForUpdate.getTimesChosen() + 1));
+			return trainingRepo.saveAndFlush(realTrainingForUpdate);
+		}
+		return null;
+
 	}
 
 	@PostMapping("/deleteTraining")

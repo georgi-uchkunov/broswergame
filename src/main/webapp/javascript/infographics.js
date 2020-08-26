@@ -216,7 +216,7 @@ $(function() {
 
 		switch (position) {
 		case 0:
-			$('.img-popular-race').attr('src', '../../images/human_logo.png');
+			$('.img-popular-race').attr('src', '../../images/human_icon.png');
 			$('.most-popular-race').text('Human');
 			break;
 		case 1:
