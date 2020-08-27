@@ -103,6 +103,328 @@ public class CharacterCreatorRest {
 
 	}
 
+	@PostMapping(value = "/updateSwordfighting")
+	public Character updateSwordfighting(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		int progressIncrease = 0;
+		if (trainingDifficulty.equalsIgnoreCase("Easy")) {
+			progressIncrease = 1;
+		} else if (trainingDifficulty.equalsIgnoreCase("Medium")) {
+			progressIncrease = 2;
+		} else if (trainingDifficulty.equalsIgnoreCase("Hard")) {
+			progressIncrease = 3;
+		}
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate
+					.setSwordfightingProgress(realCharacterForUpdate.getSwordfightingProgress() + progressIncrease);
+			if (realCharacterForUpdate.getSwordfightingProgress() < 5) {
+				realCharacterForUpdate.setBusy(false);
+				return charRepo.saveAndFlush(realCharacterForUpdate);
+
+			}
+
+			if (realCharacterForUpdate.getSwordfightingProgress() >= 5) {
+				if (realCharacterForUpdate.getSwordfighting() == 'E') {
+					realCharacterForUpdate.setSwordfighting('D');
+					realCharacterForUpdate.setSwordfightingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSwordfighting() == 'D') {
+					realCharacterForUpdate.setSwordfighting('C');
+					realCharacterForUpdate.setSwordfightingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSwordfighting() == 'C') {
+					realCharacterForUpdate.setSwordfighting('B');
+					realCharacterForUpdate.setSwordfightingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSwordfighting() == 'B') {
+					realCharacterForUpdate.setSwordfighting('A');
+					realCharacterForUpdate.setSwordfightingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSwordfighting() == 'A') {
+					realCharacterForUpdate.setSwordfighting('S');
+					realCharacterForUpdate.setSwordfightingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				}
+			}
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/updateAcrobatics")
+	public Character updateAcrobatics(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		int progressIncrease = 0;
+		if (trainingDifficulty.equalsIgnoreCase("Easy")) {
+			progressIncrease = 1;
+		} else if (trainingDifficulty.equalsIgnoreCase("Medium")) {
+			progressIncrease = 2;
+		} else if (trainingDifficulty.equalsIgnoreCase("Hard")) {
+			progressIncrease = 3;
+		}
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate
+					.setAcrobaticsProgress(realCharacterForUpdate.getAcrobaticsProgress() + progressIncrease);
+			if (realCharacterForUpdate.getAcrobaticsProgress() < 5) {
+				realCharacterForUpdate.setBusy(false);
+				return charRepo.saveAndFlush(realCharacterForUpdate);
+
+			}
+
+			if (realCharacterForUpdate.getAcrobaticsProgress() >= 5) {
+				if (realCharacterForUpdate.getAcrobatics() == 'E') {
+					realCharacterForUpdate.setAcrobatics('D');
+					realCharacterForUpdate.setAcrobaticsProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getAcrobatics() == 'D') {
+					realCharacterForUpdate.setAcrobatics('C');
+					realCharacterForUpdate.setAcrobaticsProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getAcrobatics() == 'C') {
+					realCharacterForUpdate.setAcrobatics('B');
+					realCharacterForUpdate.setAcrobaticsProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getAcrobatics() == 'B') {
+					realCharacterForUpdate.setAcrobatics('A');
+					realCharacterForUpdate.setAcrobaticsProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getAcrobatics() == 'A') {
+					realCharacterForUpdate.setAcrobatics('S');
+					realCharacterForUpdate.setAcrobaticsProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				}
+			}
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/updateDefense")
+	public Character updateDefense(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		int progressIncrease = 0;
+		if (trainingDifficulty.equalsIgnoreCase("Easy")) {
+			progressIncrease = 1;
+		} else if (trainingDifficulty.equalsIgnoreCase("Medium")) {
+			progressIncrease = 2;
+		} else if (trainingDifficulty.equalsIgnoreCase("Hard")) {
+			progressIncrease = 3;
+		}
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate.setDefenseProgress(realCharacterForUpdate.getDefenseProgress() + progressIncrease);
+			if (realCharacterForUpdate.getDefenseProgress() < 5) {
+				realCharacterForUpdate.setBusy(false);
+				return charRepo.saveAndFlush(realCharacterForUpdate);
+
+			}
+
+			if (realCharacterForUpdate.getDefenseProgress() >= 5) {
+				if (realCharacterForUpdate.getDefense() == 'E') {
+					realCharacterForUpdate.setDefense('D');
+					realCharacterForUpdate.setDefenseProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getDefense() == 'D') {
+					realCharacterForUpdate.setDefense('C');
+					realCharacterForUpdate.setDefenseProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getDefense() == 'C') {
+					realCharacterForUpdate.setDefense('B');
+					realCharacterForUpdate.setDefenseProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getDefense() == 'B') {
+					realCharacterForUpdate.setDefense('A');
+					realCharacterForUpdate.setDefenseProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getDefense() == 'A') {
+					realCharacterForUpdate.setDefense('S');
+					realCharacterForUpdate.setDefenseProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				}
+			}
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/updateInvestigation")
+	public Character updateInvestigation(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		int progressIncrease = 0;
+		if (trainingDifficulty.equalsIgnoreCase("Easy")) {
+			progressIncrease = 1;
+		} else if (trainingDifficulty.equalsIgnoreCase("Medium")) {
+			progressIncrease = 2;
+		} else if (trainingDifficulty.equalsIgnoreCase("Hard")) {
+			progressIncrease = 3;
+		}
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate
+					.setInvestigationProgress(realCharacterForUpdate.getInvestigationProgress() + progressIncrease);
+			if (realCharacterForUpdate.getInvestigationProgress() < 5) {
+				realCharacterForUpdate.setBusy(false);
+				return charRepo.saveAndFlush(realCharacterForUpdate);
+
+			}
+
+			if (realCharacterForUpdate.getInvestigationProgress() >= 5) {
+				if (realCharacterForUpdate.getInvestigation() == 'E') {
+					realCharacterForUpdate.setInvestigation('D');
+					realCharacterForUpdate.setInvestigationProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getInvestigation() == 'D') {
+					realCharacterForUpdate.setInvestigation('C');
+					realCharacterForUpdate.setInvestigationProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getInvestigation() == 'C') {
+					realCharacterForUpdate.setInvestigation('B');
+					realCharacterForUpdate.setInvestigationProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getInvestigation() == 'B') {
+					realCharacterForUpdate.setInvestigation('A');
+					realCharacterForUpdate.setInvestigationProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getInvestigation() == 'A') {
+					realCharacterForUpdate.setInvestigation('S');
+					realCharacterForUpdate.setInvestigationProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				}
+			}
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/updateSpellcasting")
+	public Character updateSpellcasting(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		int progressIncrease = 0;
+		if (trainingDifficulty.equalsIgnoreCase("Easy")) {
+			progressIncrease = 1;
+		} else if (trainingDifficulty.equalsIgnoreCase("Medium")) {
+			progressIncrease = 2;
+		} else if (trainingDifficulty.equalsIgnoreCase("Hard")) {
+			progressIncrease = 3;
+		}
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate
+					.setSpellcastingProgress(realCharacterForUpdate.getSpellcastingProgress() + progressIncrease);
+			if (realCharacterForUpdate.getSpellcastingProgress() < 5) {
+				realCharacterForUpdate.setBusy(false);
+				return charRepo.saveAndFlush(realCharacterForUpdate);
+
+			}
+
+			if (realCharacterForUpdate.getSpellcastingProgress() >= 5) {
+				if (realCharacterForUpdate.getSpellcasting() == 'E') {
+					realCharacterForUpdate.setSpellcasting('D');
+					realCharacterForUpdate.setSpellcastingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSpellcasting() == 'D') {
+					realCharacterForUpdate.setSpellcasting('C');
+					realCharacterForUpdate.setSpellcastingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSpellcasting() == 'C') {
+					realCharacterForUpdate.setSpellcasting('B');
+					realCharacterForUpdate.setSpellcastingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSpellcasting() == 'B') {
+					realCharacterForUpdate.setSpellcasting('A');
+					realCharacterForUpdate.setSpellcastingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getSpellcasting() == 'A') {
+					realCharacterForUpdate.setSpellcasting('S');
+					realCharacterForUpdate.setSpellcastingProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				}
+			}
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/updateGambit")
+	public Character updateGambit(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+		Optional<Character> characterForUpdate = charRepo.findById(id);
+		int progressIncrease = 0;
+		if (trainingDifficulty.equalsIgnoreCase("Easy")) {
+			progressIncrease = 1;
+		} else if (trainingDifficulty.equalsIgnoreCase("Medium")) {
+			progressIncrease = 2;
+		} else if (trainingDifficulty.equalsIgnoreCase("Hard")) {
+			progressIncrease = 3;
+		}
+		if (characterForUpdate.isPresent()) {
+			Character realCharacterForUpdate = characterForUpdate.get();
+			realCharacterForUpdate.setGambitProgress(realCharacterForUpdate.getGambitProgress() + progressIncrease);
+			if (realCharacterForUpdate.getGambitProgress() < 5) {
+				realCharacterForUpdate.setBusy(false);
+				return charRepo.saveAndFlush(realCharacterForUpdate);
+
+			}
+
+			if (realCharacterForUpdate.getGambitProgress() >= 5) {
+				if (realCharacterForUpdate.getGambit() == 'E') {
+					realCharacterForUpdate.setGambit('D');
+					realCharacterForUpdate.setGambitProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getGambit() == 'D') {
+					realCharacterForUpdate.setGambit('C');
+					realCharacterForUpdate.setGambitProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getGambit() == 'C') {
+					realCharacterForUpdate.setGambit('B');
+					realCharacterForUpdate.setGambitProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getGambit() == 'B') {
+					realCharacterForUpdate.setGambit('A');
+					realCharacterForUpdate.setGambitProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				} else if (realCharacterForUpdate.getGambit() == 'A') {
+					realCharacterForUpdate.setGambit('S');
+					realCharacterForUpdate.setGambitProgress(0);
+					realCharacterForUpdate.setBusy(false);
+					return charRepo.saveAndFlush(realCharacterForUpdate);
+				}
+			}
+		}
+		return null;
+	}
+
 	@PostMapping("/deleteMyCharacter")
 	public ResponseEntity<String> deleteCharacter(@RequestParam(name = "id") int id, HttpSession session) {
 		final User user = (User) session.getAttribute("currentUser");

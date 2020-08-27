@@ -54,11 +54,12 @@ public class UserInfoRest {
 	}
 
 	@PostMapping(value = "/updateUserGold")
-	public User updateUserGold(@RequestParam(name = "id") int id, @RequestParam(name = "gold") Short gold) {
+	public User updateUserGold(@RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingCost") int trainingCost) {
 		Optional<User> userForUpdate = userRepo.findById(id);
 		if (userForUpdate.isPresent()) {
 			User realUserForUpdate = userForUpdate.get();
-			realUserForUpdate.setGold(gold);
+			realUserForUpdate.setGold((short) (realUserForUpdate.getGold() - trainingCost));
 			return userRepo.saveAndFlush(realUserForUpdate);
 		}
 		return null;
