@@ -58,13 +58,14 @@ $(function() {
 		}).done(
 				function(response) {
 					renderCharacter(response.id, response.name, response.race,
-							response.characterClass, response.level,
-							response.strength, response.agility,
-							response.fortitude, response.intelligence,
-							response.magic, response.luck,
-							response.swordfighting, response.acrobatics,
-							response.defense, response.investigation,
-							response.spellcasting, response.gambit);
+							response.characterClass, response.busy,
+							response.level, response.strength,
+							response.agility, response.fortitude,
+							response.intelligence, response.magic,
+							response.luck, response.swordfighting,
+							response.acrobatics, response.defense,
+							response.investigation, response.spellcasting,
+							response.gambit);
 				}).fail(function(response) {
 			console.log(response);
 		})
@@ -83,7 +84,7 @@ $(function() {
 						renderCharacter(currentCharacter.id,
 								currentCharacter.name, currentCharacter.race,
 								currentCharacter.characterClass,
-								currentCharacter.level,
+								currentCharacter.busy, currentCharacter.level,
 								currentCharacter.strength,
 								currentCharacter.agility,
 								currentCharacter.fortitude,
@@ -103,7 +104,7 @@ $(function() {
 	}
 
 	// LOAD CHARACTER TEMPLATE
-	var renderCharacter = function(id, name, race, characterClass, level,
+	var renderCharacter = function(id, name, race, characterClass, busy, level,
 			strength, agility, fortitude, intelligence, magic, luck,
 			swordfighting, acrobatics, defense, investigation, spellcasting,
 			gambit) {
@@ -132,6 +133,13 @@ $(function() {
 		$template.find('.investigation').text(investigation);
 		$template.find('.spellcasting').text(spellcasting);
 		$template.find('.gambit').text(gambit);
+
+		if (busy) {
+			$template.find('.status-message').text(
+					'Having an adventure! Be back in a while.');
+			$template.find('.progress-bar')[0].classList.add("bg-danger");
+			$template.find('.progress-bar')[0].classList.remove("bg-success");
+		}
 
 		$template.find('.img-template-race').attr('title', race);
 		$template.find('.img-template-class').attr('title', characterClass);

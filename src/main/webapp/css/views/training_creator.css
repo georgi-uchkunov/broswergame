@@ -32,12 +32,12 @@ body {
 	max-width: 1200px;
 }
 
-.first-row{
+.first-row {
 	padding-left: 5em;
 	padding-right: 5em;
 }
 
-.last-row{
+.last-row {
 	padding-left: 5em;
 	padding-right: 5em;
 }
@@ -58,9 +58,12 @@ body {
 	grid-gap: 20px;
 }
 
-#editDescription{
+#editDescription {
 	width: 90%;
-	
+}
+
+.btn {
+	border-radius: 15px;
 }
 
 .modal-content {

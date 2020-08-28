@@ -62,7 +62,7 @@ $(function() {
 		$template.find('.training-image').val(trainingImage);
 		$template.find('.training-difficulty').text(trainingDifficulty);
 		$template.find('.training-gold-cost').text(trainingCost);
-		//$template.find('.training-time').text(trainingTime);
+		// $template.find('.training-time').text(trainingTime);
 		$template.find('.training-description').text(description);
 		$template.find('.training-skill').text(trainingSkill);
 		

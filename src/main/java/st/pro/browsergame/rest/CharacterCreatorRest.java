@@ -3,6 +3,7 @@ package st.pro.browsergame.rest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpSession;
 
@@ -101,6 +102,86 @@ public class CharacterCreatorRest {
 		}
 		return null;
 
+	}
+
+	@GetMapping("/performTraining")
+	public ResponseEntity<String> performTraining(@RequestParam(name = "trainingTime") int trainingTime,
+			@RequestParam(name = "trainingSkill") String trainingSkill, @RequestParam(name = "id") int id,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty) {
+
+		if (trainingTime == 300) {
+
+			try {
+				TimeUnit.MINUTES.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			updateHeroSkillBasedOnTraining(trainingSkill, id, trainingDifficulty);
+			return ResponseEntity.ok().body("Training has been finished!");
+		} else if (trainingTime == 900) {
+			try {
+				TimeUnit.MINUTES.sleep(2);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			updateHeroSkillBasedOnTraining(trainingSkill, id, trainingDifficulty);
+			return ResponseEntity.ok().body("Training has been finished!");
+		} else if (trainingTime == 1800) {
+			try {
+				TimeUnit.MINUTES.sleep(3);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			updateHeroSkillBasedOnTraining(trainingSkill, id, trainingDifficulty);
+			return ResponseEntity.ok().body("Training has been finished!");
+		} else if (trainingTime == 3600) {
+			try {
+				TimeUnit.MINUTES.sleep(4);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			updateHeroSkillBasedOnTraining(trainingSkill, id, trainingDifficulty);
+			return ResponseEntity.ok().body("Training has been finished!");
+		} else if (trainingTime == 5200) {
+			try {
+				TimeUnit.MINUTES.sleep(5);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			updateHeroSkillBasedOnTraining(trainingSkill, id, trainingDifficulty);
+			return ResponseEntity.ok().body("Training has been finished!");
+		}
+		return null;
+
+	}
+
+	public void updateHeroSkillBasedOnTraining(String trainingSkill, int id, String trainingDifficulty) {
+		switch (trainingSkill) {
+		case "swordfighting":
+			updateSwordfighting(id, trainingDifficulty);
+			break;
+		case "acrobatics":
+			updateAcrobatics(id, trainingDifficulty);
+			break;
+		case "defense":
+			updateDefense(id, trainingDifficulty);
+			break;
+		case "investigation":
+			updateInvestigation(id, trainingDifficulty);
+			break;
+		case "spellcasting":
+			updateSpellcasting(id, trainingDifficulty);
+			break;
+		case "gambit":
+			updateGambit(id, trainingDifficulty);
+			break;
+		}
 	}
 
 	@PostMapping(value = "/updateSwordfighting")

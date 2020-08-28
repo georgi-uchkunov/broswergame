@@ -24,12 +24,12 @@ body {
 	padding-top: 5em;
 }
 
-.col-popular{
+.col-popular {
 	padding-top: 3em;
 	padding-left: 2em;
 }
 
-.card-overview{
+.card-overview {
 	padding-left: 5em;
 }
 
@@ -50,6 +50,10 @@ body {
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+.btn {
+	border-radius: 15px;
 }
 
 .modal-content {

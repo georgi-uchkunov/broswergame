@@ -320,17 +320,21 @@ $(function() {
 			method : "GET",
 			url : "performTraining",
 			data : {
-				trainingTime : trainingTime
+				trainingTime : trainingTime,
+				id : heroId,
+				trainingSkill : trainingSkill,
+				trainingDifficulty : trainingDifficulty
 			}
-		}).done(
-				function(response) {
-					finishTime = new Date();
-					console.log(startTime);
-					console.log(finishTime);
-					updateHeroSkill(trainingId, heroId, trainingSkill,
-							trainingDifficulty)
+		}).done(function(response) {
+			finishTime = new Date();
+			console.log(startTime);
+			console.log(finishTime);
+			/*
+			 * updateHeroSkill(trainingId, heroId, trainingSkill,
+			 * trainingDifficulty)
+			 */
 
-				}).fail(function(response) {
+		}).fail(function(response) {
 			console.log(response);
 		})
 

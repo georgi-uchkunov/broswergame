@@ -1,51 +1,60 @@
 body {
-    background-image: url("../../images/Background Eight.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-  }
-  
-  #char-info-media{
-    width: 700px;
-    height: 280px;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 60px;
-    font-size: large;
-    color: black;
-    pointer-events: none;
-    border-radius: 10px;
-  }
-  
-  .clouds{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:100%;
-    height: 100%;
-    background: url("../../images/cloud.png");
-    animation: animate 60s linear infinite;
-  
-  }
-  
-  @keyframes animate{
-  	
-  	0%{
-  		background-position: 0px;
-  	}
-  	100%{
-  		background-position: -5440px;
-  	}
-  	
-  }
-  #char-info-heading{
-    color: black;
-  }
-  
-  #char-picture{
-    border-radius: 75px;
-  }
+	background-image: url("../../images/Background Eight.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
 
-  #row-of-user-info{
-    color: black;
-  }
+#char-info-media {
+	width: 700px;
+	height: 280px;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 60px;
+	font-size: large;
+	color: black;
+	pointer-events: none;
+	border-radius: 10px;
+}
+
+.btn {
+	border-radius: 15px;
+}
+
+.clouds {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../../images/cloud.png");
+	animation: animate 60s linear infinite;
+}
+
+@
+keyframes animate { 0%{
+	background-position: 0px;
+}
+
+100%{
+background-position
+:
+ 
+-5440
+px
+;
+
+  	
+}
+}
+#char-info-heading {
+	color: black;
+}
+
+#char-picture {
+	border-radius: 75px;
+}
+
+#row-of-user-info {
+	color: black;
+}

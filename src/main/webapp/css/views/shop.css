@@ -13,7 +13,7 @@ body {
 	background-attachment: fixed;
 }
 
-#shop-list{
+#shop-list {
 	display: grid;
 	grid-template-columns: 250px 250px 250px 250px;
 	grid-gap: 20px;
@@ -54,6 +54,10 @@ body {
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	background-image: url("../../images/Old Blue Stone.jpg")
+}
+
+.btn {
+	border-radius: 15px;
 }
 
 /* SEARCH BUTTON */

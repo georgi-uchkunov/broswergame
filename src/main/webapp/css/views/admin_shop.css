@@ -1,64 +1,66 @@
 body {
-  background-image: url("../../images/Background Five.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
+	background-image: url("../../images/Background Five.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
 }
 
 .card-body {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
-	background-image:
-		url("../../images/Old Blue Stone.jpg")
+	background-image: url("../../images/Old Blue Stone.jpg")
 }
 
 #template-body::-webkit-scrollbar {
-width: 20px;
+	width: 20px;
 }
 
 #template-body::-webkit-scrollbar-track {
-box-shadow: inset 0 0 5px grey;
+	box-shadow: inset 0 0 5px grey;
 }
 
 #template-body::-webkit-scrollbar-thumb {
-background:rgb(9, 174, 224);
+	background: rgb(9, 174, 224);
 }
 
-#template-body{
+#template-body {
 	overflow-y: scroll;
 	height: 330px;
 	overflow-x: hidden;
 }
 
-#template-body-purchases{
+#template-body-purchases {
 	overflow-y: scroll;
 	height: 330px;
 	overflow-x: hidden;
 }
 
 #template-body-purchases::-webkit-scrollbar {
-width: 20px;
+	width: 20px;
 }
 
 #template-body-purchases::-webkit-scrollbar-track {
-box-shadow: inset 0 0 5px grey;
+	box-shadow: inset 0 0 5px grey;
 }
 
 #template-body-purchases::-webkit-scrollbar-thumb {
-background:rgb(9, 174, 224);
+	background: rgb(9, 174, 224);
+}
+
+.btn {
+	border-radius: 15px;
 }
 
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
-	background-image:
-		url("../../images/Old Blue Stone.jpg")
+	background-image: url("../../images/Old Blue Stone.jpg")
 }
 
-#list-group-template-shop{
+#list-group-template-shop {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
@@ -67,7 +69,6 @@ background:rgb(9, 174, 224);
 	height: 100px;
 }
 
-#list-group-template-shop{
-	background-image:
-		url("../../images/Old Blue Stone.jpg")
+#list-group-template-shop {
+	background-image: url("../../images/Old Blue Stone.jpg")
 }

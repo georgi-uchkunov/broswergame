@@ -32,6 +32,7 @@ import st.pro.browsergame.repos.TrainingRepository;
 public class TrainingRest {
 
 	private TrainingRepository trainingRepo;
+	private CharacterCreatorRest charRest;
 
 	@Autowired
 	public TrainingRest(TrainingRepository trainingRepo) {
@@ -87,54 +88,6 @@ public class TrainingRest {
 			Training realTrainingForUpdate = trainingForUpdate.get();
 			realTrainingForUpdate.setTimesChosen((realTrainingForUpdate.getTimesChosen() + 1));
 			return trainingRepo.saveAndFlush(realTrainingForUpdate);
-		}
-		return null;
-
-	}
-
-	@GetMapping("/performTraining")
-	public ResponseEntity<String> performTraining(@RequestParam(name = "trainingTime") int trainingTime) {
-
-		if (trainingTime == 300) {
-			try {
-				TimeUnit.MINUTES.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return ResponseEntity.ok().body("Training has been finished!");
-		} else if (trainingTime == 900) {
-			try {
-				TimeUnit.MINUTES.sleep(2);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return ResponseEntity.ok().body("Training has been finished!");
-		} else if (trainingTime == 1800) {
-			try {
-				TimeUnit.MINUTES.sleep(3);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return ResponseEntity.ok().body("Training has been finished!");
-		} else if (trainingTime == 3600) {
-			try {
-				TimeUnit.MINUTES.sleep(4);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return ResponseEntity.ok().body("Training has been finished!");
-		} else if (trainingTime == 5200) {
-			try {
-				TimeUnit.MINUTES.sleep(5);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return ResponseEntity.ok().body("Training has been finished!");
 		}
 		return null;
 

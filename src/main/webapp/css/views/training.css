@@ -43,6 +43,10 @@ body {
 	grid-gap: 20px;
 }
 
+.btn {
+	border-radius: 15px;
+}
+
 .modal-body {
 	background-color: #363537;
 	text: #FAFAFA;
