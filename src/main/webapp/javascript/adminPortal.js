@@ -14,7 +14,7 @@ $(function() {
 								currentComment.commenterName,
 								currentComment.commenterEmail,
 								currentComment.commenterComment);
-						
+
 					}
 
 				}).fail(function(response) {
@@ -36,7 +36,7 @@ $(function() {
 		var $commentsList = $(".comments-list");
 		$commentsList.append($template);
 	}
-	
+
 	$("#submitNews").on("click", function() {
 
 		var title = $("#newsTitle").val();
@@ -47,29 +47,28 @@ $(function() {
 			method : "POST",
 			url : "postNews",
 			data : {
-				
+
 				newsTitle : title,
 				newsImage : image,
 				newsText : text
 			}
 		}).done(function(response) {
-			
+
 			window.location = "/admin_portal";
 		});
 	})
-	
-	var loadAdminData = function(){
-        $.ajax({
-            method: "GET",
-            url: "getCurrentUser"
-        })
-        .done(function(response) {
-           if(response.email != "admin@admin.com"){
-        	   window.location = "/";
-        	   return;
-           }
-        });
-    }
+
+	var loadAdminData = function() {
+		$.ajax({
+			method : "GET",
+			url : "getCurrentUser"
+		}).done(function(response) {
+			if (response.email != "admin@admin.com") {
+				window.location = "/";
+				return;
+			}
+		});
+	}
 
 	// DELETE CHARACTER BUTTON
 	$(document).on('click', '.remove-comment', function() {
@@ -106,7 +105,18 @@ $(function() {
 
 	}
 
+	updateCrystalsDaily = function() {
+		$.ajax({
+			method : "POST",
+			url : "updateCrystalsDaily",
+		}).done(function(response) {
+
+		}).fail(function(response) {
+			console.log(response);
+		})
+	}
+
 	getUserComments();
-	
 	loadAdminData();
+	updateCrystalsDaily();
 })

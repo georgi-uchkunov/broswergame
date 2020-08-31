@@ -3,9 +3,16 @@
  */
 package st.pro.browsergame.rest;
 
+import java.time.Duration;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import st.pro.browsergame.RunnableResourceUpdate;
 import st.pro.browsergame.models.Mission;
 import st.pro.browsergame.models.Purchase;
 import st.pro.browsergame.models.ShopItem;
@@ -29,7 +37,7 @@ import st.pro.browsergame.repos.UserRepository;
 /**
  * Rest controller for receiving User info, depending on current logged in user
  * 
- * @author IL
+ * @author 
  */
 @RestController
 public class UserInfoRest {
@@ -92,6 +100,58 @@ public class UserInfoRest {
 		}
 		return null;
 	}
+
+	@PostMapping(value = "/updateCrystals")
+	public User updateCrystals(@RequestParam(name = "id") int id) {
+		Optional<User> userForUpdate = userRepo.findById(id);
+		if (userForUpdate.isPresent()) {
+			User realUserForUpdate = userForUpdate.get();
+			realUserForUpdate.setCrystal((short) (realUserForUpdate.getCrystal() + 30));
+			return userRepo.saveAndFlush(realUserForUpdate);
+
+		}
+		return null;
+
+	}
+
+	@PostMapping(value = "/updateCrystalsForAllUsers")
+	public ArrayList<User> updateCrystalsForAllUsers() {
+		List<User> users = userRepo.findAll();
+		List<User> userList = new ArrayList<User>();
+		for (int i = 0; i < users.size(); i++) {
+			User currentUser = users.get(i);
+			userList.add(currentUser);
+
+		}
+		userList.remove(0);
+		for (int i = 0; i < userList.size(); i++) {
+			User currentUser = userList.get(i);
+			updateCrystals(currentUser.getId());
+		}
+		return (ArrayList<User>) userList;
+	}
+
+	@PostMapping(value = "/updateCrystalsDaily")
+	public void updateCrystalsDaily() {
+		ZonedDateTime now = ZonedDateTime.now(ZoneId.of("GMT+3"));
+		ZonedDateTime nextRun = now.withHour(15).withMinute(35).withSecond(0);
+		if (now.compareTo(nextRun) > 0)
+			nextRun = nextRun.plusMinutes(1);
+
+		Duration duration = Duration.between(now, nextRun);
+		long initalDelay = duration.getSeconds();
+
+		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+		scheduler.scheduleAtFixedRate(new RunnableResourceUpdate(), initalDelay, TimeUnit.MINUTES.toSeconds(1),
+				TimeUnit.SECONDS);
+	}
+
+	/*
+	 * @PostMapping(value = "/updateCrystalsDaily") public void
+	 * updateCrystalsDaily() { try { TimeUnit.MINUTES.sleep(1); } catch
+	 * (InterruptedException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } updateCrystalsForAllUsers(); updateCrystalsDaily(); }
+	 */
 
 	@GetMapping("/getAllUsers")
 	public Page<User> getAllUsers(Pageable pageable) {

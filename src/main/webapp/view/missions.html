@@ -17,6 +17,8 @@
 <!-- <link
 	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
 	rel="stylesheet"> -->
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="css\theme\_bootswatch.scss">
 <link rel="stylesheet" href="css\theme\_variables.scss">
 <link rel="stylesheet" href="css\theme\bootstrap.css">
@@ -89,83 +91,207 @@
 		</div>
 	</nav>
 
-	<div class="container">
-		<div class="row mt-5 d-flex justify-content-center">
+	<div class="container text-center mt-5">
+		<h3>MISSION CATALOGUE</h3>
+		<br>
 
-			<div
-				class="card-header w-75 text-white d-flex justify-content-center bg-primary">Missions</div>
-			<div class="card w-75">
-				<div class="card-body bg-secondary">
-					<div class="row">
-						<div class="col mr-3">
-							<img class="d-block w-100" src="../../images/dragon_image.jpg"
-								alt="mission-image" id="mission-image">
-						</div>
-						<div class="col">
-							<div class="row">
+		<div class="row">
 
-								<div class="row">
-									<label>MISSION NAME:</label>
-									<p class="mission-name ml-3">Slay the dragon</p>
+			<ul class="list-group-training" id="mission-list">
+
+			</ul>
+			<ul class="list-group d-none" id="template-mission">
+				<li class="list-group-item mt-3" id="list-group-template-mission">
+					<div class="card">
+						<div class="card-body text-white">
+							<div class="row d-flex justify-content-center">
+								<h5 class="mission-title" id="mission-title"></h5>
+							</div>
+							<div class="row mt-3 d-flex justify-content-center">
+								<div class="col">
+									<img class="img-fluid mission-image" id="img-mission" src=""
+										alt="...">
 								</div>
-								<div class="row">
-									<label>EXPECTED TIME FRAME:</label>
-									<p class="mission-time ml-3">1 min</p>
+								<div class="col" id="info-row">
+									<div class="col">
+										<i class="fa fa-clock mr-2"></i><label for="mission-time">Time
+											:</label>
+										<p class="mission-time" id="mission-time"></p>
+									</div>
+									<div class="col">
+										<i class="fa fa-coins mr-2"></i><label
+											for="mission-gold-reward">Gold reward :</label>
+										<p class="mission-gold-reward" id="mission-gold-reward"></p>
+										<i class="fa fa-gem mr-2"></i><label
+											for="mission-crystal-cost">Crystal cost :</label>
+										<p class="mission-crystal-cost" id="mission-crystal-cost"></p>
+										<i class="fa fa-medal mr-2"></i><label
+											for="mission-guild-reward">Guild points :</label>
+										<p class="mission-guild-reward" id="mission-guild-reward"></p>
+									</div>
+									<div class="col">
+										<i class="fa fa-star mr-2"></i><label for="mission-skill-one">Skill
+											:</label>
+										<p class="mission-skill-one" id="mission-skill-one"></p>
+										<i class="fa fa-star mr-2"></i><label for="mission-skill-two">Skill
+											:</label>
+										<p class="mission-skill-two" id="mission-skill-two"></p>
+									</div>
+									<div class="col">
+										<i class="fa fa-dice mr-2"></i><label for="mission-stat-one">Stat
+											:</label>
+										<p class="mission-stat-one" id="mission-stat-one"></p>
+										<i class="fa fa-star mr-2"></i><label for="mission-stat-two">Stat
+											:</label>
+										<p class="mission-stat-two" id="mission-stat-two"></p>
+									</div>
+									<div class="col">
+										<i class="fa fa-sun mr-2"></i><label for="mission-difficulty">Difficulty
+											:</label>
+										<p class="mission-difficulty" id="mission-difficulty"></p>
+									</div>
 								</div>
-								<div class="row">
-									<label>DESCRIPTION:</label>
-									<p class="mission-description ml-3">Slay the mighty dragon
-										threatening village</p>
-								</div>
-
-
-								<label>CHOOSE YOUR CHARACTER:</label>
+							</div>
+							<div class="row d-flex justify-content-center mt-3">
+								<label for="description"><i class="fa fa-edit mr-2"></i>Description:</label>
+							</div>
+							<div class="row d-flex justify-content-center">
+								<p class="mission-description" id="mission-description"></p>
+							</div>
+							<div class="row d-flex justify-content-center">
 								<div class="form-group ml-3" id="form-group">
-									<label for="exampleSelect1">Example select</label> <select
-										class="form-control" id="exampleSelect1">
+									<label for="exampleSelect1"></label>Who do you want to send on
+									this mission? <select class="form-control selected-hero"
+										id="exampleSelect1">
 										<option>Choose now</option>
 
 									</select>
 								</div>
+							</div>
 
+							<div class="card-footer bg-primary text-white">
+								<button data-toggle="modal" data-target="#confirmMissionModal"
+									type="button" class="btn btn-danger btn-sm start-mission">Start
+									training</button>
 							</div>
 						</div>
 					</div>
+				</li>
+			</ul>
 
-
+			<div class="modal fade" id="idPassModal" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content bg-primary">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">
+							<p id=heroIdPass></p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="card-footer w-75 d-flex justify-content-end bg-primary">
-				<button data-toggle="modal" data-target="#timerModal"
-					id="starMission" type="button"
-					class="btn btn-danger btn-sm remove-item">Start Mission</button>
-			</div>
-		</div>
 
 
-
-		<div class="modal fade" id="timerModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header"></div>
-					<div class="modal-body text-white">
-						<p id="timer"></p>
-
+			<div class="modal fade" id="confirmMissionModal" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary">
+							<p class="modal-title text-white">Start mission</p>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">
+							<div class="row mt-2 d-flex justify-content-center">Are you
+								sure you want to send this hero on a mission?</div>
+							<div class="row mt-3 d-flex justify-content-end">
+								<button type="button" class="btn btn-danger mr-3"
+									data-dismiss="modal">No</button>
+								<button id="confirm-mission" type="button"
+									class="btn btn-success mr-3">Yes</button>
+							</div>
+						</div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+			<div class="modal fade" id="finishedMissionModal" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content bg-primary">
+						<div class="modal-header">
+							<p class="modal-title text-white"></p>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">
+							<div class="row mt-2">
+								<p id="finish-message">Mission finished!</p>
+							</div>
+							<div class="row mt-3 d-flex justify-content-end">
+								<button type="button" class="btn btn-success mr-3"
+									data-dismiss="modal">Nice!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="modal fade" id="crystalNotificationModal" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">
+							<div class="row mt-2">Not enough crystals to begin this
+								mission!</div>
+							<div class="row mt-3 d-flex justify-content-end">
+								<button type="button" class="btn btn-danger mr-3"
+									data-dismiss="modal">Understood</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="heroNotificationModal" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-secondary text-white">
+							<div class="row mt-2">This hero cannot go on mission until
+								they are free!</div>
+							<div class="row mt-3 d-flex justify-content-end">
+								<button type="button" class="btn btn-danger mr-3"
+									data-dismiss="modal">Understood</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-	</div>
-
 
 	<!-- Footer -->
 	<footer class="text-center">
@@ -182,6 +308,8 @@
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 	<script src="../../javascript/p5.min.js"></script>
 	<script src="../../javascript/sketch.js"></script>

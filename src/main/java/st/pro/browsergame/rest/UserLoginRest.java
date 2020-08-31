@@ -1,5 +1,8 @@
 package st.pro.browsergame.rest;
 
+import java.util.Optional;
+import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,7 @@ public class UserLoginRest {
 
 	private UserRepository repository;
 	// private UserDetailsService userDetailsService;
-	
+
 	@Autowired
 	public UserLoginRest(final UserRepository repository) {
 		this.repository = repository;
@@ -37,18 +40,17 @@ public class UserLoginRest {
 	 * ApplicationDetailsService userDetailsService) { this.repository = repository;
 	 * // this.userDetailsService = userDetailsService; }
 	 */
-	
+
 	@PostMapping(value = "/login")
 	public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password,
 			HttpSession session) {
-		final User currentUser = repository
-							.findByEmailAndPassword(email, password);
+		final User currentUser = repository.findByEmailAndPassword(email, password);
 		String usernameCheck = "admin";
 		if (null != currentUser) {
 			session.setAttribute("currentUser", currentUser);
-				if(currentUser.getUsername().equalsIgnoreCase(usernameCheck)) {
-					return "admin_portal.html";
-				}
+			if (currentUser.getUsername().equalsIgnoreCase(usernameCheck)) {
+				return "admin_portal.html";
+			}
 		}
 		return "profile.html";
 	}
