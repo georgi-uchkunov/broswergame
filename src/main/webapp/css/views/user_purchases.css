@@ -11,10 +11,7 @@ body {
 	color: white;
 }
 
-body:nth-child(1){
-	display: flex;
-	justify-content: left;
-}
+
 
 .card-body {
 	background-color: #363537;
@@ -84,27 +81,24 @@ body:nth-child(1){
 }
 
 #grid-main-container {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 30px;
-	justify-content: start;
+    margin: 0 auto;
+    
 }
 
 #grid-card-purchase {
 	grid-column: 1/2;
+	position: relative;
+	left: -300px
 }
 
 
-#list-items-purchase {
+.comments-list {
+	
 	display: grid;
-	grid-template-columns: repeat(3, auto);
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-gap: 30px;
 	list-style-type: none;
 }
 
 
 
-#confirmEditModal {
-	margin:0;
-	padding: 0;
-}

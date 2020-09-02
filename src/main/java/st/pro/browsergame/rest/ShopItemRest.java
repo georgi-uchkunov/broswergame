@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import st.pro.browsergame.models.Mission;
 import st.pro.browsergame.models.ShopItem;
 import st.pro.browsergame.repos.ShopItemRepository;
 
@@ -49,6 +50,12 @@ public class ShopItemRest {
     public Page<ShopItem> getAllComments(Pageable pageable) {
         return shopItemRepo.findAll(pageable);
     }
+	
+	@PostMapping(value = "/updateShopItem")
+	public ShopItem updateShopItem(ShopItem shopItemForUpdate) {
+
+		return shopItemRepo.saveAndFlush(shopItemForUpdate);
+	}
 	
 	@PostMapping("/deleteShopItem")
 	public ResponseEntity<String> deleteShopItem(@RequestParam(name = "id") int id, HttpSession session) {

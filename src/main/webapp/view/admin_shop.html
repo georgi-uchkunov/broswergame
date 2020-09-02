@@ -2,26 +2,23 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>BROWSERGAME</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>BROWSERGAME</title>
 
 
-<!-- <link rel="stylesheet"
+	<!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
-<!-- <link
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
+	<!-- <link
 	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
 	rel="stylesheet"> -->
-<link rel="stylesheet" href="css\theme\_bootswatch.scss">
-<link rel="stylesheet" href="css\theme\_variables.scss">
-<link rel="stylesheet" href="css\theme\bootstrap.css">
-<link rel="stylesheet" href="css\theme\bootstrap.min.css">
-<link rel="stylesheet" href="css\views\admin_shop.css">
+	<link rel="stylesheet" href="css\theme\_bootswatch.scss">
+	<link rel="stylesheet" href="css\theme\_variables.scss">
+	<link rel="stylesheet" href="css\theme\bootstrap.css">
+	<link rel="stylesheet" href="css\theme\bootstrap.min.css">
+	<link rel="stylesheet" href="css\views\admin_shop.css">
 
 
 
@@ -29,8 +26,7 @@
 
 <body>
 
-	<nav
-		class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
 
 		<div class="container">
 
@@ -38,38 +34,39 @@
 			<a class="navbar-brand" href="/profile"> <i class="fa fa-d-and-d"></i>
 				Browsergame
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="infographics"> <i class="fa fa-user-shield mr-2"></i>Infographics
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="user_panel"> <i class="fa fa-user-shield mr-2"></i>User
+					<li class="nav-item active mr-1"><a class="nav-link" href="infographics"> <i
+								class="fa fa-user-shield mr-2"></i>Infographics
+						</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="user_panel"> <i
+								class="fa fa-user-shield mr-2"></i>User
 							Panel
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="training_creator"> <i class="fa fa-user-shield mr-2"></i>Training
+						</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="training_creator"> <i
+								class="fa fa-user-shield mr-2"></i>Training
 							Creator
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="mission_creator"> <i class="fa fa-user-shield mr-2"></i>Mission
+						</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="mission_creator"> <i
+								class="fa fa-user-shield mr-2"></i>Mission
 							Creator
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/admin_portal"> <i class="fa fa-user-shield mr-2"></i>Admin
+						</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="/user_purchases"> <i
+								class="fa fa-user mr-2"></i>Purchases
+						</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="/admin_portal"> <i
+								class="fa fa-user-shield mr-2"></i>Admin
 							Portal
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/profile"> <i class="fa fa-user mr-2"></i>Profile
-					</a></li>
+						</a></li>
+					<li class="nav-item active mr-1"><a class="nav-link" href="/profile"> <i
+								class="fa fa-user mr-2"></i>Profile
+						</a></li>
 				</ul>
 
 
@@ -80,197 +77,149 @@
 
 	</nav>
 
-	<div class="container mt-5">
-		<div class="row">
 
-			<div class="col">
-				<div class="row">
+	<div class="container mt-5" id="grid-main-container">
+		<div class="card text-white bg-primary mb-3" id="grid-card-purchase" style="height: 380px; width: 250px">
+			<div class="card-header">Add new Product</div>
+			<div class="card-body">
+				<div class="row form-group">
 
-					<div class="card text-white bg-primary mb-3"
-						style="height: 380px; width: 250px">
-						<div class="card-header">Add new Product</div>
-						<div class="card-body">
-							<div class="row form-group">
+					<input class="form-control mb-3" id="itemImage" name="Image" placeholder="Image url" type="text"
+						required>
+				</div>
+				<div class="row form-group">
 
-								<input class="form-control mb-3" id="itemImage" name="Image"
-									placeholder="Image url" type="text" required>
-							</div>
-							<div class="row form-group">
-
-								<input class="form-control mb-3" id="itemTitle" name="title"
-									placeholder="Product Title" type="text" required>
-							</div>
-							<div class="row form-group">
-								<input class="form-control mb-3" id="itemPrice" name="itemPrice"
-									placeholder="Product Price" type="text" required>
-							</div>
-							<div class="card-footer">
-								<div class="row form-group d-flex justify-content-end">
-									<button id="createShopItem" type="button"
-										class="btn btn-primary">Create item</button>
-								</div>
-							</div>
-						</div>
+					<input class="form-control mb-3" id="itemTitle" name="title" placeholder="Product Title" type="text"
+						required>
+				</div>
+				<div class="row form-group">
+					<input class="form-control mb-3" id="itemPrice" name="itemPrice" placeholder="Product Price"
+						type="text" required>
+				</div>
+				<div class="card-footer">
+					<div class="row form-group d-flex justify-content-end">
+						<button id="createShopItem2" type="button" class="btn btn-primary">Create item</button>
 					</div>
 				</div>
 			</div>
-
-			<div class="col">
-				<div class="row">
-					<div class="card" style="width: 250px" id="card-template">
-						<div class="card-header bg-primary">Added Products</div>
-						<div class="card-body bg-secondary" id="template-body">
-							<ul class="list-group items-list">
-
-
-
-							</ul>
-						</div>
-					</div>
-					<ul class="list-group bg-secondary d-none" id="shop-item-template">
-						<li class="list-group-shop-item bg-secondary mb-3"
-							id="list-group-template-shop-item">
-							<div class="card" style="height: 300px; width: 200px">
-								<div class="card-body">
-									<div class="row d-flex justify-content-center">
-										<img class="shop-item-image" id="shop-item-image"
-											style="height: 150px; width: 150px; display: block;" src=""
-											alt="Card image">
-									</div>
-									<div class="row d-flex justify-content-center">
-										<label for="title"> Name: </label>
-										<p class="shop-item-title ml-2"></p>
-									</div>
-									<div class="row d-flex justify-content-center">
-										<label for="price"> Price: </label>
-										<p class="shop-item-price ml-2"></p>
-									</div>
-								</div>
-								<div class="card-footer bg-primary d-flex justify-content-end">
-									<button data-toggle="modal" data-target="#confirmDeleteModal"
-										type="button" class="btn btn-danger btn-sm remove-shop-item">Delete</button>
-								</div>
-
-							</div>
-
-						</li>
-					</ul>
-
-					<div class="modal fade" id="confirmDeleteModal" tabindex="-1"
-						role="dialog" aria-labelledby="exampleModalLabel"
-						aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header bg-primary">
-									<h5 class="modal-title text-white">Delete shop item</h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body bg-secondary text-white">Are you
-									sure you want to delete this shop item?</div>
-								<div class="modal-footer bg-primary">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">No</button>
-									<button id="confirm-delete" type="button"
-										class="btn btn-danger">Yes</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<div class="col">
-				<div
-					class="card-header bg-primary text-white d-flex justify-content-center">
-					User Purchases</div>
-				<div class="card" id="card-template">
-					<div class="card-body bg-info" id="template-body-purchases">
-						<ul class="list-group comments-list">
-
-
-
-						</ul>
-					</div>
-				</div>
-
-				<ul class="list-group d-none" id="comment-template-shop">
-					<li class="list-group-item" id="list-group-template-shop">
-						<div class="row text-white d-flex justify-content-center">
-							<div class="col-md-3">
-								<img class="img-responsive" width=50 height=50
-									src="https://static.thenounproject.com/png/16757-200.png">
-							</div>
-							<div class="col-md-6">
-								<p class="purchase-title"></p>
-								<p class="purchase-price"></p>
-
-							</div>
-							<div class="col-md-3">
-								<button data-toggle="modal"
-									data-target="#confirmDeleteModalUserChoice" type="button"
-									class="btn btn-danger btn-sm remove-item">Cancel</button>
-							</div>
-						</div>
-					</li>
-				</ul>
-
-				<div class="modal fade" id="confirmDeleteModalUserChoice"
-					tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-					aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title text-white">Cancel client order</h5>
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body text-white">
-								Are you sure you want to delete this client order?
-								<textarea class="form-control mt-3" id="delete-reason"
-									name="text"
-									placeholder="What is the reason for deleting this order?"
-									rows="3"></textarea>
-
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-dismiss="modal">No</button>
-								<button id="confirm-delete-order" type="button"
-									class="btn btn-danger">Yes</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
 		</div>
 
+		<ul class="list-group bg-secondary d-none" id="shop-item-template">
+			<li class="list-group-shop-item bg-secondary mb-3" id="list-group-template-shop-item"
+				style="height: 380px; width: 250px">
+				<div class="card" style="height: 380px; width: 250px">
+					<div class="card-body">
+						<div class="row d-flex justify-content-center">
+							<img class="shop-item-image" id="shop-item-image"
+								style="height: 150px; width: 150px; display: block;" src="" alt="Card image">
+						</div>
+						<div class="row d-flex justify-content-center">
+							<label for="title"> Name: </label>
+							<p class="shop-item-title ml-2"></p>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<label for="price"> Price: </label>
+							<p class="shop-item-price ml-2"></p>
+						</div>
+					</div>
 
-		<!-- Footer -->
-		<footer class="text-center">
-			<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
-				<span class="glyphicon glyphicon-chevron-up"></span>
-			</a><br> <br>
-			<p>This amateur attempt at a browser game site is made by GU and
-				IL</p>
-		</footer>
+					<div class="card-footer bg-primary d-flex justify-content-end">
+						<button data-toggle="modal" data-target="#confirmEditModal" type="button"
+							class="btn btn-success btn-sm edit-shop-item">Edit</button>
+						<button data-toggle="modal" data-target="#confirmDeleteModal" type="button"
+							class="btn btn-danger btn-sm remove-shop-item">Delete</button>
+					</div>
+
+				</div>
+
+			</li>
+		</ul>
+
+		<ul class="list-group items-list" id="list-items-purchase">
+		</ul>
 
 
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<div class="modal fade" id="confirmDeleteModalUserChoice" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-white">Cancel client order</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body text-white">
+						Are you sure you want to delete this client order?
+						<textarea class="form-control mt-3" id="delete-reason" name="text"
+							placeholder="What is the reason for deleting this order?" rows="3"></textarea>
 
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"></script>
-		<script src="../javascript/adminShop.js"></script>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+						<button id="confirm-delete-order" type="button" class="btn btn-danger">Yes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="confirmEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header bg-primary">
+						<h5 class="modal-title text-white">Update shop item</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body-md bg-secondary text-white">
+						<div class="card text-white bg-primary" id="modal-edit-card-purchase">
+
+							<div class="card-body">
+								<div class="row form-group">
+
+									<input class="form-control mb-3" id="itemImageEdit" name="ImageEdit"
+										placeholder="Image url" type="text" required>
+								</div>
+								<div class="row form-group">
+
+									<input class="form-control mb-3" id="itemTitleEdit" name="titleEdit"
+										placeholder="Product Title" type="text" required>
+								</div>
+								<div class="row form-group">
+									<input class="form-control mb-3" id="itemPriceEdit" name="itemPriceEdit"
+										placeholder="Product Price" type="text" required>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer bg-primary">
+						<button id="confirm-update-item" type="button" class="btn btn-success">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="text-center">
+		<a class="up-arrow" href="#" data-toggle="tooltip" title="TO TOP">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a><br> <br>
+		<p>This amateur attempt at a browser game site is made by GU and
+			IL</p>
+	</footer>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="../javascript/adminShop.js"></script>
 </body>

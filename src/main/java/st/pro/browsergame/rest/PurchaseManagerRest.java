@@ -23,7 +23,7 @@ import st.pro.browsergame.repos.UserRepository;
 
 @RestController
 public class PurchaseManagerRest {
-	
+
 	private PurchaseRepository purRepo;
 	private UserRepository userRepo;
 
@@ -32,36 +32,45 @@ public class PurchaseManagerRest {
 		this.purRepo = purRepo;
 		this.userRepo = userRepo;
 	}
-	
-	
+
 	@PostMapping("/cancelMyPurchase")
-	public ResponseEntity<String> cancelPurchase
-						(@RequestParam(name = "id") int id,
-										HttpSession session){
+	public ResponseEntity<String> cancelPurchase(@RequestParam(name = "id") int id, HttpSession session) {
 		final User user = (User) session.getAttribute("currentUser");
 		if (null == user) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body("");
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("");
 		}
 		List<Purchase> purchases = user.getPurchases();
-		Purchase purchaseForCancel = purchases.stream()
-							.filter(purchase->id == purchase.getId())
-							.findFirst().orElse(null);
-		if(null != purchaseForCancel) {
+		Purchase purchaseForCancel = purchases.stream().filter(purchase -> id == purchase.getId()).findFirst()
+				.orElse(null);
+		if (null != purchaseForCancel) {
 			purchases.remove(purchaseForCancel);
 			session.setAttribute("currentUser", userRepo.save(user));
 			purRepo.delete(purchaseForCancel);
 		}
-		return ResponseEntity.ok().body("Purchase with id: "+ id + " is cancelled");
+		return ResponseEntity.ok().body("Purchase with id: " + id + " is cancelled");
 	}
-	
+
+	@PostMapping("/deleteUserPurchase")
+	public ResponseEntity<String> deleteUserPurchase(@RequestParam(name = "id") int id, HttpSession session) {
+		List<st.pro.browsergame.models.Purchase> purchases = purRepo.findAll();
+		Purchase purchaseForCancel = purchases.stream().filter(purchase -> id == purchase.getId()).findFirst()
+				.orElse(null);
+		if (null != purchaseForCancel) {
+			purchases.remove(purchaseForCancel);
+			User owner = purchaseForCancel.getOwner();
+			int ownerId = owner.getId();
+			userRepo.saveAndFlush(owner);
+			purRepo.deleteById(purchaseForCancel.getId());
+		}
+		return ResponseEntity.ok().body("Purchase with id: " + id + " is deleted");
+	}
+
 	@GetMapping("/getMyPurchases")
 	public ResponseEntity<List<Purchase>> getAllPurchases(HttpSession session) {
 		final List<Purchase> purchases = new ArrayList<>();
 		final User user = (User) session.getAttribute("currentUser");
 		if (null == user) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body(purchases);
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(purchases);
 		} else {
 			purchases.addAll(user.getPurchases());
 		}
@@ -72,7 +81,6 @@ public class PurchaseManagerRest {
 	public ResponseEntity<Purchase> createPurchase(@RequestParam(name = "title") String title,
 			@RequestParam(name = "price") String price, HttpSession session) {
 
-		
 		final User user = (User) session.getAttribute("currentUser");
 		if (null == user) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
@@ -84,10 +92,10 @@ public class PurchaseManagerRest {
 
 		return ResponseEntity.ok(purchase);
 	}
-	
+
 	@GetMapping("/getAllUserPurchases")
-    public Page<Purchase> getAllUserPurchases(Pageable pageable) {
-        return purRepo.findAll(pageable);
-    }
+	public Page<Purchase> getAllUserPurchases(Pageable pageable) {
+		return purRepo.findAll(pageable);
+	}
 
 }
