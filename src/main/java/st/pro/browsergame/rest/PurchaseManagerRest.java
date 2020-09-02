@@ -52,15 +52,17 @@ public class PurchaseManagerRest {
 
 	@PostMapping("/deleteUserPurchase")
 	public ResponseEntity<String> deleteUserPurchase(@RequestParam(name = "id") int id, HttpSession session) {
-		List<st.pro.browsergame.models.Purchase> purchases = purRepo.findAll();
-		Purchase purchaseForCancel = purchases.stream().filter(purchase -> id == purchase.getId()).findFirst()
+		List<Purchase> purchases = purRepo.findAll();
+		Purchase purchaseForDelete = purchases.stream().filter(purchase -> id == purchase.getId()).findFirst()
 				.orElse(null);
-		if (null != purchaseForCancel) {
-			purchases.remove(purchaseForCancel);
-			User owner = purchaseForCancel.getOwner();
-			int ownerId = owner.getId();
-			userRepo.saveAndFlush(owner);
-			purRepo.deleteById(purchaseForCancel.getId());
+		if (null != purchaseForDelete) {
+			final User user = purchaseForDelete.getOwner();
+			List<Purchase> userPurchases = user.getPurchases();
+			purchases.remove(purchaseForDelete);
+			userPurchases.remove(purchaseForDelete);
+			user.setPurchases(userPurchases);
+			userRepo.save(user);
+			purRepo.delete(purchaseForDelete);
 		}
 		return ResponseEntity.ok().body("Purchase with id: " + id + " is deleted");
 	}
@@ -75,6 +77,20 @@ public class PurchaseManagerRest {
 			purchases.addAll(user.getPurchases());
 		}
 		return ResponseEntity.ok(purchases);
+	}
+
+	@GetMapping("/getPurchaseOwner")
+	public String getPurchaseOwner(@RequestParam(name = "id") int id) {
+		String ownerName = "";
+		List<Purchase> purchases = purRepo.findAll();
+		Purchase purchaseForFind = purchases.stream().filter(purchase -> id == purchase.getId()).findFirst()
+				.orElse(null);
+		if (null != purchaseForFind) {
+			final User owner = purchaseForFind.getOwner();
+			ownerName = owner.getUsername();
+		}
+
+		return ownerName;
 	}
 
 	@PostMapping("/createPurchase")

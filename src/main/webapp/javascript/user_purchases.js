@@ -1,139 +1,141 @@
-$(function () {
+$(function() {
 
+	var loadAdminData = function() {
+		$.ajax({
+			method : "GET",
+			url : "getCurrentUser"
+		}).done(function(response) {
+			if (response.email != "admin@admin.com") {
+				window.location = "/";
+				return;
+			}
+		});
+	}
 
+	// LOAD ALL USER CHARACTERS
+	getAllUserPurchases = function() {
+		$.ajax({
+			method : "GET",
+			url : "getAllUserPurchases"
+		}).done(
+				function(response) {
+					console.log(response.content);
+					for (var i = 0; i < response.content.length; i++) {
+						var currentPurchase = response.content[i];
+						getPurchaseOwner(currentPurchase.id,
+								currentPurchase.title, currentPurchase.price);
+						// renderPurchase(currentPurchase.id,
+						// currentPurchase.title, currentPurchase.price);
+						console.log(response.content);
 
-    var loadAdminData = function () {
-        $.ajax({
-            method: "GET",
-            url: "getCurrentUser"
-        })
-            .done(function (response) {
-                if (response.email != "admin@admin.com") {
-                    window.location = "/";
-                    return;
-                }
-            });
-    }
+					}
 
-    // LOAD ALL USER CHARACTERS
-    getAllUserPurchases = function () {
-        $.ajax({
-            method: "GET",
-            url: "getAllUserPurchases"
-        }).done(
-            function (response) {
-                console.log(response.content);
-                for (var i = 0; i < response.content.length; i++) {
-                    var currentPurchase = response.content[i];
-                    renderPurchase(currentPurchase.id,
-                        currentPurchase.title, currentPurchase.price);
-                    console.log(response.content);
+				}).fail(function(response) {
+		})
+	}
 
-                }
+	// LOAD PURCHASE TEMPLATE
+	var renderPurchase = function(id, title, price, owner) {
 
-            }).fail(function (response) {
-            })
-    }
+		var $template = $('#comment-template-shop').html();
+		$template = $($template);
 
-    // LOAD PURCHASE TEMPLATE
-    var renderPurchase = function (id, title, price) {
+		$template.find('.remove-item').attr('id', id);
+		$template.find('.purchase-title').text(title);
+		$template.find('.purchase-price').text(price);
+		$template.find('.purchase-owner').text(owner);
 
-        var $template = $('#comment-template-shop').html();
-        $template = $($template);
+		var $commentsList = $(".comments-list");
+		$commentsList.append($template);
+	}
 
-        $template.find('.remove-item').attr('id', id);
-        $template.find('.purchase-title').text(title);
-        $template.find('.purchase-price').text(price);
+	// CANCEL PURCHASE BUTTON
+	$(document).on('click', '.remove-item', function() {
+		$selectedPurchase = $(this).closest('.list-group-item');
+	})
 
-        var $commentsList = $(".comments-list");
-        $commentsList.append($template);
-    }
+	// CANCEL MODAL CONFIRMATION
+	$("#confirm-delete-order").on("click", function() {
 
-    // CANCEL PURCHASE BUTTON
-    $(document).on('click', '.remove-item', function () {
-        $selectedPurchase = $(this).closest('.list-group-item');
-    })
+		var purchaseId = $selectedPurchase.find('.remove-item').attr('id');
+		cancelPurchaseById(purchaseId);
+	})
 
-    // CANCEL MODAL CONFIRMATION
-    $("#confirm-delete-order").on("click", function () {
+	// CANCEL ORDER
+	cancelPurchaseById = function(id) {
+		$.ajax({
+			method : "POST",
+			url : "deleteUserPurchase",
+			data : {
+				id : id
+			}
+		}).done(function(response) {
+			$selectedPurchase.remove();
+			$('#confirmDeleteModalUserChoice').modal('hide');
+			$('#delete-reason').val('');
 
-        var purchaseId = $selectedPurchase.find('.remove-item').attr('id');
-        cancelPurchaseById(purchaseId);
-    })
+		}).fail(function(response) {
+			console.log(response);
+		})
 
-    // CANCEL ORDER
-    cancelPurchaseById = function (id) {
-        $.ajax({
-            method: "POST",
-            url: "deleteUserPurchase",
-            data: {
-                id: id
-            }
-        }).done(function (response) {
-            $selectedPurchase.remove();
-            $('#confirmDeleteModalUserChoice').modal('hide');
-            $('#delete-reason').val('');
+	}
 
-        }).fail(function (response) {
-            console.log(response);
-        })
+	$(document).on('click', '.edit-shop-item', function() {
+		$selectedShopItem = $(this).closest('.list-group-shop-item');
+		var id = $selectedShopItem.find('.edit-shop-item').attr('id');
+		console.log(id);
 
-    }
+		var shopitemImage = $selectedShopItem.find('#shop-item-image').val();
+		$("#itemImageEdit").val(shopitemImage);
+		var shopitemTitle = $selectedShopItem.find('.shop-item-title').text();
+		$("#itemTitleEdit").val(shopitemTitle);
+		var shopitemPrice = $selectedShopItem.find('.shop-item-price').text();
+		$("#itemPriceEdit").val(shopitemPrice);
 
+	})
 
-    $(document)
-        .on(
-            'click',
-            '.edit-shop-item',
-            function () {
-                $selectedShopItem = $(this).closest('.list-group-shop-item');
-                var id = $selectedShopItem.find('.edit-shop-item').attr(
-                    'id');
-                console.log(id);
+	$("#confirm-update-item").on("click", function() {
 
-                var shopitemImage = $selectedShopItem
-                    .find('#shop-item-image').val();
-                $("#itemImageEdit").val(shopitemImage);
-                var shopitemTitle = $selectedShopItem.find(
-                    '.shop-item-title').text();
-                $("#itemTitleEdit").val(shopitemTitle);
-                var shopitemPrice = $selectedShopItem.find(
-                    '.shop-item-price').text();
-                $("#itemPriceEdit").val(shopitemPrice);
+		var id = $selectedShopItem.find('.edit-shop-item').attr('id');
 
+		var title = $("#itemTitleEdit").val();
+		var price = $("#itemPriceEdit").val();
+		var image = $("#itemImageEdit").val();
 
-            })
+		$.ajax({
+			method : "POST",
+			url : "updateShopItem",
+			data : {
 
+				id : id,
+				title : title,
+				price : price,
+				image : image,
 
-    $("#confirm-update-item").on("click", function () {
+			}
+		}).done(function(response) {
 
-        var id = $selectedShopItem.find('.edit-shop-item').attr('id');
+			window.location = "/admin_shop";
+		});
 
-        var title = $("#itemTitleEdit").val();
-        var price = $("#itemPriceEdit").val();
-        var image = $("#itemImageEdit").val();
+	})
 
+	getPurchaseOwner = function(id, title, price) {
+		$.ajax({
+			method : "GET",
+			url : "getPurchaseOwner",
+			data : {
+				id : id
+			}
+		}).done(function(response) {
+			var owner = response;
+			renderPurchase(id, title, price, owner);
+		}).fail(function(response) {
+			console.log(response);
+		})
 
-        $.ajax({
-            method: "POST",
-            url: "updateShopItem",
-            data: {
+	}
 
-                id: id,
-                title: title,
-                price: price,
-                image: image,
-
-            }
-        }).done(function (response) {
-
-            window.location = "/admin_shop";
-        });
-
-    })
-
-    
-    getAllUserPurchases();
-
-    loadAdminData();
+	getAllUserPurchases();
+	loadAdminData();
 })
