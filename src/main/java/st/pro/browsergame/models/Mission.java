@@ -11,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 /**
  * @author Pc
  *
@@ -36,14 +34,15 @@ public class Mission implements Serializable {
 	private String skillTwo;
 	private String difficulty;
 	private String image;
+	private int timesChosen = 0;
 
 	public Mission() {
-		
+
 	}
 
-	public Mission(String title, int crystalCost, int rewardGold, int rewardGuildPoints,
-			String description, int missionTime, String statOne, String statTwo, String skillOne,
-			String skillTwo, String difficulty, String image) {
+	public Mission(String title, int crystalCost, int rewardGold, int rewardGuildPoints, String description,
+			int missionTime, String statOne, String statTwo, String skillOne, String skillTwo, String difficulty,
+			String image) {
 		super();
 		this.title = title;
 		this.crystalCost = crystalCost;
@@ -147,7 +146,6 @@ public class Mission implements Serializable {
 	public void setSkillTwo(String skillTwo) {
 		this.skillTwo = skillTwo;
 	}
-	
 
 	public String getDifficulty() {
 		return difficulty;
@@ -165,7 +163,11 @@ public class Mission implements Serializable {
 		this.image = image;
 	}
 
-	
-	
-	
+	public int getTimesChosen() {
+		return timesChosen;
+	}
+
+	public void setTimesChosen(int timesChosen) {
+		this.timesChosen = timesChosen;
+	}
 }

@@ -79,14 +79,16 @@ $(function() {
 			console.log(response);
 			var select = document.getElementById("exampleSelect1");
 			for (var i = 0; i < response.length; i++) {
-				var opt = response[i].name;
-				var id = response[i].id;
-				var el = document.createElement("option");
-				el.textContent = opt;
-				el.value = id;
-				el.id = id;
-				console.log(id);
-				select.appendChild(el);
+				if (!response[i].busy) {
+					var opt = response[i].name;
+					var id = response[i].id;
+					var el = document.createElement("option");
+					el.textContent = opt;
+					el.value = id;
+					el.id = id;
+					console.log(id);
+					select.appendChild(el);
+				}
 			}
 
 		}).fail(function(response) {

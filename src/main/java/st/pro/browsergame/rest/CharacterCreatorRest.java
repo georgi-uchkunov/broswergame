@@ -506,6 +506,321 @@ public class CharacterCreatorRest {
 		return null;
 	}
 
+	@GetMapping(value = "/performMission")
+	public ResponseEntity<String> performMission(@RequestParam(name = "id") int id,
+			@RequestParam(name = "userId") int userId, @RequestParam(name = "skillOne") String skillOne,
+			@RequestParam(name = "skillTwo") String skillTwo, @RequestParam(name = "statOne") String statOne,
+			@RequestParam(name = "statTwo") String statTwo, @RequestParam(name = "difficulty") String difficulty,
+			@RequestParam(name = "missionTime") int missionTime, @RequestParam(name = "rewardGold") int rewardGold,
+			@RequestParam(name = "rewardGuildPoints") int rewardGuildPoints) {
+
+		if (missionTime == 300) {
+
+			try {
+				TimeUnit.MINUTES.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			getHeroSkillOne(id, userId, skillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+			return ResponseEntity.ok().body("Mission has been finished!");
+		} else if (missionTime == 900) {
+			try {
+				TimeUnit.MINUTES.sleep(2);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			getHeroSkillOne(id, userId, skillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+			return ResponseEntity.ok().body("Mission has been finished!");
+		} else if (missionTime == 1800) {
+			try {
+				TimeUnit.MINUTES.sleep(3);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			getHeroSkillOne(id, userId, skillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+			return ResponseEntity.ok().body("Mission has been finished!");
+		} else if (missionTime == 3600) {
+			try {
+				TimeUnit.MINUTES.sleep(4);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			getHeroSkillOne(id, userId, skillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+			return ResponseEntity.ok().body("Mission has been finished!");
+		} else if (missionTime == 5200) {
+			try {
+				TimeUnit.MINUTES.sleep(5);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			getHeroSkillOne(id, userId, skillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+			return ResponseEntity.ok().body("Mission has been finished!");
+		}
+		return null;
+
+	}
+
+	public void getHeroSkillOne(int id, int userId, String skillOne, String skillTwo, String statOne, String statTwo,
+			String difficulty, int rewardGold, int rewardGuildPoints) {
+		char heroSkillOne;
+		Optional<Character> selectedCharacter = charRepo.findById(id);
+		Character selectedCharacterTrue = selectedCharacter.get();
+		if (skillOne.equalsIgnoreCase("swordfighting")) {
+			heroSkillOne = selectedCharacterTrue.getSwordfighting();
+			getHeroSkillTwo(id, userId, heroSkillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillOne.equalsIgnoreCase("acrobatics")) {
+			heroSkillOne = selectedCharacterTrue.getAcrobatics();
+			getHeroSkillTwo(id, userId, heroSkillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillOne.equalsIgnoreCase("defense")) {
+			heroSkillOne = selectedCharacterTrue.getDefense();
+			getHeroSkillTwo(id, userId, heroSkillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillOne.equalsIgnoreCase("investigation")) {
+			heroSkillOne = selectedCharacterTrue.getInvestigation();
+			getHeroSkillTwo(id, userId, heroSkillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillOne.equalsIgnoreCase("spellcasting")) {
+			heroSkillOne = selectedCharacterTrue.getSpellcasting();
+			getHeroSkillTwo(id, userId, heroSkillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillOne.equalsIgnoreCase("gambit")) {
+			heroSkillOne = selectedCharacterTrue.getGambit();
+			getHeroSkillTwo(id, userId, heroSkillOne, skillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		}
+	}
+
+	public void getHeroSkillTwo(int id, int userId, char heroSkillOne, String skillTwo, String statOne, String statTwo,
+			String difficulty, int rewardGold, int rewardGuildPoints) {
+		char heroSkillTwo;
+		Optional<Character> selectedCharacter = charRepo.findById(id);
+		Character selectedCharacterTrue = selectedCharacter.get();
+		if (skillTwo.equalsIgnoreCase("swordfighting")) {
+			heroSkillTwo = selectedCharacterTrue.getSwordfighting();
+			getHeroStatOne(id, userId, heroSkillOne, heroSkillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillTwo.equalsIgnoreCase("acrobatics")) {
+			heroSkillTwo = selectedCharacterTrue.getAcrobatics();
+			getHeroStatOne(id, userId, heroSkillOne, heroSkillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillTwo.equalsIgnoreCase("defense")) {
+			heroSkillTwo = selectedCharacterTrue.getDefense();
+			getHeroStatOne(id, userId, heroSkillOne, heroSkillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillTwo.equalsIgnoreCase("investigation")) {
+			heroSkillTwo = selectedCharacterTrue.getInvestigation();
+			getHeroStatOne(id, userId, heroSkillOne, heroSkillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillTwo.equalsIgnoreCase("spellcasting")) {
+			heroSkillTwo = selectedCharacterTrue.getSpellcasting();
+			getHeroStatOne(id, userId, heroSkillOne, heroSkillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (skillTwo.equalsIgnoreCase("gambit")) {
+			heroSkillTwo = selectedCharacterTrue.getGambit();
+			getHeroStatOne(id, userId, heroSkillOne, heroSkillTwo, statOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		}
+
+	}
+
+	public void getHeroStatOne(int id, int userId, char heroSkillOne, char heroSkillTwo, String statOne, String statTwo,
+			String difficulty, int rewardGold, int rewardGuildPoints) {
+		int heroStatOne;
+		Optional<Character> selectedCharacter = charRepo.findById(id);
+		Character selectedCharacterTrue = selectedCharacter.get();
+		if (statOne.equalsIgnoreCase("strength")) {
+			heroStatOne = selectedCharacterTrue.getStrength();
+			getHeroStatTwo(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (statOne.equalsIgnoreCase("agility")) {
+			heroStatOne = selectedCharacterTrue.getAgility();
+			getHeroStatTwo(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (statOne.equalsIgnoreCase("fortitude")) {
+			heroStatOne = selectedCharacterTrue.getFortitude();
+			getHeroStatTwo(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (statOne.equalsIgnoreCase("intelligence")) {
+			heroStatOne = selectedCharacterTrue.getIntelligence();
+			getHeroStatTwo(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (statOne.equalsIgnoreCase("magic")) {
+			heroStatOne = selectedCharacterTrue.getMagic();
+			getHeroStatTwo(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		} else if (statOne.equalsIgnoreCase("luck")) {
+			heroStatOne = selectedCharacterTrue.getLuck();
+			getHeroStatTwo(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, statTwo, difficulty, rewardGold,
+					rewardGuildPoints);
+		}
+
+	}
+
+	public void getHeroStatTwo(int id, int userId, char heroSkillOne, char heroSkillTwo, int heroStatOne,
+			String statTwo, String difficulty, int rewardGold, int rewardGuildPoints) {
+		int heroStatTwo;
+		Optional<Character> selectedCharacter = charRepo.findById(id);
+		Character selectedCharacterTrue = selectedCharacter.get();
+		if (statTwo.equalsIgnoreCase("strength")) {
+			heroStatTwo = selectedCharacterTrue.getStrength();
+			getHeroSkillOneNumber(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+		} else if (statTwo.equalsIgnoreCase("agility")) {
+			heroStatTwo = selectedCharacterTrue.getAgility();
+			getHeroSkillOneNumber(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+		} else if (statTwo.equalsIgnoreCase("fortitude")) {
+			heroStatTwo = selectedCharacterTrue.getFortitude();
+			getHeroSkillOneNumber(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+		} else if (statTwo.equalsIgnoreCase("intelligence")) {
+			heroStatTwo = selectedCharacterTrue.getIntelligence();
+			getHeroSkillOneNumber(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+		} else if (statTwo.equalsIgnoreCase("magic")) {
+			heroStatTwo = selectedCharacterTrue.getMagic();
+			getHeroSkillOneNumber(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+		} else if (statTwo.equalsIgnoreCase("luck")) {
+			heroStatTwo = selectedCharacterTrue.getLuck();
+			getHeroSkillOneNumber(id, userId, heroSkillOne, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+		}
+
+	}
+
+	public void getHeroSkillOneNumber(int id, int userId, char heroSkillOne, char heroSkillTwo, int heroStatOne,
+			int heroStatTwo, String difficulty, int rewardGold, int rewardGuildPoints) {
+		Short heroSkillOneNumber;
+		switch (heroSkillOne) {
+		case 'E':
+			heroSkillOneNumber = 1;
+			getHeroSkillTwoNumber(id, userId, heroSkillOneNumber, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+			break;
+		case 'D':
+			heroSkillOneNumber = 2;
+			getHeroSkillTwoNumber(id, userId, heroSkillOneNumber, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+			break;
+		case 'C':
+			heroSkillOneNumber = 4;
+			getHeroSkillTwoNumber(id, userId, heroSkillOneNumber, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+			break;
+		case 'B':
+			heroSkillOneNumber = 6;
+			getHeroSkillTwoNumber(id, userId, heroSkillOneNumber, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+			break;
+		case 'A':
+			heroSkillOneNumber = 8;
+			getHeroSkillTwoNumber(id, userId, heroSkillOneNumber, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+			break;
+		case 'S':
+			heroSkillOneNumber = 10;
+			getHeroSkillTwoNumber(id, userId, heroSkillOneNumber, heroSkillTwo, heroStatOne, heroStatTwo, difficulty,
+					rewardGold, rewardGuildPoints);
+			break;
+
+		}
+	}
+
+	public void getHeroSkillTwoNumber(int id, int userId, Short heroSkillOneNumber, char heroSkillTwo, int heroStatOne,
+			int heroStatTwo, String difficulty, int rewardGold, int rewardGuildPoints) {
+		Short heroSkillTwoNumber;
+		switch (heroSkillTwo) {
+		case 'E':
+			heroSkillTwoNumber = 1;
+			establishMissionDifficulty(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficulty, rewardGold, rewardGuildPoints);
+			break;
+		case 'D':
+			heroSkillTwoNumber = 2;
+			establishMissionDifficulty(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficulty, rewardGold, rewardGuildPoints);
+			break;
+		case 'C':
+			heroSkillTwoNumber = 4;
+			establishMissionDifficulty(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficulty, rewardGold, rewardGuildPoints);
+			break;
+		case 'B':
+			heroSkillTwoNumber = 6;
+			establishMissionDifficulty(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficulty, rewardGold, rewardGuildPoints);
+			break;
+		case 'A':
+			heroSkillTwoNumber = 8;
+			establishMissionDifficulty(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficulty, rewardGold, rewardGuildPoints);
+			break;
+		case 'S':
+			heroSkillTwoNumber = 10;
+			establishMissionDifficulty(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficulty, rewardGold, rewardGuildPoints);
+			break;
+
+		}
+
+	}
+
+	public void establishMissionDifficulty(int id, int userId, Short heroSkillOneNumber, Short heroSkillTwoNumber,
+			int heroStatOne, int heroStatTwo, String difficulty, int rewardGold, int rewardGuildPoints) {
+		if (difficulty.equalsIgnoreCase("Easy")) {
+			int difficultyTreshold = 35;
+			establishMissionResult(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficultyTreshold, rewardGold, rewardGuildPoints);
+		} else if (difficulty.equalsIgnoreCase("Medium")) {
+			int difficultyTreshold = 45;
+			establishMissionResult(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficultyTreshold, rewardGold, rewardGuildPoints);
+		} else if (difficulty.equalsIgnoreCase("Hard")) {
+			int difficultyTreshold = 55;
+			establishMissionResult(id, userId, heroSkillOneNumber, heroSkillTwoNumber, heroStatOne, heroStatTwo,
+					difficultyTreshold, rewardGold, rewardGuildPoints);
+		}
+
+	}
+
+	public ResponseEntity<String> establishMissionResult(int id, int userId, Short heroSkillOneNumber,
+			Short heroSkillTwoNumber, int heroStatOne, int heroStatTwo, int difficultyTreshold, int rewardGold,
+			int rewardGuildPoints) {
+		switchCharacterStatus(id);
+		if (heroStatOne + heroStatTwo + heroSkillOneNumber + heroSkillTwoNumber >= difficultyTreshold) {
+			giveUserReward(userId, rewardGold, rewardGuildPoints);
+			return ResponseEntity.ok().body("Congratulations! The hero has successfully completed their quest!");
+		} else {
+			return ResponseEntity.ok().body("Try again when you get better! The hero has failed thier quest!");
+		}
+
+	}
+
+	private User giveUserReward(int userId, int rewardGold, int rewardGuildPoints) {
+		Optional<User> userForUpdate = userRepo.findById(userId);
+		if (userForUpdate.isPresent()) {
+			User realUserForUpdate = userForUpdate.get();
+			realUserForUpdate.setGold(realUserForUpdate.getGold() + rewardGold);
+			realUserForUpdate.setGuildPoints(realUserForUpdate.getGuildPoints() + rewardGuildPoints);
+			return userRepo.saveAndFlush(realUserForUpdate);
+		}
+		return null;
+
+	}
+
 	@PostMapping("/deleteMyCharacter")
 	public ResponseEntity<String> deleteCharacter(@RequestParam(name = "id") int id, HttpSession session) {
 		final User user = (User) session.getAttribute("currentUser");

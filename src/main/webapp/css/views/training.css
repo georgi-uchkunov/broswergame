@@ -37,6 +37,10 @@ body {
 	text-transform: capitalize;
 }
 
+.training-description{
+	font-style: italic;
+}
+
 #info-row {
 	display: grid;
 	grid-template-columns: 150px 150px;

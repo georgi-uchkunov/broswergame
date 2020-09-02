@@ -32,7 +32,6 @@ import st.pro.browsergame.repos.TrainingRepository;
 public class TrainingRest {
 
 	private TrainingRepository trainingRepo;
-	private CharacterCreatorRest charRest;
 
 	@Autowired
 	public TrainingRest(TrainingRepository trainingRepo) {

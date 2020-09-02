@@ -13,26 +13,6 @@ $(function() {
 
 	})
 
-	beginTraining = function(trainingId) {
-		$.ajax({
-			method : "GET",
-			url : "getAllTrainings",
-		}).done(function(response) {
-			console.log(response.content);
-			for (var i = 0; i < response.content.length; i++) {
-				var currentTraining = response.content[i];
-				console.log(currentTraining);
-				if (currentTraining.id = trainingId) {
-					var currentTrainingCost = currentTraining.trainingCost;
-					console.log(currentTrainingCost);
-					checkGold(currentTrainingCost);
-				}
-
-			}
-		}).fail(function(response) {
-		})
-	}
-
 	$(document).on('change', '.selected-hero', function() {
 		$selectedHero = $(this).closest('.form-control');
 		var heroId = $selectedHero.children("option:selected").val();

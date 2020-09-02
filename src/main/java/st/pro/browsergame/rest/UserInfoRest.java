@@ -37,7 +37,7 @@ import st.pro.browsergame.repos.UserRepository;
 /**
  * Rest controller for receiving User info, depending on current logged in user
  * 
- * @author 
+ * @author
  */
 @RestController
 public class UserInfoRest {
@@ -74,6 +74,19 @@ public class UserInfoRest {
 
 	}
 
+	@PostMapping(value = "/updateUserCrystal")
+	public User updateUserCrystal(@RequestParam(name = "id") int id,
+			@RequestParam(name = "missionCost") int missionCost) {
+		Optional<User> userForUpdate = userRepo.findById(id);
+		if (userForUpdate.isPresent()) {
+			User realUserForUpdate = userForUpdate.get();
+			realUserForUpdate.setCrystal((short) (realUserForUpdate.getCrystal() - missionCost));
+			return userRepo.saveAndFlush(realUserForUpdate);
+		}
+		return null;
+
+	}
+
 	@PostMapping(value = "/updateUser")
 	public User updateUser(User userForUpdate) {
 
@@ -82,7 +95,7 @@ public class UserInfoRest {
 	}
 
 	@PostMapping(value = "/updateUserSansPassword")
-	public User updateUser02(@RequestParam(name = "id") int id, @RequestParam(name = "email") String email,
+	public User updateUserSansPassword(@RequestParam(name = "id") int id, @RequestParam(name = "email") String email,
 			@RequestParam(name = "username") String username, @RequestParam(name = "address") String address,
 			@RequestParam(name = "ingameName") String ingameName, @RequestParam(name = "gold") Short gold,
 			@RequestParam(name = "crystal") Short crystal, @RequestParam(name = "guildPoints") Short guildPoints) {

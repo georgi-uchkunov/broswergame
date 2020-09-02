@@ -33,6 +33,10 @@ body {
 	grid-gap: 20px;
 }
 
+.mission-description{
+	font-style: italic;
+}
+
 .mission-skill-one:first-letter {
 	text-transform: capitalize;
 }

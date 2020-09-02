@@ -107,8 +107,8 @@ public class User implements Serializable {
 		return gold;
 	}
 
-	public void setGold(Short gold) {
-		this.gold = gold;
+	public void setGold(int i) {
+		this.gold = (short) i;
 	}
 
 	public Short getCrystal() {
@@ -123,8 +123,8 @@ public class User implements Serializable {
 		return guildPoints;
 	}
 
-	public void setGuildPoints(Short guildPoints) {
-		this.guildPoints = guildPoints;
+	public void setGuildPoints(int i) {
+		this.guildPoints = (short) i;
 	}
 
 	public List<Purchase> getPurchases() {
