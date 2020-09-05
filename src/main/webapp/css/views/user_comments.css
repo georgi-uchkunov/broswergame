@@ -1,0 +1,94 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("../../images/Background Two.jpg");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-attachment: fixed;
+}
+
+.card-body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	color: white;
+	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+#template-body {
+	overflow-y: scroll;
+	height: 465px;
+	overflow-x: hidden;
+}
+
+#template-body::-webkit-scrollbar {
+	width: 20px;
+}
+
+#template-body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+}
+
+#template-body::-webkit-scrollbar-thumb {
+	background: rgb(9, 174, 224);
+}
+
+.btn {
+	border-radius: 15px;
+}
+
+.comments-list {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	grid-gap: 20px;
+}
+
+.user-image{
+	transition: transform 1s ease-out;
+}
+
+.commenter-comment{
+	font-style: italic;
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+	
+}
+
+.remove-comment{
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
+.list-group-item:hover .user-image{
+	-webkit-transform: translate(3%, -51%);
+	transform: translate(3%, -51%);
+}
+
+.list-group-item:hover{
+	cursor: pointer;
+}
+
+
+.modal-content {
+	background-color: primary;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	color: white;
+	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+.list-group-item {
+	background-color: primary;
+	text: #FAFAFA;
+	border-radius: 15px;
+	color: white;
+	background-image: url("../../images/Old Blue Stone.jpg");
+}
