@@ -92,6 +92,22 @@ public class CharacterCreatorRest {
 		return null;
 	}
 
+	@GetMapping("/getHeroNumbers")
+	public ResponseEntity<String> getHeroNumbers(HttpSession session) {
+		final User user = (User) session.getAttribute("currentUser");
+		if (user != null) {
+			if (user.getCharacters().size() >= 10) {
+				return ResponseEntity.ok().body("Your guild has reached the maximum number of heroes!");
+			} else if (user.getCharacters().size() < 10 && user.getCharacters().size() >= 5) {
+				return ResponseEntity.ok().body(
+						"You need to spend 100 more crystals to unlock a new hero! Your guild is getting quite big, you know.");
+			} else if (user.getCharacters().size() < 5) {
+				return ResponseEntity.ok().body("Proceed with creating this hero?");
+			}
+		}
+		return null;
+	}
+
 	@PostMapping(value = "/switchCharacterStatus")
 	public Character switchCharacterStatus(@RequestParam(name = "id") int id) {
 		Optional<Character> characterForUpdate = charRepo.findById(id);

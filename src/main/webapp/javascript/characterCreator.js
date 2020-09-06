@@ -1,34 +1,84 @@
 $(function() {
 
 	// CREATE CAHARACTER
-	$("#create").on(
-			"click",
-			function() {
+	$("#create").on("click", function() {
+		getHeroNumbers();
+	})
 
-				var name = $('#character-name').val();
-				var race = $('#select-race').val();
-				var characterClass = $('#select-class').val();
-				var level = "1";
-				var strength = $('#select-str').val();
-				var agility = $('#select-agi').val();
-				var fortitude = $('#select-for').val();
-				var intelligence = $('#select-int').val();
-				var magic = $('#select-mag').val();
-				var luck = $('#select-lck').val();
+	getHeroNumbers = function() {
+		$.ajax({
+			method : "GET",
+			url : "getHeroNumbers"
+		}).done(function(response) {
+			console.log(response);
+			if (response.includes("reached")) {
+				$('.response-text').text(response);
+				$('#heroLimitExceededModal').modal('show');
+			} else if (response.includes("spend")) {
+				$('.response-text').text(response);
+				$('#spendCrystalsForHeroModal').modal('show');
+			} else if (response.includes("with")) {
+				$('.response-text').text(response);
+				$('#approveHeroModal').modal('show');
+			}
+		}).fail(function(response) {
+			console.log(response);
+		})
+	}
 
-				var swordfighting = "E";
-				var acrobatics = "E";
-				var defense = "E";
-				var investigation = "E";
-				var spellcasting = "E";
-				var gambit = "E";
+	$("#spend-crystals").on('click', function() {
+		spendCrystalsOnNewHero();
+		$('#spendCrystalsForHeroModal').modal('hide');
 
-				postCharacter(name, race, characterClass, level, strength,
-						agility, fortitude, intelligence, magic, luck,
-						swordfighting, acrobatics, defense, investigation,
-						spellcasting, gambit);
+	})
 
-			})
+	spendCrystalsOnNewHero = function() {
+		$.ajax({
+			method : "POST",
+			url : "spendCrystalsOnNewHero"
+		}).done(function(response) {
+			getNewCharacterInfo();
+		}).fail(function(response) {
+			console.log(response);
+		})
+	}
+
+	$("#approve-hero").on('click', function() {
+		getNewCharacterInfo();
+		$("#approveHeroModal").modal('hide');
+	})
+
+	$('.modal.draggable>.modal-dialog').draggable({
+		cursor : 'move',
+		handle : '.modal-header'
+	});
+
+	$('.modal.draggable>.modal-dialog>.modal-content>.modal-header').css(
+			'cursor', 'move');
+
+	getNewCharacterInfo = function() {
+		var name = $('#character-name').val();
+		var race = $('#select-race').val();
+		var characterClass = $('#select-class').val();
+		var level = "1";
+		var strength = $('#select-str').val();
+		var agility = $('#select-agi').val();
+		var fortitude = $('#select-for').val();
+		var intelligence = $('#select-int').val();
+		var magic = $('#select-mag').val();
+		var luck = $('#select-lck').val();
+
+		var swordfighting = "E";
+		var acrobatics = "E";
+		var defense = "E";
+		var investigation = "E";
+		var spellcasting = "E";
+		var gambit = "E";
+
+		postCharacter(name, race, characterClass, level, strength, agility,
+				fortitude, intelligence, magic, luck, swordfighting,
+				acrobatics, defense, investigation, spellcasting, gambit);
+	}
 
 	// POST CHARACTER
 	var postCharacter = function(name, race, characterClass, level, strength,

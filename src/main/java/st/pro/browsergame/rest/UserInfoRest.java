@@ -87,6 +87,16 @@ public class UserInfoRest {
 
 	}
 
+	@PostMapping(value = "/spendCrystalsOnNewHero")
+	public User spendCrystalsOnNewHero(final HttpSession session) {
+		final User user = (User) session.getAttribute("currentUser");
+		if (user != null) {
+			user.setCrystal((short) (user.getCrystal() - 100));
+			return userRepo.saveAndFlush(user);
+		}
+		return null;
+	}
+
 	@PostMapping(value = "/updateUser")
 	public User updateUser(User userForUpdate) {
 

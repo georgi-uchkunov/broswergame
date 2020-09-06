@@ -45,6 +45,16 @@ body {
 
 .modal-content {
 	background-color: primary;
+	border-radius: 50px;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	color: white;
+	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+#delete-modal{
+	background-color: primary;
+	border-radius: 50px;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	color: white;
