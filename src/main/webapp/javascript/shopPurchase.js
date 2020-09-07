@@ -160,7 +160,10 @@ $(function() {
 	$("#confirm-delete").on("click", function() {
 
 		var purchaseId = $selectedPurchase.find('.remove-item').attr('id');
+		var purchaseTitle = $selectedPurchase.find('.purchase-title').text();
+		changeItemStockOnCloseOrder(purchaseTitle);
 		cancelPurchaseById(purchaseId);
+		
 	})
 
 	// CANCEL ORDER
@@ -174,13 +177,14 @@ $(function() {
 		}).done(function(response) {
 			$selectedPurchase.remove();
 			$('#confirmDeleteModal').modal('hide');
+			
 
 		}).fail(function(response) {
 			console.log(response);
 		})
 
 	}
-	
+
 	$("#buy-item").on("click", function() {
 
 		var title = $('.product-title').text();
@@ -202,7 +206,7 @@ $(function() {
 						var currentShopItem = response.content[i];
 						renderShopProduct(currentShopItem.id,
 								currentShopItem.image, currentShopItem.title,
-								currentShopItem.price);
+								currentShopItem.price, currentShopItem.stock);
 
 					}
 
@@ -211,21 +215,90 @@ $(function() {
 	}
 
 	// LOAD PURCHASE TEMPLATE
-	var renderShopProduct = function(id, image, title, price) {
+	var renderShopProduct = function(id, image, title, price, stock) {
 
 		var $template = $('#template-shop').html();
 		$template = $($template);
 
-		$template.find('.remove-item').attr('id', id);
+		
+		$template.find('.buy-button').attr('id', id);
 		$template.find('.product-image').attr('src', image);
 		$template.find('.product-title').text(title);
 		$template.find('.product-price').text(price);
+		if (stock === 0) {
+			$template.find('.product-stock').text("0").css({
+				'width' : '26px',
+				'height' : '26px',
+				'text-align' : 'center',
+				'display' : 'inline-block',
+				'border-radius' : '15px',
+				'padding' : '2px',
+				'background-color' : '#cc0000',
+			});
+		} else {
+			$template.find('.product-stock').text(stock);
+		}
 
 		var $commentsList = $(".shop-list");
 		$commentsList.append($template);
 	}
 
+	$(document).on('click', '.buy-button', function() {
+		$selectedItem = $(this).closest('.list-group-item');
+		var id = $selectedItem.find('.buy-button').attr('id');
+		console.log(id);
+		var title = $selectedItem.find("#shop-item-title").text();
+		var price = $selectedItem.find("#shop-item-price").text();
+		var stock = $selectedItem.find("#shop-item-stock").text();
+		if(stock > 0){
+			postPurchase(title, price);
+			changeItemStock(id);
+		}
+		else {
+			$('#outOfStockModal').modal('show');
+		}
+
+	})
+	
+	
+	
+	var changeItemStock = function(id){
+		$.ajax({
+			method : "POST",
+			url : "changeItemStock",
+			data: {
+				id: id,
+			}
+		}).done(
+				function(response) {
+					window.location = "/shop";
+				}).fail(function(response) {
+		})
+	}
+	
+	
+	var changeItemStockOnCloseOrder = function(title){
+		$.ajax({
+			method : "POST",
+			url : "changeItemStockOnCancelOrder",
+			data: {
+				title: title,
+			}
+		}).done(
+				function(response) {
+					
+					window.location = "/shop";
+				}).fail(function(response) {
+		})
+	}
+	
+	
+	
+	
+	
+	
 	getUserPurchases();
 	getShopItems();
+	
 
 })
