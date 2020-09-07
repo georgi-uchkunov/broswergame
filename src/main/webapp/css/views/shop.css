@@ -122,31 +122,8 @@ body {
 	toggleBorder: #6B8096;
 	gradient: linear-gradient(#091236, #1E215D);
 	font-family: 'Roboto', sans-serif;
-	color : white;
 }
 
 #list-group-template-shop {
-	border-radius: 15px;
 	background-image: url("../../images/Old Blue Stone.jpg")
 }
-
-#img-shop {
-	border-radius: 15px;
-	width: 200px;
-	height: 200px;
-}
-
-#shop-item-stock {
-	width: 26px;
-	height: 26px;
-	text-align:center;
-	display: inline-block;
-	border-radius: 50%;
-	padding: 2px;
-	background-color: #77b300;
-}
-
-
-
-
-

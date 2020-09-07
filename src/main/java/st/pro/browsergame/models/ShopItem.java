@@ -27,31 +27,21 @@ public class ShopItem implements Serializable {
 	private String title;
 	private String price;
 	private String image;
-	private int stock;
 
 	public ShopItem() {
 
 	}
 
-	public ShopItem(String title, String price, String image, int stock) {
+	public ShopItem(String title, String price, String image) {
 		super();
 		this.title = title;
 		this.price = price;
 		this.image = image;
-		this.stock = stock;
 
 	}
 
 	public int getId() {
 		return id;
-	}
-
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
-		this.stock = stock;
 	}
 
 	public void setId(int id) {
