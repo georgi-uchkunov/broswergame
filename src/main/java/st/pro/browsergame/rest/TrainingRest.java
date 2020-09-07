@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import st.pro.browsergame.models.Character;
+import st.pro.browsergame.models.Mission;
 import st.pro.browsergame.models.Training;
 import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.TrainingRepository;
@@ -78,6 +79,26 @@ public class TrainingRest {
 	public Training updateTraining(Training trainingForUpdate) {
 
 		return trainingRepo.saveAndFlush(trainingForUpdate);
+	}
+	
+	@PostMapping(value = "/updateTrainingSansTimesChosen")
+	public Training updateTrainingSansTimeChosen(@RequestParam(name = "id") int id, @RequestParam(name = "title") String title,
+			@RequestParam(name = "trainingTime") int trainingTime, @RequestParam(name = "trainingSkill") String trainingSkill,
+			@RequestParam(name = "trainingDifficulty") String trainingDifficulty,  @RequestParam(name = "trainingCost") int trainingCost,
+			@RequestParam(name = "description") String description, @RequestParam(name = "trainingImage") String trainingImage) {
+		Optional<Training> trainingForUpdate = trainingRepo.findById(id);
+		if (trainingForUpdate.isPresent()) {
+			Training realTrainingForUpdate = trainingForUpdate.get();
+			realTrainingForUpdate.setTitle(title);
+			realTrainingForUpdate.setTrainingTime(trainingTime);
+			realTrainingForUpdate.setTrainingCost(trainingCost);
+			realTrainingForUpdate.setTrainingDifficulty(trainingDifficulty);
+			realTrainingForUpdate.setDescription(description);
+			realTrainingForUpdate.setTrainingImage(trainingImage);
+			realTrainingForUpdate.setTrainingSkill(trainingSkill);
+			return trainingRepo.saveAndFlush(realTrainingForUpdate);
+		}
+		return null;
 	}
 
 	@PostMapping(value = "/updateTrainingTimesChosen")

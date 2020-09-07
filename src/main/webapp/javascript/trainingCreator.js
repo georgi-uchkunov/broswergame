@@ -62,7 +62,6 @@ $(function() {
 		$template.find('.training-image').val(trainingImage);
 		$template.find('.training-difficulty').text(trainingDifficulty);
 		$template.find('.training-gold-cost').text(trainingCost);
-		// $template.find('.training-time').text(trainingTime);
 		$template.find('.training-description').text(description);
 		$template.find('.training-skill').text(trainingSkill);
 		
@@ -97,13 +96,105 @@ $(function() {
 	
 	$(document).on('click', '.remove-training' , function() {
 		$selectedTraining = $(this).closest('.list-group-item');
+		var trainingId = $selectedTraining.find('.remove-training').attr('id');
+		$('#trainingIdPassModal').find('#trainingId').val(trainingId);
 	})
 	
 	$("#confirm-delete-training").on("click", function() {
 
-		var trainingId = $selectedTraining.find('.remove-training').attr('id');
-		deleteTrainingById(trainingId);
+		var id = $('#trainingIdPassModal').find('#trainingId').val();
+		deleteTrainingById(id);
 	})
+	
+	$(document).on(
+			'click',
+			'.list-group-item',
+			function() {
+				$selectedTraining = $(this).closest(
+						'.list-group-template-training');
+				$trueSelectedTraining = $selectedTraining.prevObject;
+				var display = $trueSelectedTraining.find('.remove-training').css(
+						'display');
+				if (display == 'block') {
+					$trueSelectedTraining.find('.stats-col').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.edit-training').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.remove-training').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.image-col').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.description-col').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					setTimeout(function() {
+						$trueSelectedTraining.find('.image-col').css({
+							'opacity' : '1'
+						});
+					}, 110);
+					setTimeout(function() {
+						$trueSelectedTraining.find('.description-col').css({
+							'opacity' : '1'
+						});
+					}, 110);
+
+				} else {
+					$trueSelectedTraining.find('.stats-col').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.edit-training').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.remove-training').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedTraining.find('.image-col').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+
+					setTimeout(function() {
+						$trueSelectedTraining.find('.stats-col').css({
+							'opacity' : '1'
+						});
+					}, 110);
+					setTimeout(function() {
+						$trueSelectedTraining.find('.edit-training').css({
+							'opacity' : '1'
+						});
+					}, 110);
+					setTimeout(function() {
+						$trueSelectedTraining.find('.remove-training').css({
+							'opacity' : '1'
+						});
+					}, 110);
+				}
+			});
 	
 	deleteTrainingById = function(id) {
 
@@ -117,6 +208,7 @@ $(function() {
 		}).done(function(response) {
 			$selectedTraining.remove();
 			$("#confirmDeleteTrainingModal").modal('hide');
+			window.location = "/training_creator";
 
 		}).fail(function(response) {
 			console.log(response);

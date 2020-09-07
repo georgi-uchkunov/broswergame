@@ -66,6 +66,46 @@ body {
 	border-radius: 15px;
 }
 
+.stats-col{
+	display: none;
+	opacity: 0;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
+.list-group-item:hover{
+	cursor: pointer;
+}
+
+.list-group-item:hover .training-image{
+	-webkit-transform: translate(2%, -89%);
+	transform: translate(2%, -89%);
+}
+
+.training-image{
+	transition: transform 1s ease-out;
+}
+
+.training-description{
+	font-style: italic;
+	opacity: 1;
+	transition: opacity 1s ease-out;
+}
+
+.edit-training{
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
+.remove-training{
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;

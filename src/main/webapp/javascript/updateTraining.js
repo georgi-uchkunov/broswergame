@@ -5,7 +5,9 @@ $(function() {
 			'.edit-training',
 			function() {
 				$selectedTraining = $(this).closest('.list-group-item');
-				var id = $selectedTraining.find('.edit-training').attr('id');
+				var trainingId = $selectedTraining.find('.edit-training').attr('id');
+				$('#trainingIdPassModal').find('#trainingId').val(trainingId);
+				var id = $('#trainingIdPassModal').find('#trainingId').val();
 				console.log(id);
 				var title = $selectedTraining.find('#training-title').text();
 				$("#editTitle").val(title);
@@ -50,7 +52,7 @@ $(function() {
 
 	$("#update-training").on("click", function() {
 
-		var id = $selectedTraining.find('.edit-training').attr('id');
+		var id = $('#trainingIdPassModal').find('#trainingId').val();
 		console.log(id);
 
 		var title = $("#editTitle").val();
@@ -70,7 +72,7 @@ $(function() {
 
 		$.ajax({
 			method : "POST",
-			url : "updateTraining",
+			url : "updateTrainingSansTimesChosen",
 			data : {
 
 				id : id,
