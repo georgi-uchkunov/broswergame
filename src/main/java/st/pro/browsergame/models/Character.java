@@ -62,27 +62,27 @@ public class Character implements Serializable {
 	/**
 	 * Derived from STR
 	 */
-	private char swordfighting;
+	private char swordfighting = 'E';
 	/**
 	 * Derived from AGI
 	 */
-	private char acrobatics;
+	private char acrobatics = 'E';
 	/**
 	 * Derived from FOR
 	 */
-	private char defense;
+	private char defense = 'E';
 	/**
 	 * Derived from INT
 	 */
-	private char investigation;
+	private char investigation = 'E';
 	/**
 	 * Derived from MAG
 	 */
-	private char spellcasting;
+	private char spellcasting = 'E';
 	/**
 	 * Derived from LCK
 	 */
-	private char gambit;
+	private char gambit = 'E';
 
 	/**
 	 * Required for Training
@@ -106,8 +106,7 @@ public class Character implements Serializable {
 	}
 
 	public Character(String name, String race, String characterClass, int level, int strength, int agility,
-			int fortitude, int intelligence, int magic, int luck, char swordfighting, char acrobatics, char defense,
-			char investigation, char spellcasting, char gambit) {
+			int fortitude, int intelligence, int magic, int luck) {
 		super();
 		this.name = name;
 		this.race = race;
@@ -119,12 +118,6 @@ public class Character implements Serializable {
 		this.intelligence = intelligence;
 		this.magic = magic;
 		this.luck = luck;
-		this.swordfighting = swordfighting;
-		this.acrobatics = acrobatics;
-		this.defense = defense;
-		this.investigation = investigation;
-		this.spellcasting = spellcasting;
-		this.gambit = gambit;
 	}
 
 	public int getId() {

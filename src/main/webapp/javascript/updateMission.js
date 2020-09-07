@@ -6,8 +6,10 @@ $(function() {
 					'.edit-mission',
 					function() {
 						$selectedMission = $(this).closest('.list-group-item');
-						var id = $selectedMission.find('.edit-mission').attr(
+						var missionId = $selectedMission.find('.edit-mission').attr(
 								'id');
+						$('#missionIdPassModal').find('#missionId').val(missionId);
+						var id = $('#missionIdPassModal').find('#missionId').val();
 						console.log(id);
 						var title = $selectedMission.find('#mission-title')
 								.text();
@@ -67,8 +69,9 @@ $(function() {
 					})
 
 	$("#update-mission").on("click", function() {
-
-		var id = $selectedMission.find('.edit-mission').attr('id');
+		
+		var id = $('#missionIdPassModal').find('#missionId').val();
+		console.log(id);
 
 		var title = $("#editTitle").val();
 		var image = $("#editImage").val();
@@ -86,7 +89,7 @@ $(function() {
 
 		$.ajax({
 			method : "POST",
-			url : "updateMission",
+			url : "updateMissionSansTimesChosen",
 			data : {
 
 				id : id,

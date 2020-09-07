@@ -88,11 +88,16 @@ public class UserInfoRest {
 	}
 
 	@PostMapping(value = "/spendCrystalsOnNewHero")
-	public User spendCrystalsOnNewHero(final HttpSession session) {
+	public ResponseEntity<String> spendCrystalsOnNewHero(final HttpSession session) {
 		final User user = (User) session.getAttribute("currentUser");
 		if (user != null) {
-			user.setCrystal((short) (user.getCrystal() - 100));
-			return userRepo.saveAndFlush(user);
+			if (user.getCrystal() >= 100) {
+				user.setCrystal((short) (user.getCrystal() - 100));
+				userRepo.saveAndFlush(user);
+				return ResponseEntity.ok().body("Proceed with recruiting.");
+			} else {
+				return ResponseEntity.ok().body("Need more crystals.");
+			}
 		}
 		return null;
 	}

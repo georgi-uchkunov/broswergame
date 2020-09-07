@@ -37,7 +37,11 @@ $(function() {
 			method : "POST",
 			url : "spendCrystalsOnNewHero"
 		}).done(function(response) {
-			getNewCharacterInfo();
+			if (response.includes("recruit")) {
+				getNewCharacterInfo();
+			} else {
+				$("#notEnoughCrystalsModal").modal('show');
+			}
 		}).fail(function(response) {
 			console.log(response);
 		})
@@ -68,22 +72,13 @@ $(function() {
 		var magic = $('#select-mag').val();
 		var luck = $('#select-lck').val();
 
-		var swordfighting = "E";
-		var acrobatics = "E";
-		var defense = "E";
-		var investigation = "E";
-		var spellcasting = "E";
-		var gambit = "E";
-
 		postCharacter(name, race, characterClass, level, strength, agility,
-				fortitude, intelligence, magic, luck, swordfighting,
-				acrobatics, defense, investigation, spellcasting, gambit);
+				fortitude, intelligence, magic, luck);
 	}
 
 	// POST CHARACTER
 	var postCharacter = function(name, race, characterClass, level, strength,
-			agility, fortitude, intelligence, magic, luck, swordfighting,
-			acrobatics, defense, investigation, spellcasting, gambit) {
+			agility, fortitude, intelligence, magic, luck) {
 		$.ajax({
 			method : "POST",
 			url : "/createCharacter",
@@ -97,13 +92,7 @@ $(function() {
 				fortitude : fortitude,
 				intelligence : intelligence,
 				magic : magic,
-				luck : luck,
-				swordfighting : swordfighting,
-				acrobatics : acrobatics,
-				defense : defense,
-				investigation : investigation,
-				spellcasting : spellcasting,
-				gambit : gambit
+				luck : luck
 			}
 		}).done(
 				function(response) {

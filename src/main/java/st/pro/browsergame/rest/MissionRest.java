@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import st.pro.browsergame.models.Mission;
 import st.pro.browsergame.models.Training;
+import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.MissionRepository;
 
 /**
@@ -58,6 +59,33 @@ public class MissionRest {
 	public Mission updateMission(Mission missionForUpdate) {
 
 		return missionRepo.saveAndFlush(missionForUpdate);
+	}
+
+	@PostMapping(value = "/updateMissionSansTimesChosen")
+	public Mission updateMissionSansTimesChosen(@RequestParam(name = "id") int id, @RequestParam(name = "title") String title,
+			@RequestParam(name = "crystalCost") int crystalCost, @RequestParam(name = "rewardGold") int rewardGold,
+			@RequestParam(name = "rewardGuildPoints") int rewardGuildPoints, @RequestParam(name = "description") String description,
+			@RequestParam(name = "missionTime") int missionTime, @RequestParam(name = "statOne") String statOne,
+			@RequestParam(name = "statTwo") String statTwo, @RequestParam(name = "skillOne") String skillOne,
+			@RequestParam(name = "skillTwo") String skillTwo, @RequestParam(name = "difficulty") String difficulty,
+			@RequestParam(name = "image") String image) {
+		Optional<Mission> missionForUpdate = missionRepo.findById(id);
+		if (missionForUpdate.isPresent()) {
+			Mission realMissionForUpdate = missionForUpdate.get();
+			realMissionForUpdate.setTitle(title);
+			realMissionForUpdate.setCrystalCost(crystalCost);
+			realMissionForUpdate.setRewardGold(rewardGold);
+			realMissionForUpdate.setDescription(description);
+			realMissionForUpdate.setMissionTime(missionTime);
+			realMissionForUpdate.setStatOne(statOne);
+			realMissionForUpdate.setStatTwo(statTwo);
+			realMissionForUpdate.setSkillOne(skillOne);
+			realMissionForUpdate.setSkillTwo(skillTwo);
+			realMissionForUpdate.setDifficulty(difficulty);
+			realMissionForUpdate.setImage(image);
+			return missionRepo.saveAndFlush(realMissionForUpdate);
+		}
+		return null;
 	}
 
 	@GetMapping(value = "/getSelectedMissionById")

@@ -73,6 +73,46 @@ body {
 	border-radius: 15px;
 }
 
+.stats-col{
+	display: none;
+	opacity: 0;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
+.list-group-item:hover{
+	cursor: pointer;
+}
+
+.list-group-item:hover .mission-image{
+	-webkit-transform: translate(2%, -89%);
+	transform: translate(2%, -89%);
+}
+
+.mission-image{
+	transition: transform 1s ease-out;
+}
+
+.mission-description{
+	font-style: italic;
+	opacity: 1;
+	transition: opacity 1s ease-out;
+}
+
+.edit-mission{
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
+.remove-mission{
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-out;
+	transition-delay: 250ms;
+}
+
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;
@@ -82,10 +122,12 @@ body {
 
 #list-group-template-mission {
 	background-color: #363537;
+	border-radius: 15px;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	gradient: linear-gradient(#091236, #1E215D);
 	font-family: 'Roboto', sans-serif;
+	text: #FAFAFA;
 }
 
 #list-group-template-mission {

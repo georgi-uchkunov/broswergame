@@ -42,18 +42,14 @@ public class CharacterCreatorRest {
 			@RequestParam(name = "level") int level, @RequestParam(name = "strength") int strength,
 			@RequestParam(name = "agility") int agility, @RequestParam(name = "fortitude") int fortitude,
 			@RequestParam(name = "intelligence") int intelligence, @RequestParam(name = "magic") int magic,
-			@RequestParam(name = "luck") int luck, @RequestParam(name = "swordfighting") char swordfighting,
-			@RequestParam(name = "acrobatics") char acrobatics, @RequestParam(name = "defense") char defense,
-			@RequestParam(name = "investigation") char investigation,
-			@RequestParam(name = "spellcasting") char spellcasting, @RequestParam(name = "gambit") char gambit,
-			HttpSession session) {
+			@RequestParam(name = "luck") int luck, HttpSession session) {
 
 		final User user = (User) session.getAttribute("currentUser");
 		if (null == user) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
 		}
 		final Character character = new Character(name, race, characterClass, level, strength, agility, fortitude,
-				intelligence, magic, luck, swordfighting, acrobatics, defense, investigation, spellcasting, gambit);
+				intelligence, magic, luck);
 		character.setOwner(user);
 		user.addCharacter(character);
 		session.setAttribute("currentUser", userRepo.save(user));

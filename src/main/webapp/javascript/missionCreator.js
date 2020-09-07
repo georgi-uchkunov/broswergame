@@ -82,7 +82,6 @@ $(function() {
 		$template.find('.mission-crystal-cost').text(crystalCost);
 		$template.find('.mission-gold-reward').text(rewardGold);
 		$template.find('.mission-guild-points-reward').text(rewardGuildPoints);
-		// $template.find('.mission-time').text(missionTime);
 		$template.find('.mission-description').text(description);
 		$template.find('.mission-stat-one').text(statOne);
 		$template.find('.mission-stat-two').text(statTwo);
@@ -119,13 +118,104 @@ $(function() {
 
 	$(document).on('click', '.remove-mission', function() {
 		$selectedMission = $(this).closest('.list-group-item');
+		var missionId = $selectedMission.find('.remove-mission').attr('id');
+		$('#missionIdPassModal').find('#missionId').val(missionId);
 	})
 
 	$('#confirm-delete-mission').on("click", function() {
-
-		var missionId = $selectedMission.find('.remove-mission').attr('id');
+		var missionId = $('#missionId').val();
 		deleteMissionById(missionId);
 	})
+
+	$(document).on(
+			'click',
+			'.list-group-item',
+			function() {
+				$selectedMission = $(this).closest(
+						'.list-group-template-mission');
+				$trueSelectedMission = $selectedMission.prevObject;
+				var display = $trueSelectedMission.find('.remove-mission').css(
+						'display');
+				if (display == 'block') {
+					$trueSelectedMission.find('.stats-col').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.edit-mission').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.remove-mission').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.image-col').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.description-col').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					setTimeout(function() {
+						$trueSelectedMission.find('.image-col').css({
+							'opacity' : '1'
+						});
+					}, 110);
+					setTimeout(function() {
+						$trueSelectedMission.find('.description-col').css({
+							'opacity' : '1'
+						});
+					}, 110);
+
+				} else {
+					$trueSelectedMission.find('.stats-col').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.edit-mission').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.remove-mission').css({
+						'display' : 'block',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+					$trueSelectedMission.find('.image-col').css({
+						'display' : 'none',
+						'opacity' : '0',
+						'transition' : 'opacity 1s ease-out',
+						'transition-delay' : '250ms'
+					});
+
+					setTimeout(function() {
+						$trueSelectedMission.find('.stats-col').css({
+							'opacity' : '1'
+						});
+					}, 110);
+					setTimeout(function() {
+						$trueSelectedMission.find('.edit-mission').css({
+							'opacity' : '1'
+						});
+					}, 110);
+					setTimeout(function() {
+						$trueSelectedMission.find('.remove-mission').css({
+							'opacity' : '1'
+						});
+					}, 110);
+				}
+			});
 
 	deleteMissionById = function(id) {
 
@@ -139,6 +229,7 @@ $(function() {
 		}).done(function(response) {
 			$selectedMission.remove();
 			$('#confirmDeleteMissionModal').modal('hide');
+			window.location = "/mission_creator";
 
 		}).fail(function(response) {
 			console.log(response);
