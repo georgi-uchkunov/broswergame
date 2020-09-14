@@ -73,6 +73,10 @@ body {
 	border-radius: 15px;
 }
 
+.mission-image{
+	border-radius: 15px;
+}
+
 .stats-col{
 	display: none;
 	opacity: 0;

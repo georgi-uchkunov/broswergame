@@ -72,6 +72,7 @@ body {
 
 #list-group-template-mission {
 	background-color: #363537;
+	border-radius: 15px;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	gradient: linear-gradient(#091236, #1E215D);

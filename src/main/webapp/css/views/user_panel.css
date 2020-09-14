@@ -80,6 +80,17 @@ body {
 	border-radius: 15px;
 }
 
+#list-group-template-user:hover .user-image{
+	animation:rotate 2s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease;
+}
+
+@-webkit-keyframes rotate {
+    from { -webkit-transform: rotate(0deg) } 
+    to { -webkit-transform: rotate(360deg) } 
+}
+
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;
@@ -89,6 +100,7 @@ body {
 
 #list-group-template-user {
 	background-color: #363537;
+	border-radius: 15px;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
 	gradient: linear-gradient(#091236, #1E215D);

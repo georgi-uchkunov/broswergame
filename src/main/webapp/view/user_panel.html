@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>BROWSERGAME</title>
+<title>User Panel</title>
 
 
 <!-- <link rel="stylesheet"
@@ -35,58 +35,65 @@
 		class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
 
 		<div class="container">
+			<a class="navbar-brand" href="#"><a href="#"><img
+					src="https://fontmeme.com/permalink/200818/058b88461ca2ccdf82e1ea2e057b02eb.png"
+					alt="guild-wars-2-font" border="0"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
 
+				</button>
 
-			<a class="navbar-brand" href="/profile"> <i class="fa fa-d-and-d"></i>
-				Browsergame
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="infographics"> <i class="fa fa-user-shield mr-2"></i>Infographics
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="training_creator"> <i class="fa fa-user-shield mr-2"></i>Training
-							Creator
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="mission_creator"> <i class="fa fa-user-shield mr-2"></i>Mission
-							Creator
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/user_purchases"> <i class="fa fa-user mr-2"></i>Purchases
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="admin_shop"> <i class="fa fa-user-shield mr-2"></i>Admin
-							Shop
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="user_comments"> <i class="fa fa-user-shield mr-2"></i>User
-							Comments
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/admin_portal"> <i class="fa fa-user-shield mr-2"></i>Admin
-							Portal
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/profile"> <i class="fa fa-user mr-2"></i>Profile
-					</a></li>
-				</ul>
-
-
-			</div>
-
-
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active mr-1"><a class="nav-link"
+							href="infographics"> <i class="fa fa-user-shield mr-2"></i>Infographics
+						</a></li>
+						<li class="nav-item active mr-1 dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"> <i
+								class="fa fa-user-shield mr-2"></i>Templates
+						</a>
+							<div class="dropdown-menu bg-primary" style="">
+								<a class="dropdown-item bg-primary" href="training_creator"><i
+									class="fa fa-user-shield mr-2"></i>Training Creator</a> <a
+									class="dropdown-item bg-primary" href="mission_creator"> <i
+									class="fa fa-user-shield mr-2"></i>Mission Creator
+								</a>
+							</div></li>
+						<li class="nav-item active mr-1 dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"> <i
+								class="fa fa-user-shield mr-2"></i>Shop Panels
+						</a>
+							<div class="dropdown-menu bg-primary" style="">
+								<a class="dropdown-item bg-primary" href="admin_shop"><i
+									class="fa fa-user-shield mr-2"></i>Admin Shop</a> <a
+									class="dropdown-item bg-primary" href="user_purchases"> <i
+									class="fa fa-user-shield mr-2"></i>User Purchases
+								</a>
+							</div></li>
+						<li class="nav-item active mr-1 dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"> <i
+								class="fa fa-user-shield mr-2"></i>Users
+						</a>
+							<div class="dropdown-menu bg-primary" style="">
+								<a class="dropdown-item bg-primary" href="user_panel"><i
+									class="fa fa-user-shield mr-2"></i>User Panel</a> <a
+									class="dropdown-item bg-primary" href="user_comments"> <i
+									class="fa fa-user-shield mr-2"></i>User Comments
+								</a>
+							</div></li>
+						<li class="nav-item active mr-1"><a class="nav-link"
+							href="/admin_portal"> <i class="fa fa-user-shield mr-2"></i>Admin
+								Portal
+						</a></li>
+					</ul>
+				</div>
 		</div>
-
 	</nav>
 
 	<div class="container mt-5">
@@ -97,56 +104,53 @@
 			</ul>
 			<ul class="list-group d-none" id="template-user">
 				<li class="list-group-item mt-3" id="list-group-template-user">
-					<div class="card">
-						<div class="card-body text-white">
-							<div class="row d-flex justify-content-center">
-								<h5 class="username" id="username" title="Username"></h5>
+					<div class="row d-flex justify-content-center">
+						<h5 class="username" id="username" title="Username"></h5>
+					</div>
+					<div class="row mt-3">
+						<div class="col">
+							<img class="img-fluid user-image" id="user-image"
+								src="../../images/User_icon.png" alt="..." title="User Image"
+								width="160" height="160">
+						</div>
+						<div class="col">
+							<div class="row">
+								<i class="fa fa-user mr-2" title="Ingame Name"></i>
+								<p class="user-ingameName" id="user-ingameName"
+									title="Ingame Name"></p>
 							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<img class="img-fluid user-image" id="user-image"
-										src="../../images/User_icon.png" alt="..." title="User Image"
-										width="160" height="160">
-								</div>
-								<div class="col">
-									<div class="row">
-										<i class="fa fa-user mr-2" title="Ingame Name"></i>
-										<p class="user-ingameName" id="user-ingameName"
-											title="Ingame Name"></p>
-									</div>
-									<div class="row mt-1">
-										<i class="fa fa-at mr-2" title="E-mail"></i>
-										<p class="user-email" id="user-email" title="E-mail"></p>
-									</div>
-									<div class="row mt-1">
-										<i class="fa fa-map-marker-alt mr-2" title="Address"></i>
-										<p class="user-address" id="user-address" title="Address"></p>
-									</div>
-								</div>
-								<div class="col">
-									<div class="row">
-										<i class="fa fa-coins mr-2" title="Gold"></i>
-										<p class="user-gold" id="user-gold" title="Gold"></p>
-									</div>
-									<div class="row">
-										<i class="fa fa-gem mr-2" title="Crystals"></i>
-										<p class="user-crystal" id="user-crystal" title="Crystals"></p>
-									</div>
-									<div class="row">
-										<i class="fa fa-star mr-2" title="Guild Points"></i>
-										<p class="user-guildPoints" id="user-guildPoints"
-											title="Guild Points"></p>
-									</div>
-								</div>
+							<div class="row mt-1">
+								<i class="fa fa-at mr-2" title="E-mail"></i>
+								<p class="user-email" id="user-email" title="E-mail"></p>
+							</div>
+							<div class="row mt-1">
+								<i class="fa fa-map-marker-alt mr-2" title="Address"></i>
+								<p class="user-address" id="user-address" title="Address"></p>
 							</div>
 						</div>
-						<div class="card-footer bg-primary text-white">
-							<button data-toggle="modal" data-target="#confirmEditModal"
-								type="button" class="btn btn-success btn-sm mr-3 edit-user">Edit</button>
-							<button data-toggle="modal" data-target="#confirmDeleteUserModal"
-								type="button" class="btn btn-danger btn-sm remove-user">Delete
-								User</button>
+						<div class="col">
+							<div class="row">
+								<i class="fa fa-coins mr-2" title="Gold"></i>
+								<p class="user-gold" id="user-gold" title="Gold"></p>
+							</div>
+							<div class="row">
+								<i class="fa fa-gem mr-2" title="Crystals"></i>
+								<p class="user-crystal" id="user-crystal" title="Crystals"></p>
+							</div>
+							<div class="row">
+								<i class="fa fa-star mr-2" title="Guild Points"></i>
+								<p class="user-guildPoints" id="user-guildPoints"
+									title="Guild Points"></p>
+							</div>
 						</div>
+					</div>
+					<div class="row d-flex justify-content-end">
+						<button data-toggle="modal" data-target="#confirmEditModal"
+							type="button" class="btn btn-success btn-sm mr-3 edit-user">Edit
+							User</button>
+						<button data-toggle="modal" data-target="#confirmDeleteUserModal"
+							type="button" class="btn btn-danger btn-sm mr-3 remove-user">Delete
+							User</button>
 					</div>
 				</li>
 			</ul>

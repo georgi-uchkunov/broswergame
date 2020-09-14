@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>BROWSERGAME</title>
+<title>Mission Creator</title>
 
 
 <!-- <link rel="stylesheet"
@@ -35,58 +35,65 @@
 		class="navbar navbar-expand-lg navbar-dark bg-primary rounded-bottom sticky-top">
 
 		<div class="container">
+			<a class="navbar-brand" href="#"><a href="#"><img
+					src="https://fontmeme.com/permalink/200818/058b88461ca2ccdf82e1ea2e057b02eb.png"
+					alt="guild-wars-2-font" border="0"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
 
+				</button>
 
-			<a class="navbar-brand" href="/profile"> <i class="fa fa-d-and-d"></i>
-				Browsergame
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="infographics"> <i class="fa fa-user-shield mr-2"></i>Infographics
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="user_panel"> <i class="fa fa-user-shield mr-2"></i>User
-							Panel
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="training_creator"> <i class="fa fa-user-shield mr-2"></i>Training
-							Creator
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/user_purchases"> <i class="fa fa-user mr-2"></i>Purchases
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="admin_shop"> <i class="fa fa-user-shield mr-2"></i>Admin
-							Shop
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="user_comments"> <i class="fa fa-user-shield mr-2"></i>User
-							Comments
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/admin_portal"> <i class="fa fa-user-shield mr-2"></i>Admin
-							Portal
-					</a></li>
-					<li class="nav-item active mr-1"><a class="nav-link"
-						href="/profile"> <i class="fa fa-user mr-2"></i>Profile
-					</a></li>
-				</ul>
-
-
-			</div>
-
-
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active mr-1"><a class="nav-link"
+							href="infographics"> <i class="fa fa-user-shield mr-2"></i>Infographics
+						</a></li>
+						<li class="nav-item active mr-1 dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"> <i
+								class="fa fa-user-shield mr-2"></i>Templates
+						</a>
+							<div class="dropdown-menu bg-primary" style="">
+								<a class="dropdown-item bg-primary" href="training_creator"><i
+									class="fa fa-user-shield mr-2"></i>Training Creator</a> <a
+									class="dropdown-item bg-primary" href="mission_creator"> <i
+									class="fa fa-user-shield mr-2"></i>Mission Creator
+								</a>
+							</div></li>
+						<li class="nav-item active mr-1 dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"> <i
+								class="fa fa-user-shield mr-2"></i>Shop Panels
+						</a>
+							<div class="dropdown-menu bg-primary" style="">
+								<a class="dropdown-item bg-primary" href="admin_shop"><i
+									class="fa fa-user-shield mr-2"></i>Admin Shop</a> <a
+									class="dropdown-item bg-primary" href="user_purchases"> <i
+									class="fa fa-user-shield mr-2"></i>User Purchases
+								</a>
+							</div></li>
+						<li class="nav-item active mr-1 dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"> <i
+								class="fa fa-user-shield mr-2"></i>Users
+						</a>
+							<div class="dropdown-menu bg-primary" style="">
+								<a class="dropdown-item bg-primary" href="user_panel"><i
+									class="fa fa-user-shield mr-2"></i>User Panel</a> <a
+									class="dropdown-item bg-primary" href="user_comments"> <i
+									class="fa fa-user-shield mr-2"></i>User Comments
+								</a>
+							</div></li>
+						<li class="nav-item active mr-1"><a class="nav-link"
+							href="/admin_portal"> <i class="fa fa-user-shield mr-2"></i>Admin
+								Portal
+						</a></li>
+					</ul>
+				</div>
 		</div>
-
 	</nav>
 
 	<div class="container mt-5">
@@ -328,23 +335,23 @@
 			</ul>
 
 		</div>
-		
-		<div class="modal fade" id="missionIdPassModal" tabindex="-1" role="dialog"
-				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content bg-primary">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body bg-secondary text-white">
-							<p id="missionId"></p>
-						</div>
+
+		<div class="modal fade" id="missionIdPassModal" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content bg-primary">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body bg-secondary text-white">
+						<p id="missionId"></p>
 					</div>
 				</div>
 			</div>
+		</div>
 
 		<div class="modal draggable fade" id="confirmEditModal" tabindex="-1"
 			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

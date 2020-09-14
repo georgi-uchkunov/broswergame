@@ -104,61 +104,56 @@
 			</ul>
 			<ul class="list-group d-none" id="template-training">
 				<li class="list-group-item mt-3" id="list-group-template-training">
-					<div class="card">
-						<div class="card-body text-white">
-							<div class="row d-flex justify-content-center">
-								<h5 class="training-title" id="training-title"></h5>
+					<div class="row d-flex justify-content-center">
+						<h5 class="training-title" id="training-title"></h5>
+					</div>
+					<div class="row mt-3 d-flex justify-content-center">
+						<div class="col">
+							<img class="img-fluid training-image" id="img-training" src=""
+								alt="...">
+						</div>
+						<div class="col" id="info-row">
+							<div class="col">
+								<i class="fa fa-clock mr-2"></i><label for="training-time">Time
+									:</label>
+								<p class="training-time" id="training-time"></p>
 							</div>
-							<div class="row mt-3 d-flex justify-content-center">
-								<div class="col">
-									<img class="img-fluid training-image" id="img-training" src=""
-										alt="...">
-								</div>
-								<div class="col" id="info-row">
-									<div class="col">
-										<i class="fa fa-clock mr-2"></i><label for="training-time">Time
-											:</label>
-										<p class="training-time" id="training-time"></p>
-									</div>
-									<div class="col">
-										<i class="fa fa-coins mr-2"></i><label
-											for="training-gold-cost">Gold Cost :</label>
-										<p class="training-gold-cost" id="training-gold-cost"></p>
-									</div>
-									<div class="col">
-										<i class="fa fa-star mr-2"></i><label for="training-skill">Skill
-											:</label>
-										<p class="training-skill" id="training-skill"></p>
-									</div>
-									<div class="col">
-										<i class="fa fa-sun mr-2"></i><label for="training-difficulty">Difficulty
-											:</label>
-										<p class="training-difficulty" id="training-difficulty"></p>
-									</div>
-								</div>
+							<div class="col">
+								<i class="fa fa-coins mr-2"></i><label for="training-gold-cost">Gold
+									Cost :</label>
+								<p class="training-gold-cost" id="training-gold-cost"></p>
 							</div>
-							<div class="row d-flex justify-content-center mt-3">
-								<label for="description"><i class="fa fa-edit mr-2"></i>Description:</label>
+							<div class="col">
+								<i class="fa fa-star mr-2"></i><label for="training-skill">Skill
+									:</label>
+								<p class="training-skill" id="training-skill"></p>
 							</div>
-							<div class="row d-flex justify-content-center">
-								<p class="training-description" id="training-description"></p>
-							</div>
-							<div class="row d-flex justify-content-center">
-								<div class="form-group ml-3" id="form-group">
-									<label for="exampleSelect1"></label>Who will you send training?
-									<select class="form-control selected-hero" id="exampleSelect1">
-										<option>Choose now</option>
-
-									</select>
-								</div>
-							</div>
-
-							<div class="card-footer bg-primary text-white">
-								<button data-toggle="modal" data-target="#confirmTrainingModal"
-									type="button" class="btn btn-danger btn-sm start-training">Start
-									training</button>
+							<div class="col">
+								<i class="fa fa-sun mr-2"></i><label for="training-difficulty">Difficulty
+									:</label>
+								<p class="training-difficulty" id="training-difficulty"></p>
 							</div>
 						</div>
+					</div>
+					<div class="row d-flex justify-content-center mt-3">
+						<label for="description"><i class="fa fa-edit mr-2"></i>Description:</label>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<p class="training-description" id="training-description"></p>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<div class="form-group ml-3" id="form-group">
+							<label for="exampleSelect1"></label>Who will you send training? <select
+								class="form-control selected-hero" id="exampleSelect1">
+								<option>Choose now</option>
+
+							</select>
+						</div>
+					</div>
+					<div class="row d-flex justify-content-end">
+						<button data-toggle="modal" data-target="#confirmTrainingModal"
+							type="button" class="btn btn-primary btn-sm mr-3 start-training">Start
+							training</button>
 					</div>
 				</li>
 			</ul>
