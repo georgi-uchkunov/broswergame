@@ -87,6 +87,23 @@ public class UserInfoRest {
 
 	}
 
+	@PostMapping(value = "/setAdminResources")
+	public User setAdminResources(HttpSession session) {
+		User currentUser = (User) session.getAttribute("currentUser");
+		if (currentUser.getId() == 2) {
+			Optional<User> userForUpdate = userRepo.findById(2);
+			if (userForUpdate.isPresent()) {
+				User realUserForUpdate = userForUpdate.get();
+				realUserForUpdate.setGuildPoints(30000);
+				realUserForUpdate.setCrystal((short) 30000);
+				realUserForUpdate.setGold(30000);
+				return userRepo.saveAndFlush(realUserForUpdate);
+			}
+		}
+		return null;
+
+	}
+
 	@PostMapping(value = "/spendCrystalsOnNewHero")
 	public ResponseEntity<String> spendCrystalsOnNewHero(final HttpSession session) {
 		final User user = (User) session.getAttribute("currentUser");

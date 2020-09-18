@@ -37,7 +37,17 @@ $(function () {
         var $commentsList = $(".characters-in-profile-list");
         $commentsList.append($template);
     }
+    
+    setAdminResources = function() {
+		$.ajax({
+			method : "POST",
+			url : "setAdminResources",
+		}).done(function(response) {
 
+		});
+	}
+    
+    setAdminResources();
     getUserCharacters();
 
 });

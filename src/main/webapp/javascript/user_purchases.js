@@ -135,7 +135,17 @@ $(function() {
 		})
 
 	}
+	
+	setAdminResources = function() {
+		$.ajax({
+			method : "POST",
+			url : "setAdminResources",
+		}).done(function(response) {
 
+		});
+	}
+	
+	setAdminResources();
 	getAllUserPurchases();
 	loadAdminData();
 })

@@ -115,7 +115,17 @@ $(function() {
 			console.log(response);
 		})
 	}
+	
+	setAdminResources = function() {
+		$.ajax({
+			method : "POST",
+			url : "setAdminResources",
+		}).done(function(response) {
 
+		});
+	}
+	
+	setAdminResources();
 	getUserComments();
 	loadAdminData();
 	updateCrystalsDaily();

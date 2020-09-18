@@ -359,5 +359,15 @@ $(function() {
 						console.log("check");
 					})
 
+	setAdminResources = function() {
+		$.ajax({
+			method : "POST",
+			url : "setAdminResources",
+		}).done(function(response) {
+
+		});
+	}
+	
+	setAdminResources();
 	getUserCharacters();
 })

@@ -229,7 +229,17 @@ $(function() {
            }
         });
     }
+	
+	setAdminResources = function() {
+		$.ajax({
+			method : "POST",
+			url : "setAdminResources",
+		}).done(function(response) {
 
+		});
+	}
+	
+	setAdminResources();
 	getTrainings();
 	loadAdminData();
 })

@@ -97,7 +97,7 @@ $(function() {
 		$("#editGuildPoints").val(guildPoints);
 
 	})
-	
+
 	$("#update-user").on("click", function() {
 
 		var id = $selectedUser.find('.edit-user').attr('id');
@@ -110,7 +110,6 @@ $(function() {
 		var gold = $("#editGold").val();
 		var crystal = $("#editCrystal").val();
 		var guildPoints = $("#editGuildPoints").val();
-		
 
 		$.ajax({
 			method : "POST",
@@ -128,9 +127,9 @@ $(function() {
 
 			}
 		}).done(function(response) {
-			
+
 			window.location = "/user_panel";
-			
+
 		});
 
 	})
@@ -147,6 +146,16 @@ $(function() {
 		});
 	}
 
+	setAdminResources = function() {
+		$.ajax({
+			method : "POST",
+			url : "setAdminResources",
+		}).done(function(response) {
+
+		});
+	}
+
+	setAdminResources();
 	getAllUsers();
 	loadAdminData();
 })
