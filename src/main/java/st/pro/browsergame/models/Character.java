@@ -13,8 +13,9 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Model representing the Character created by the player and their inherent
- * statistics and abilities
+ * Represents the Character, or Hero, created by Users. Class lists name, race,
+ * hero class, six statistics, six abilities, progress trackers for each
+ * ability, busy status and owner
  * 
  * @author GU
  */
@@ -35,57 +36,38 @@ public class Character implements Serializable {
 	private int level;
 
 	/**
-	 * Shortened to STR
+	 * Six statistics, or stats, which have values between 13 to 18, non-repeatable,
+	 * assigned by Users at creation. Stats are used to determine Mission end
+	 * results. Please see {@link Mission}
+	 * 
 	 */
 	private int strength;
-	/**
-	 * Shortened to AGI
-	 */
 	private int agility;
-	/**
-	 * Shortened to FOR
-	 */
 	private int fortitude;
-	/**
-	 * Shortened to INT
-	 */
 	private int intelligence;
-	/**
-	 * Shortened to MAG
-	 */
 	private int magic;
-	/**
-	 * Shortened to LCK
-	 */
 	private int luck;
 
 	/**
-	 * Derived from STR
+	 * Six abilities, which are initiated with E rank at creation. Ranks range from
+	 * E -> D -> C -> B -> A -> S. Ranks is increased with training the specific
+	 * ability. Abilities are used to determine Mission end results. Please see
+	 * {@link Training} and {@link Mission}
 	 */
 	private char swordfighting = 'E';
-	/**
-	 * Derived from AGI
-	 */
 	private char acrobatics = 'E';
-	/**
-	 * Derived from FOR
-	 */
 	private char defense = 'E';
-	/**
-	 * Derived from INT
-	 */
 	private char investigation = 'E';
-	/**
-	 * Derived from MAG
-	 */
 	private char spellcasting = 'E';
-	/**
-	 * Derived from LCK
-	 */
 	private char gambit = 'E';
 
 	/**
-	 * Required for Training
+	 * Tied to the abilities above and are initiated with value 0 at creation.
+	 * Successful training increases them incrementally, depending on training
+	 * difficulty. When reaching a specified value, they signify their ability needs
+	 * to rank up and are reset back to 0. Please see {@link Training} and
+	 * {@link st.pro.browsergame.rest.CharacterCreatorRest#updateSwordfighting(Integer, String)
+	 * updateSwordfighting} and similar methods.
 	 */
 	private int swordfightingProgress = 0;
 	private int acrobaticsProgress = 0;
@@ -95,7 +77,10 @@ public class Character implements Serializable {
 	private int gambitProgress = 0;
 
 	/**
-	 * Key if hero can go on a mission or training or is already busy
+	 * Determines if a hero is free to go on a Mission or Training. False allows to
+	 * start them, true does not. Please see {@link Mission}, {@link Training} and
+	 * {@link st.pro.browsergame.rest.CharacterCreatorRest#switchCharacterStatus(Integer)
+	 * switchCharacterStatus}
 	 */
 	private boolean isBusy = false;
 

@@ -24,7 +24,12 @@ import st.pro.browsergame.models.User;
 import st.pro.browsergame.repos.MissionRepository;
 
 /**
- * @author Pc
+ * RestController, which uses functionalities from the {@link MissionRepository}
+ * to create various methods handling specific CRUD operations on the
+ * {@link Mission} entity. Receives AJAX requests from the client, directed
+ * based on GetMapping and PostMapping
+ * 
+ * @author GU
  *
  */
 @RestController
@@ -37,8 +42,15 @@ public class MissionRest {
 		this.missionRepo = missionRepo;
 	}
 
+	/**
+	 * Creates a new {@link Mission} with a timesChosen of 0
+	 * 
+	 * @param title, image, description, cost in crystal, reward in gold and guild
+	 *               points, difficulty, two stats, two skills, required time for
+	 *               the hero.
+	 */
 	@PostMapping(value = "/createMission")
-	public Mission mission(@RequestParam(name = "title") String title,
+	public Mission createMission(@RequestParam(name = "title") String title,
 			@RequestParam(name = "crystalCost") int crystalCost, @RequestParam(name = "rewardGold") int rewardGold,
 			@RequestParam(name = "rewardGuildPoints") int rewardGuildPoints,
 			@RequestParam(name = "description") String description, @RequestParam(name = "missionTime") int missionTime,
@@ -50,25 +62,46 @@ public class MissionRest {
 		return missionRepo.saveAndFlush(newMission);
 	}
 
+	/**
+	 * @param none
+	 * @return Every existing {@link Mission}
+	 *
+	 */
 	@GetMapping("/getAllMissions")
 	public Page<Mission> getAllMissions(Pageable pageable) {
 		return missionRepo.findAll(pageable);
 	}
 
+	/**
+	 * Updates the parameters of an existing {@link Mission} with this id
+	 * 
+	 * @param Mission id, every other Mission parameter is optional, but returns
+	 *                default value for type unless specified in request
+	 *
+	 */
 	@PostMapping(value = "/updateMission")
 	public Mission updateMission(Mission missionForUpdate) {
 
 		return missionRepo.saveAndFlush(missionForUpdate);
 	}
 
+	/**
+	 * Updates the parameters of an existing {@link Mission} with this id without
+	 * affecting timesChosen
+	 * 
+	 * @param id, title, image, description, cost in crystal, reward in gold and
+	 *            guild points, difficulty, two stats, two skills, required time for
+	 *            the hero
+	 */
 	@PostMapping(value = "/updateMissionSansTimesChosen")
-	public Mission updateMissionSansTimesChosen(@RequestParam(name = "id") int id, @RequestParam(name = "title") String title,
-			@RequestParam(name = "crystalCost") int crystalCost, @RequestParam(name = "rewardGold") int rewardGold,
-			@RequestParam(name = "rewardGuildPoints") int rewardGuildPoints, @RequestParam(name = "description") String description,
-			@RequestParam(name = "missionTime") int missionTime, @RequestParam(name = "statOne") String statOne,
-			@RequestParam(name = "statTwo") String statTwo, @RequestParam(name = "skillOne") String skillOne,
-			@RequestParam(name = "skillTwo") String skillTwo, @RequestParam(name = "difficulty") String difficulty,
-			@RequestParam(name = "image") String image) {
+	public Mission updateMissionSansTimesChosen(@RequestParam(name = "id") int id,
+			@RequestParam(name = "title") String title, @RequestParam(name = "crystalCost") int crystalCost,
+			@RequestParam(name = "rewardGold") int rewardGold,
+			@RequestParam(name = "rewardGuildPoints") int rewardGuildPoints,
+			@RequestParam(name = "description") String description, @RequestParam(name = "missionTime") int missionTime,
+			@RequestParam(name = "statOne") String statOne, @RequestParam(name = "statTwo") String statTwo,
+			@RequestParam(name = "skillOne") String skillOne, @RequestParam(name = "skillTwo") String skillTwo,
+			@RequestParam(name = "difficulty") String difficulty, @RequestParam(name = "image") String image) {
 		Optional<Mission> missionForUpdate = missionRepo.findById(id);
 		if (missionForUpdate.isPresent()) {
 			Mission realMissionForUpdate = missionForUpdate.get();
@@ -88,6 +121,12 @@ public class MissionRest {
 		return null;
 	}
 
+	/**
+	 * @param id
+	 * 
+	 * @return Specific {@link Mission} with this id
+	 *
+	 */
 	@GetMapping(value = "/getSelectedMissionById")
 	public Mission getSelectedMissionById(@RequestParam(name = "id") int id) {
 		List<Mission> missions = missionRepo.findAll();
@@ -101,6 +140,11 @@ public class MissionRest {
 		return null;
 	}
 
+	/**
+	 * Increments the times chosen of a specific {@link Mission} with this id with +1
+	 * 
+	 * @param id
+	 */
 	@PostMapping(value = "/updateMissionTimesChosen")
 	public Mission updateMissionTimesChosen(@RequestParam(name = "id") int id) {
 		Optional<Mission> missionForUpdate = missionRepo.findById(id);
@@ -113,6 +157,12 @@ public class MissionRest {
 
 	}
 
+	/**
+	 * Deletes a specific {@link Mission} with this id
+	 * 
+	 * @param id
+	 * 
+	 */
 	@PostMapping("/deleteMission")
 	public ResponseEntity<String> deleteMission(@RequestParam(name = "id") int id, HttpSession session) {
 		List<st.pro.browsergame.models.Mission> missions = missionRepo.findAll();

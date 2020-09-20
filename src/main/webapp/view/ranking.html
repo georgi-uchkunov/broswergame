@@ -7,12 +7,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon"
 	href="../../images/favicon.ico" />
-<title>Profile</title>
+<title>Ranking</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
+
 <!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <link rel="stylesheet"
@@ -22,11 +19,13 @@
 <!-- <link
 	href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
 	rel="stylesheet"> -->
-<link rel="stylesheet" href="..\css\theme\_bootswatch.scss">
-<link rel="stylesheet" href="..\css\theme\_variables.scss">
-<link rel="stylesheet" href="..\css\theme\bootstrap.css">
-<link rel="stylesheet" href="..\css\theme\bootstrap.min.css">
-<link rel="stylesheet" href="..\css\views\profile.css">
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="css\theme\_bootswatch.scss">
+<link rel="stylesheet" href="css\theme\_variables.scss">
+<link rel="stylesheet" href="css\theme\bootstrap.css">
+<link rel="stylesheet" href="css\theme\bootstrap.min.css">
+<link rel="stylesheet" href="css\views\ranking.css">
 
 
 
@@ -98,86 +97,33 @@
 		</div>
 
 	</nav>
-	<div class="clouds"></div>
-	<div class="row mt-5 d-flex justify-content-center">
-		<img src="../images/pic_1171831236_1.png" width="150px" height="150px"
-			class="mr-3" id="char-picture" alt="...">
-	</div>
-	<div class="container mt-4 bg-primary">
-		<div class="row" id="row-of-user-info">
-			<div class="col-3">
-				<div class="form-group">
-					<label for="user">Username</label> <input type="text"
-						class="form-control" id="username" placeholder="Username" val="">
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="form-group">
-					<label for="email">Email</label> <input type="email"
-						class="form-control" id="email" placeholder="Email" val="">
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="form-group">
-					<label for="password">Password</label> <input type="password"
-						class="form-control" id="password" placeholder="Password" val="">
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="form-group">
-					<label for="ingame-name">Ingame name</label> <input type="text"
-						class="form-control" id="ingame-name" placeholder="Ingame name"
-						val="">
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-4"></div>
-		<div class="col-4">
 
-			<ul class="list-group mt-3 characters-in-profile-list">
+	<div class="container text-center mt-5">
+		<h3>GUILD RANKINGS</h3>
+		<br>
 
-
+		<div class="row">
+			<ul class="list-group-ranking" id="ranking-list">
 
 			</ul>
+			<ul class="list-group d-none" type="1" id="template-ranking">
+				<li class="list-group-item mt-3" id="list-group-template-ranking">
+					<div class="row d-flex justify-content-end mr-3">
+						<div class="col badge-col">
+							<img class="img-fluid badge-image" id="img-badge" src=""
+								alt="...">
+						</div>
+						<div class="col">
+							<p class="ingame-name"></p>
+						</div>
+						<div class="col">
+							<i class="fas fa-medal"></i>
+							<p class="guildpoints"></p>
+						</div>
+					</div>
 
-
-		</div>
-
-
-		<div class="col-4"></div>
-	</div>
-
-
-	<div class="media bg-primary d-none" id="char-info-media">
-		<div class="row d-flex justify-content-center">
-			<img src="../images/Character Portrait One.jpg" width="150px"
-				height="150px" class="mr-3" id="char-picture" alt="...">
-		</div>
-
-		<div class="media-body">
-			<h5 id="char-info-heading">
-				<div class="form-group mr-3 ml-3">
-					<label for="character-name">Character name:</label> <input
-						type="text" class="form-control character-name" width="100px"
-						id="character-name" placeholder="Character name" val="">
-				</div>
-			</h5>
-			<h5 id="char-info-heading">
-				<div class="form-group mr-3 ml-3">
-					<label for="character-race">Race:</label> <input type="text"
-						class="form-control character-race" id="character-race"
-						placeholder="Race" val="">
-				</div>
-			</h5>
-			<h5 id="char-info-heading">
-				<div class="form-group mr-3 ml-3">
-					<label for="character-class">Character class:</label> <input
-						type="text" class="form-control character-class"
-						id="character-class" placeholder="Character class" val="">
-				</div>
-			</h5>
+				</li>
+			</ul>
 		</div>
 	</div>
 
@@ -194,20 +140,13 @@
 
 
 
-
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+	<script src="../../javascript/p5.min.js"></script>
+	<script src="../../javascript/sketch.js"></script>
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -217,9 +156,7 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-
-	<script src="../../javascript/profileInfo.js"></script>
-	<script src="../javascript/characterInProfile.js"></script>
+	<script src="../../javascript/ranking.js"></script>
 	<script src="../../javascript/resourceInfo.js"></script>
 
 </body>

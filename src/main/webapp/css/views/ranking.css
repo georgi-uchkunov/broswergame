@@ -1,0 +1,74 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("../../images/Shop Background.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
+}
+
+body {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+.first-row {
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+.last-row {
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+.btn {
+	border-radius: 15px;
+}
+
+.list-group-item{
+	transform: scale(0.9);
+}
+
+.list-group-item .badge-image{
+	content: url("../../images/Rank_Average.png");
+}
+
+.list-group-item:first-child .badge-image{
+	content: url("../../images/Rank_One.png")
+}
+
+.list-group-item:nth-child(2) .badge-image{
+	content: url("../../images/Rank_Two.png")
+}
+
+.list-group-item:nth-child(3) .badge-image{
+	content: url("../../images/Rank_Three.png")
+}
+
+.list-group-item:hover{
+	cursor: pointer;
+	transform: scale(1);
+	margin-top: 300px;
+	margin-bot: 300px;
+}
+
+#list-group-template-ranking {
+	background-color: #363537;
+	text: #FAFAFA;
+	toggleBorder: #6B8096;
+	gradient: linear-gradient(#091236, #1E215D);
+	font-family: 'Roboto', sans-serif;
+}
+
+#list-group-template-ranking {
+	background-image: url("../../images/Old Blue Stone.jpg")
+}

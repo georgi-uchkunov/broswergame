@@ -8,13 +8,15 @@ $("#submitComment").on("click", function() {
 		method : "POST",
 		url : "comment",
 		data : {
-			
+
 			commenterEmail : email,
 			commenterName : name,
 			commenterComment : comment
 		}
 	}).done(function(response) {
-		
-		window.location = "/";
+
+		$("#commenterEmail").val("");
+		$("#commenterName").val("");
+		$("#commenterComment").val("");
 	});
 })
