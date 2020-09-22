@@ -73,9 +73,11 @@
 							href="/shop
 					"> <i class="fa fa-shopping-cart mr-2"></i>Shop
 						</a></li>
-						<li class="nav-item active mr-1"><a class="nav-link"
-							href="/profile"> <i class="fa fa-user mr-2"></i>Profile
+						<li class="nav-item active"><a class="nav-link"
+							href="/profile"> <i class="fa fa-user"></i>
 						</a></li>
+						<li class="nav-item active mr-1"><a class="nav-link"
+							href="/profile" id="profile-place">Profile </a></li>
 						<li class="nav-item active"><a class="nav-link" href=#><i
 								class="fas fa-medal"></i> </a></li>
 						<li class="nav-item active mr-1"><a class="nav-link"
@@ -100,26 +102,24 @@
 
 	<div class="container">
 		<div class="row mt-5 d-flex justify-content-center">
-			<div
-				class="card-header w-75 text-white d-flex justify-content-center bg-primary">Character
-				Creator</div>
-			<div class="card w-75">
-				<div class="card-body bg-secondary">
-					<div class="row">
+			<h3>CHARACTER BUILDER</h3>
+			<div class="card w-75" id="hero-card">
+				<div class="card-body bg-secondary" id="hero-card-body">
+					<div class="row mt-2">
 						<div class="col-md-4">
-							<div class="row">
+							<div class="row d-flex justify-content-center">
 								<div class="form-group">
-									<label for="character-name">Character name :</label> <input
-										type="text" class="form-control" id="character-name"
-										placeholder="My name is" val="">
+									<i class="fa fa-pen-nib"></i> <label for="character-name">Character
+										name :</label> <input type="text" class="form-control"
+										id="character-name" placeholder="My name is" val="">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-8">
-							<div class="row">
+							<div class="row d-flex justify-content-center">
 								<div class="col stat-select">
-									<label for="character-str">Strength :</label> <select
-										id="select-str" class="custom-select">
+									<i class="fa fa-dice mr-2"></i> <label for="character-str">Strength
+										:</label> <select id="select-str" class="custom-select">
 										<option selected>Choose...</option>
 										<option value="13">13</option>
 										<option value="14">14</option>
@@ -130,8 +130,8 @@
 									</select>
 								</div>
 								<div class="col stat-select">
-									<label for="character-agi">Agility :</label> <select
-										id="select-agi" class="custom-select">
+									<i class="fa fa-dice mr-2"></i> <label for="character-agi">Agility
+										:</label> <select id="select-agi" class="custom-select">
 										<option selected>Choose...</option>
 										<option value="13">13</option>
 										<option value="14">14</option>
@@ -142,8 +142,8 @@
 									</select>
 								</div>
 								<div class="col stat-select">
-									<label for="character-for">Fortitude :</label> <select
-										id="select-for" class="custom-select">
+									<i class="fa fa-dice mr-2"></i> <label for="character-for">Fortitude
+										:</label> <select id="select-for" class="custom-select">
 										<option selected>Choose...</option>
 										<option value="13">13</option>
 										<option value="14">14</option>
@@ -156,8 +156,8 @@
 							</div>
 							<div class="row mt-2">
 								<div class="col stat-select">
-									<label for="character-int">Intelligence :</label> <select
-										id="select-int" class="custom-select">
+									<i class="fa fa-dice mr-2"></i> <label for="character-int">Intelligence
+										:</label> <select id="select-int" class="custom-select">
 										<option selected>Choose...</option>
 										<option value="13">13</option>
 										<option value="14">14</option>
@@ -168,8 +168,8 @@
 									</select>
 								</div>
 								<div class="col stat-select">
-									<label for="character-mag">Magic :</label> <select
-										id="select-mag" class="custom-select">
+									<i class="fa fa-dice mr-2"></i> <label for="character-mag">Magic
+										:</label> <select id="select-mag" class="custom-select">
 										<option selected>Choose...</option>
 										<option value="13">13</option>
 										<option value="14">14</option>
@@ -180,8 +180,8 @@
 									</select>
 								</div>
 								<div class="col stat-select">
-									<label for="character-lck">Luck :</label> <select
-										id="select-lck" class="custom-select">
+									<i class="fa fa-dice mr-2"></i> <label for="character-lck">Luck
+										:</label> <select id="select-lck" class="custom-select">
 										<option selected>Choose...</option>
 										<option value="13">13</option>
 										<option value="14">14</option>
@@ -194,9 +194,12 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-2">
-
-						<div class="col-md-6">
+					<div class="row mt-3">
+						<div class="col-md-2 d-flex justify-content-center">
+							<img src="../../images/Template shield.png" title=""
+								class="img-race ml-2" alt="Random Name" width="100" height="100">
+						</div>
+						<div class="col-md-4">
 							<label for="character-race">Race :</label> <select
 								id="select-race" class="custom-select">
 								<option selected>I am a</option>
@@ -206,7 +209,13 @@
 								<option value="Orc">Orc</option>
 							</select>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-2 d-flex justify-content-center">
+							<img src="../../images/Template shield.png" title=""
+								class="img-class ml-2" alt="Random
+								Name" width="100"
+								height="100">
+						</div>
+						<div class="col-md-4">
 							<label for="character-class">Class :</label> <select
 								id="select-class" class="custom-select">
 								<option selected>I am a</option>
@@ -219,11 +228,12 @@
 						</div>
 
 					</div>
+					<div class="row mt-3 d-flex justify-content-end">
+						<button id="create" type="button" class="btn mr-3 btn-success">Create
+							Character</button>
+					</div>
 
 				</div>
-			</div>
-			<div class="card-footer w-75 d-flex justify-content-end bg-primary">
-				<button id="create" type="button" class="btn btn-success">Create</button>
 			</div>
 		</div>
 	</div>
@@ -277,7 +287,7 @@
 
 
 			<div class="col-md-4">
-				<div class="card">
+				<div class="card race-filter">
 					<div
 						class="card-header text-white d-flex justify-content-center bg-primary">Race
 						filter</div>
@@ -318,195 +328,157 @@
 
 	<div class="container mt-3 mb-3">
 		<div class="row d-flex justify-content-center">
-			<div
-				class="card-header w-75 text-white d-flex justify-content-center bg-primary">Character
-				Vault</div>
-			<div class="card w-75" id="card-template">
-				<div class="card-body bg-secondary" id="template-body">
-					<ul class="list-group comments-list">
+			<h3>GUILD ROSTER</h3>
+			<ul class="list-group comments-list">
 
 
 
-					</ul>
-				</div>
-			</div>
+			</ul>
 		</div>
 	</div>
 
 	<!-- ENTRY TEMPLATE -->
 	<ul class="list-group bg-secondary d-none"
 		id="comment-template-character">
-		<li class="list-group-item bg-secondary"
+		<li class="list-group-item mt-3 bg-secondary"
 			id="list-group-template-character">
 
-			<div class="card">
-				<div
-					class="card-header text-white bg-primary d-flex justify-content-center">Hero</div>
-				<div class="card-body bg-secondary" id="hero-card">
-					<div class="row d-flex justify-content-center">
 
-						<label>Character name : </label>
-						<!-- <p class="name"></p> -->
-						<h5>
-							<span class="badge badge-pill badge-primary ml-2 name"> </span>
-						</h5>
-					</div>
-					<div class="row mt-3" id="logo-row">
-						<div class="col">
-							<img src="" title="" class="img-template-race" alt="Random Name"
-								width="100" height="100">
-						</div>
-						<div class="col">
-							<img src="" title="" class="img-template-class" alt="Random Name"
-								width="100" height="100">
-						</div>
-					</div>
+			<div class="row mt-3 d-flex justify-content-center">
+				<h5>
+					<span class="badge badge-pill badge-primary name"> </span>
+				</h5>
+			</div>
+			<div class="row mt-3" id="logo-row">
+				<div class="col">
+					<img src="" title="" class="img-template-race" alt="Random Name"
+						width="100" height="100">
+				</div>
+				<div class="col">
+					<img src="" title="" class="img-template-class" alt="Random Name"
+						width="100" height="100">
+				</div>
+			</div>
 
 
-					<div class="row status-row d-flex justify-content-center mt-2 mb-2">
-						<div class="row">
-							<p class="status-message">Armed and ready to roll!</p>
-						</div>
-						<div class="d-block w-100">
-							<div class="progress mr-3">
-								<div
-									class="progress-bar bg-success progress-bar-striped progress-bar-animated"
-									role="progressbar" aria-valuenow="100"
-									data-label="Hero is off somewhere!" aria-valuemin="0"
-									aria-valuemax="100" style="width: 100%"></div>
-							</div>
-						</div>
-						<!-- <div class="col">
-							<label>Race : </label>
-							<p class="race"></p>
-							<h5>
-								<span class="badge badge-pill badge-primary race"> </span>
-							</h5>
-						</div>
-						<div class="col">
-							<label>Class : </label>
-							<p class="characterClass"></p>
-							<h5>
-								<span class="badge badge-pill badge-primary characterClass">
-								</span>
-							</h5>
-						</div>
-						<div class="col">
-							<label>Level : </label>
-							<p class="level"></p>
-							<h5>
-								<span class="badge badge-pill badge-primary level"> </span>
-							</h5>
-						</div> -->
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>STR : </label>
-							<!-- <p class="strength"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary strength"> </span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>AGI : </label>
-							<!-- <p class="agility"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary agility"> </span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>FOR : </label>
-							<!-- <p class="fortitude"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary fortitude"> </span>
-							</h5>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>INT : </label>
-							<!-- <p class="intelligence"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary intelligence">
-								</span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>MAG : </label>
-							<!-- <p class="magic"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary magic"> </span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>LCK : </label>
-							<!-- <p class="luck"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary luck"> </span>
-							</h5>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>Swordfighting: </label>
-							<!-- <p class="swordfighting"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary swordfighting">
-								</span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>Acrobatics: </label>
-							<!-- <p class="acrobatics"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary acrobatics">
-								</span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>Defense: </label>
-							<!-- <p class="defense"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary defense"> </span>
-							</h5>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>Investigation: </label>
-							<!-- <p class="investigation"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary investigation">
-								</span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>Spellcasting: </label>
-							<!-- <p class="spellcasting"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary spellcasting">
-								</span>
-							</h5>
-						</div>
-						<div class="col-md-4">
-							<label>Gambit: </label>
-							<!-- <p class="gambit"></p> -->
-							<h5>
-								<span class="badge badge-pill badge-primary gambit"> </span>
-							</h5>
-						</div>
+			<div class="row status-row d-flex justify-content-center mt-2 mb-2">
+				<div class="row">
+					<p class="status-message">Armed and ready to roll!</p>
+				</div>
+				<div class="d-block w-100">
+					<div class="progress mr-3">
+						<div
+							class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+							role="progressbar" aria-valuenow="100"
+							data-label="Hero is off somewhere!" aria-valuemin="0"
+							aria-valuemax="100" style="width: 100%"></div>
 					</div>
 				</div>
-
 			</div>
-			<div class="card-footer bg-primary d-flex justify-content-end">
+			<div class="row mt-3 d-flex justify-content-center">
+				<i class="fa fa-dice mr-2"></i>
+				<p>STATS</p>
+				<i class="fa fa-dice ml-2"></i>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>STR : </label>
+					<h5>
+						<span class="badge badge-pill badge-primary strength"> </span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>AGI : </label>
+					<h5>
+						<span class="badge badge-pill badge-primary agility"> </span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>FOR : </label>
+					<h5>
+						<span class="badge badge-pill badge-primary fortitude"> </span>
+					</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>INT : </label>
+					<h5>
+						<span class="badge badge-pill badge-primary intelligence">
+						</span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>MAG : </label>
+					<h5>
+						<span class="badge badge-pill badge-primary magic"> </span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>LCK : </label>
+					<h5>
+						<span class="badge badge-pill badge-primary luck"> </span>
+					</h5>
+				</div>
+			</div>
+			<div class="row mt-3 d-flex justify-content-center">
+				<i class="fa fa-star mr-2"></i>
+				<p>SKILLS</p>
+				<i class="fa fa-star ml-2"></i>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Swordfighting: </label>
+					<h5>
+						<span class="badge badge-pill badge-primary swordfighting">
+						</span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>Acrobatics: </label>
+					<h5>
+						<span class="badge badge-pill badge-primary acrobatics"> </span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>Defense: </label>
+					<h5>
+						<span class="badge badge-pill badge-primary defense"> </span>
+					</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Investigation: </label>
+					<h5>
+						<span class="badge badge-pill badge-primary investigation">
+						</span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>Spellcasting: </label>
+					<h5>
+						<span class="badge badge-pill badge-primary spellcasting">
+						</span>
+					</h5>
+				</div>
+				<div class="col-md-4">
+					<label>Gambit: </label>
+					<h5>
+						<span class="badge badge-pill badge-primary gambit"> </span>
+					</h5>
+				</div>
+			</div>
+			<div class="row mt-3 d-flex justify-content-end">
 				<button data-toggle="modal" data-target="#confirmDeleteModal"
-					type="button" class="btn btn-danger btn-sm remove-character">Delete</button>
-			</div>
+					type="button" class="btn btn-danger mr-3 btn-sm remove-character">Delete
+					Character</button>
 			</div>
 
 		</li>
 	</ul>
+
+	</div>
 
 	<div class="modal draggable fade" id="confirmDeleteModal" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -186,36 +186,29 @@ $(function() {
 		if (race == "Human") {
 			$template.find('.img-template-race').attr('src',
 					'../../images/human_icon.png');
-		}
-		if (race == "Elf") {
+		}else if (race == "Elf") {
 			$template.find('.img-template-race').attr('src',
 					'../../images/elf_logo.png');
-		}
-		if (race == "Dwarf") {
+		}else if (race == "Dwarf") {
 			$template.find('.img-template-race').attr('src',
 					'../../images/dwarf_logo.png');
-		}
-		if (race == "Orc") {
+		}else if (race == "Orc") {
 			$template.find('.img-template-race').attr('src',
 					'../../images/orc_logo.png');
 		}
 		if (characterClass == "Thief") {
 			$template.find('.img-template-class').attr('src',
 					'../../images/thief_logo.png');
-		}
-		if (characterClass == "Mage") {
+		}else if (characterClass == "Mage") {
 			$template.find('.img-template-class').attr('src',
 					'../../images/mage_logo.png');
-		}
-		if (characterClass == "Tank") {
+		}else if (characterClass == "Tank") {
 			$template.find('.img-template-class').attr('src',
 					'../../images/tank_logo.png');
-		}
-		if (characterClass == "Fighter") {
+		}else if (characterClass == "Fighter") {
 			$template.find('.img-template-class').attr('src',
 					'../../images/fighter_logo.png');
-		}
-		if (characterClass == "Healer") {
+		}else if (characterClass == "Healer") {
 			$template.find('.img-template-class').attr('src',
 					'../../images/healer_logo.png');
 		}
@@ -259,6 +252,51 @@ $(function() {
 
 	}
 
+	$(":checkbox").click(function() {
+		var checkboxInfo = $(':checkbox:checked').length;
+		if (checkboxInfo == 0) {
+			var $commentsList = $(".comments-list");
+			$commentsList.empty();
+			getUserCharacters();
+		}
+	});
+
+	$(":checkbox").on('change', function() {
+		$(":checkbox").not(this).prop('checked', false);
+	});
+
+	$("#select-race").on('change', function() {
+		var selectedRace = $("#select-race").val();
+		if (selectedRace == "I am a") {
+			$('.img-race').attr('src', '../../images/Template shield.png');
+		}else if (selectedRace == "Human") {
+			$('.img-race').attr('src', '../../images/human_icon.png');
+		}else if (selectedRace == "Elf") {
+			$('.img-race').attr('src', '../../images/elf_logo.png');
+		}else if (selectedRace == "Dwarf") {
+			$('.img-race').attr('src', '../../images/dwarf_logo.png');
+		}else if (selectedRace == "Orc") {
+			$('.img-race').attr('src', '../../images/orc_logo.png');
+		}
+	});
+
+	$("#select-class").on('change', function() {
+		var selectedClass = $("#select-class").val();
+		if (selectedClass == "I am a") {
+			$('.img-class').attr('src', '../../images/Template shield.png');
+		}else if (selectedClass == "Thief") {
+			$('.img-class').attr('src', '../../images/thief_logo.png');
+		}else if (selectedClass == "Mage") {
+			$('.img-class').attr('src', '../../images/mage_logo.png');
+		}else if (selectedClass == "Tank") {
+			$('.img-class').attr('src', '../../images/tank_logo.png');
+		}else if (selectedClass == "Fighter") {
+			$('.img-class').attr('src', '../../images/fighter_logo.png');
+		}else if (selectedClass == "Healer") {
+			$('.img-class').attr('src', '../../images/healer_logo.png');
+		}
+	});
+
 	// SEARCH TRYOUT
 	$(":checkbox")
 			.on(
@@ -285,6 +323,7 @@ $(function() {
 																currentCharacter.name,
 																currentCharacter.race,
 																currentCharacter.characterClass,
+																currentCharacter.busy,
 																currentCharacter.level,
 																currentCharacter.strength,
 																currentCharacter.agility,
@@ -335,6 +374,7 @@ $(function() {
 																currentCharacter.name,
 																currentCharacter.race,
 																currentCharacter.characterClass,
+																currentCharacter.busy,
 																currentCharacter.level,
 																currentCharacter.strength,
 																currentCharacter.agility,
@@ -367,7 +407,7 @@ $(function() {
 
 		});
 	}
-	
+
 	setAdminResources();
 	getUserCharacters();
 })

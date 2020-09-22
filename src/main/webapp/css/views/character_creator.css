@@ -1,5 +1,5 @@
 body {
-	background-image: url("../../images/Background Two.jpg");
+	background-image: url("../../images/Background Nine.jpg");
 	background-repeat: no-repeat;
 	background-position: left top;
 	background-attachment: fixed;
@@ -9,6 +9,7 @@ body {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
+	border-radius: 0px 0px 15px 15px;
 	color: white;
 	background-image: url("../../images/Old Blue Stone.jpg");
 }
@@ -31,14 +32,6 @@ body {
 	overflow-x: hidden;
 }
 
-#hero-card {
-	padding-left: 5em;
-}
-
-#logo-row {
-	padding-left: 5em;
-}
-
 .btn {
 	border-radius: 15px;
 }
@@ -50,6 +43,28 @@ body {
 	toggleBorder: #6B8096;
 	color: white;
 	background-image: url("../../images/Old Blue Stone.jpg");
+}
+
+.comments-list{
+	display: grid;
+	grid-template-columns: 400px 400px 400px;
+	grid-gap: 20px;
+}
+
+#hero-card{
+	border-radius: 15px;
+}
+
+#hero-card-body{
+	border-radius: 15px;
+}
+
+.card{
+	border-radius: 0px 0px 15px 15px;
+}
+
+.race-filter{
+	height: 263px;
 }
 
 #delete-modal{
@@ -65,6 +80,8 @@ body {
 	background-color: primary;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
+	border-radius: 15px;
+	padding-left: 5em;
 	color: white;
 	background-image: url("../../images/Old Blue Stone.jpg");
 }

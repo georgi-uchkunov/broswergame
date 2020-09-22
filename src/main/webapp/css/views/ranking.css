@@ -61,10 +61,17 @@ body {
 	margin-bot: 300px;
 }
 
+.wrapper .entry-content ol {
+    list-style-type: decimal;
+    margin: 0;
+    padding-left: 25px;
+}
+
 #list-group-template-ranking {
 	background-color: #363537;
 	text: #FAFAFA;
 	toggleBorder: #6B8096;
+	border-radius: 15px;
 	gradient: linear-gradient(#091236, #1E215D);
 	font-family: 'Roboto', sans-serif;
 }
