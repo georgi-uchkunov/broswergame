@@ -31,6 +31,22 @@ body {
 	background: rgb(9, 174, 224);
 }
 
+.card{
+	border-radius: 15px;
+}
+
+.carousel slide{
+	border-radius: 15px;
+}
+
+#carousel-card{
+	width: 335px;
+	height: 399px;
+	-webkit-transform: translate(107%, 0%);
+	transform: translate(107%, 0%);
+	border-radius: 15px;
+}
+
 .modal-content {
 	background-color: #363537;
 	text: #FAFAFA;
