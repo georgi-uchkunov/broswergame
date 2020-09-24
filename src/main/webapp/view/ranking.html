@@ -105,27 +105,64 @@
 		<br>
 
 		<div class="row">
-			<ul class="list-group-ranking" id="ranking-list">
+			<div class="col">
+				<ul class="list-group-ranking" id="ranking-list">
 
-			</ul>
-			<ul class="list-group d-none" type="1" id="template-ranking">
-				<li class="list-group-item mt-3" id="list-group-template-ranking">
-					<div class="row d-flex justify-content-end mr-3">
-						<div class="col badge-col">
-							<img class="img-fluid badge-image" id="img-badge" src=""
-								alt="...">
+				</ul>
+				<ul class="list-group d-none" id="template-ranking">
+					<li class="list-group-item mt-3" id="list-group-template-ranking">
+						<div class="row mr-3">
+							<div class="col badge-col">
+								<img class="img-responsive img-overlayed badge-image"
+									id="img-badge" src="" alt="...">
+							</div>
+							<div class="col align-self-center">
+								<p class="ingame-name"></p>
+							</div>
+							<div class="col align-self-center">
+								<i class="fas fa-medal"></i>
+								<p class="guildpoints"></p>
+							</div>
 						</div>
-						<div class="col">
-							<p class="ingame-name"></p>
-						</div>
-						<div class="col">
-							<i class="fas fa-medal"></i>
-							<p class="guildpoints"></p>
+
+					</li>
+				</ul>
+			</div>
+			<div class="col ml-2 ranking-col">
+				<div class="row">
+					<div class="flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<div class="row mr-3">
+									<div class="col user-badge-col">
+										<img class="img-responsive img-overlayed badge-image"
+											id="user-badge" src="../../images/Rank_Average.png" alt="...">
+									</div>
+									<div class="col align-self-center">
+										<p class="user-ingame-name"></p>
+									</div>
+									<div class="col align-self-center">
+										<i class="fas fa-medal"></i>
+										<p class="user-guildpoints"></p>
+									</div>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="row logo-row mt-5 d-flex justify-content-center">
+									<a href="#"><img
+										src="https://fontmeme.com/permalink/200818/058b88461ca2ccdf82e1ea2e057b02eb.png"
+										alt="guild-wars-2-font" border="0"></a>
+								</div>
+							</div>
 						</div>
 					</div>
+				</div>
+				<div class="row mt-3 d-flex justify-content-center">
+					<h5 class="user-rank"></h5>
+				</div>
 
-				</li>
-			</ul>
+			</div>
+
 		</div>
 	</div>
 
