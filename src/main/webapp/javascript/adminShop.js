@@ -75,10 +75,11 @@ $(function() {
 	// DELETE ITEM BUTTON
 	$(document).on('click', '.remove-shop-item', function() {
 		$selectedItem = $(this).closest('.list-group-shop-item');
+		$("#confirmDeleteModalUserChoice").modal('show');
 	})
 
 	// CANCEL MODAL CONFIRMATION
-	$("#confirm-delete").on("click", function() {
+	$("#confirm-delete-order").on("click", function() {
 
 		var itemId = $selectedItem.find('.remove-shop-item').attr('id');
 		deleteItemById(itemId);
@@ -96,7 +97,7 @@ $(function() {
 			}
 		}).done(function(response) {
 			$selectedItem.remove();
-			$('#confirmDeleteModal').modal('hide');
+			$('#confirmDeleteModalUserChoice').modal('hide');
 
 		}).fail(function(response) {
 			console.log(response);
